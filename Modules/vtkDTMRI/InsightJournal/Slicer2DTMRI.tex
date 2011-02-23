@@ -1,0 +1,258 @@
+%
+% Complete documentation on the extended LaTeX markup used for Insight
+% documentation is available in ``Documenting Insight'', which is part
+% of the standard documentation for Insight.  It may be found online
+% at:
+%
+%     http://www.itk.org/
+
+\documentclass{InsightArticle}
+
+\usepackage[dvips]{graphicx}
+%\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  hyperref should be the last package to be loaded.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[bookmarks,
+bookmarksopen,
+backref,
+colorlinks,linkcolor={blue},citecolor={blue},urlcolor={blue},
+]{hyperref}
+
+\graphicspath{{Images/}}
+
+%  This is a template for Papers to the Insight Journal. 
+%  It is comparable to a technical report format.
+
+% The title should be descriptive enough for people to be able to find
+% the relevant document. 
+\title{Diffusion Tensor MRI in 3D Slicer 2.0}
+
+% Increment the release number whenever significant changes are made.
+% The author and/or editor can define 'significant' however they like.
+\release{0.00}
+
+% At minimum, give your name and an email address.  You can include a
+% snail-mail address if you like.
+\author{Lauren O'Donnell$^{1,2,3}$ and Raul San Jose Estepar$^{1}$}
+\authoraddress{$^{1}$Lab for Mathematics in Imaging (LMI), Brigham and Women's Hospital, Harvard Medical School, Boston MA USA\\
+$^{2}$Golby Lab, Department of Neurosurgery, Brigham and Women's Hospital, Harvard Medical School, Boston MA USA\\
+$^{3}$MIT CSAIL and HST, Harvard MA USA\\
+}
+
+\begin{document}
+
+
+\ifpdf
+\else
+   %
+   % Commands for including Graphics when using latex
+   % 
+   \DeclareGraphicsExtensions{.eps,.jpg,.gif,.tiff,.bmp,.png}
+   \DeclareGraphicsRule{.jpg}{eps}{.jpg.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.gif}{eps}{.gif.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.tiff}{eps}{.tiff.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.bmp}{eps}{.bmp.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.png}{eps}{.png.bb}{`convert #1 eps:-}
+\fi
+
+
+\maketitle
+
+
+\ifhtml
+\chapter*{Front Matter\label{front}}
+\fi
+
+
+% The abstract should be a paragraph or two long, and describe the
+% scope of the document.
+\begin{abstract}
+\noindent
+This document describes our open source software for diffusion tensor
+visualization and analysis.  The software is called DTMRI, after the
+acronym DT-MRI, meaning diffusion tensor magnetic resonance imaging.
+Its functionality includes tensor calculation from diffusion-weighted
+images, tensor visualization using tractography and glyphs, and
+measurement of scalar invariants such as anisotropy measures.  Other
+features include clustering of tractography, selection of fibers based
+on intersection with regions of interest, and conversion of fiber
+trajectories to voxels for voxel-based analysis.  DTMRI is distributed
+as a module in the 3D Slicer 2.0 open source medical image analysis
+and visualization tool.
+
+\end{abstract}
+
+\tableofcontents
+
+The goal of this paper is to give a high-level overview of the
+functionality available in the DTMRI software.  We begin with a very
+brief background section to familiarize the reader with the concept of
+the diffusion tensor, then the remaining sections demonstrate the
+capabilities of the software especially emphasizing the types of
+images and 3D views that can be generated.  Finally we conclude with
+instructions to obtain the software, acknowledgements, and additional
+references of interest.
+
+
+\section{Background on the Diffusion Tensor and Scalar Invariants}
+Diffusion MRI measures the diffusion of water molecules in the brain.
+The water molecules may diffuse faster in some directions than others,
+depending on the cellular structure of the tissue \cite{beaulieu02,
+pierpaoli96} . The diffusion tensor is a mathematical model
+\cite{basserBIOPHYS94} used to describe the amount of diffusion in all
+directions, and from this model the principal, or fastest, diffusion
+direction can be estimated. In white matter regions where fibers do
+not cross, the direction of fastest diffusion corresponds to the
+orientation of the white matter fiber tract.
+
+The diffusion tensor ${\bf D}$ is a $3 \times 3$ symmetric
+positive-definite matrix that is proportional to the covariance matrix
+of water molecule displacements during the imaging time.  Its major
+eigenvector corresponds to the principal diffusion direction.  The
+tensor has three eigenvalues ($\lambda_1 \geq \lambda_2 \geq \lambda_3
+\geq 0$) that quantify the diffusivity of water in the principal
+diffusion direction and in two perpendicular directions. From the
+tensor, various scalar invariants can be calculated that describe the
+``shape'' of the diffusion.  (The word ``scalar'' means a single
+number, as opposed to a vector or tensor.  The word ``invariant''
+refers to the fact that these numbers are invariant to rotation of the
+brain in the MRI machine, i.e. they do not depend on the directions in
+which diffusion was measured, though it is important to measure using
+enough directions).  By ``shape'' of diffusion, we mean whether the
+diffusion is approximately equal in all directions (spherical), in a
+plane or pancake shape (planar), or mainly in one direction (linear).
+
+For reference we include formulas for three common scalar invariants:
+the trace, the fractional anisotropy (FA) \cite{basserJMR96}, and the
+linear measure ($c_L$) \cite{westin02,westin97}.
+
+\begin{equation}
+  {\rm trace}({\bf D}) = \sum_{i=1}^{3}{\bf D}_{ii} = \sum_{i=1}^{3}\lambda_i
+\end{equation}
+
+Note that the mean diffusivity (MD) and the ADC refer to the average
+rather than the sum of the eigenvalues, that is ${\rm trace}({\bf
+D})/3$.
+
+\begin{eqnarray}
+\label{eq:FA}
+{\rm FA} &= \frac{1}{\sqrt{2}} \frac{\sqrt{(\lambda_1-\hat\lambda)^2 +
+     (\lambda_2-\hat\lambda)^2 + (\lambda_1-\hat\lambda)^2}}
+     {\sqrt{\lambda_1^2 + \lambda_2^2 + \lambda_3^2}} =
+     \frac{\sqrt{3}}{\sqrt{2}} \frac{{\rm norm}({\bf D} - \frac{1}{3}{\rm
+     trace}({\bf D}){\bf I})}{{\rm norm}({\bf D})}
+\end{eqnarray}
+
+\begin{equation}
+\label{eq:diffMeasuresWestin}
+c_L = \frac{\lambda_1 - \lambda_2}{\lambda_1}
+\end{equation}
+
+\begin{figure}
+\center
+\includegraphics[width=0.8\textwidth]{EllipseDiagram}
+
+\itkcaption[Diagram of tensor eigensystem]{Diagram of tensor 
+eigensystem. The eigenvalues and eigenvectors are shown for this
+example tensor in two dimensions.}
+
+\label{fig:TensorDiagram}
+\end{figure}
+
+
+
+
+\section{Diffusion Tensor Calculation}
+The tensor is calculated as described in \cite{}.
+
+
+\section{Diffusion Tensor Visualization}
+
+\subsection{Glyphs}
+A glyph is a 3D object which is oriented according to the tensor
+eigenvector(s) and scaled by the tensor eigenvalue(s)
+\cite{basserBIOPHYS94,kindlmann04}.  In addition, color can be used
+with glyphs to indicate orientation or a scalar invariant of the
+tensor.  Example images follow.
+
+\begin{figure}
+\center
+%\includegraphics[width=0.8\textwidth]{}
+\itkcaption[Major Eigenvector Glyphs]{The direction of the major eigenvector of each tensor is indicated with a line.  The lines are colored by $c_L$.}
+\label{fig:GlyphLineLinear}
+\end{figure}
+
+
+
+
+\subsection{Major Eigenvector Orientation as RGB Color}
+
+In 3D Slicer, the coordinate system is RAS (right-anterior-superior)
+and these directions are mapped to the red, green, and blue color
+channels \cite{pajevic99} to produce images such as the following.
+
+
+\section{Scalar Invariant Calculation}
+The scalar invariants that can be calculated in DTMRI are listed in table \ref{table:Scalars}.
+
+\section{Tractography}
+Tractography is performed by sequentially stepping in the principal
+diffusion direction \cite{basser00,conturo99,mori99,westin99}.  Our
+tractography class inherits from vtkHyperStreamline.
+
+\subsection{Tractography Clustering}
+\subsection{Tractography Selection using Regions of Interest}
+
+
+\section{Software Download and Tutorial}
+
+You need to have the following software installed:
+
+% The {itemize} environment uses a bullet for each \item.  If you want the 
+% \item's numbered, use the {enumerate} environment instead.
+\begin{itemize}
+  \item  3D Slicer 2.x
+\end{itemize}
+
+Please refer to the following page for download information
+
+\url{http://www.na-mic.org/Wiki/index.php/Slicer}
+
+Please refer to the following page for Slicer tutorial information
+(???)
+\url{http://www.na-mic.org/Wiki/index.php/Slicer}
+
+\section{Acknowledgements}
+The module has been developed by members of Carl-Fredrik Westin's
+Laboratory for Mathematics in Imaging at Brigham and Women's Hospital,
+Harvard Medical School.  Original module development (beginning in
+2001) was performed by Lauren O'Donnell, then a graduate student at
+MIT in the CSAIL and HST departments.  In 2003 (*****????)  Raul San
+Jose Estepar became a primary maintainer and developer of the DTMRI module.
+
+??????  maybe make a table about who did what and include others who have contributed
+
+The following grants .... ****
+
+% The preceding sections will have been written in a gentler,
+% introductory style.  You may also wish to include a reference
+% section, documenting all the functions/exceptions/constants.
+% Often, these will be placed in separate files and input like this:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Insert the bibliography using BibTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{plain}
+\bibliography{Slicer2DTMRI}
+
+
+\end{document}
+

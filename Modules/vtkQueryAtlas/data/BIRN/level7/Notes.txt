@@ -1,0 +1,1 @@
+Trimmed down the GenData - removing big image files

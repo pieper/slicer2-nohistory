@@ -1,0 +1,152 @@
+151
+Inter-Hemispheric,1
+Left Cerebrum,1
+Right Cerebrum,1
+Right Cerebellum,1
+Right Brainstem,1
+Left Brainstem,1
+Left Cerebellum,1
+Posterior Lobe,2
+Anterior Lobe,2
+Frontal-Temporal Space,2
+Limbic Lobe,2
+Medulla,2
+Pons,2
+Midbrain,2
+Sub-lobar,2
+Occipital Lobe,2
+Temporal Lobe,2
+Parietal Lobe,2
+Frontal Lobe,2
+Posterior Cingulate,3
+Anterior Cingulate,3
+Subcallosal Gyrus,3
+Sub-Gyral,3
+Transverse Temporal Gyrus,3
+Uncus,3
+Rectal Gyrus,3
+Fusiform Gyrus,3
+Inferior Occipital Gyrus,3
+Inferior Temporal Gyrus,3
+Insula,3
+Parahippocampal Gyrus,3
+Lingual Gyrus,3
+Middle Occipital Gyrus,3
+Orbital Gyrus,3
+Middle Temporal Gyrus,3
+Superior Temporal Gyrus,3
+Superior Occipital Gyrus,3
+Precentral Gyrus,3
+Inferior Frontal Gyrus,3
+Cuneus,3
+Angular Gyrus,3
+Supramarginal Gyrus,3
+Cingulate Gyrus,3
+Inferior Parietal Lobule,3
+Precuneus,3
+Superior Parietal Lobule,3
+Middle Frontal Gyrus,3
+Paracentral Lobule,3
+Postcentral Gyrus,3
+Precentral Gyrus,3
+Superior Frontal Gyrus,3
+Medial Frontal Gyrus,3
+Uvula of Vermis,3
+Pyramis of Vermis,3
+Tuber of Vermis,3
+Declive of Vermis,3
+Culmen of Vermis,3
+Cerebellar Tonsil,3
+Inferior Semi-Lunar Lobule,3
+Fastigium,3
+Nodule,3
+Uvula,3
+Pyramis,3
+Tuber,3
+Declive,3
+Culmen,3
+Cerebellar Lingual,3
+Hippocampus,5
+Extra-Nuclear,3
+Lentiform Nucleus,3
+Amygdala,5
+Hypothalamus,5
+Red Nucleus,5
+Substania Nigra,5
+Claustrum,3
+Thalamus,3
+Caudate,3
+Cerebro-Spinal Fluid,4
+Gray Matter,4
+White Matter,4
+Brodmann area 1,5
+Brodmann area 2,5
+Brodmann area 3,5
+Brodmann area 4,5
+Brodmann area 5,5
+Brodmann area 6,5
+Brodmann area 7,5
+Brodmann area 8,5
+Brodmann area 9,5
+Brodmann area 10,5
+Brodmann area 11,5
+Brodmann area 12,5
+Brodmann area 13,5
+Brodmann area 17,5
+Brodmann area 18,5
+Brodmann area 19,5
+Brodmann area 20,5
+Brodmann area 21,5
+Brodmann area 22,5
+Brodmann area 23,5
+Brodmann area 24,5
+Brodmann area 25,5
+Brodmann area 27,5
+Brodmann area 28,5
+Brodmann area 29,5
+Brodmann area 30,5
+Brodmann area 31,5
+Brodmann area 32,5
+Brodmann area 33,5
+Brodmann area 34,5
+Brodmann area 35,5
+Brodmann area 36,5
+Brodmann area 37,5
+Brodmann area 38,5
+Brodmann area 39,5
+Brodmann area 40,5
+Brodmann area 41,5
+Brodmann area 42,5
+Brodmann area 43,5
+Brodmann area 44,5
+Brodmann area 45,5
+Brodmann area 46,5
+Brodmann area 47,5
+Caudate Tail,5
+Caudate Body,5
+Caudate Head,5
+Dentate,5
+Ventral Anterior Nucleus,5
+Ventral Posterior Medial Nucleus,5
+Ventral Posterior Lateral Nucleus,5
+Medial Dorsal Nucleus,5
+Lateral Dorsal Nucleus,5
+Pulvinar,5
+Lateral Posterior Nucleus,5
+Ventral Lateral Nucleus,5
+Midline Nucleus,5
+Anterior Nucleus,5
+Mammillary Body,5
+Fourth Ventricle,3
+Optic Tract,5
+Anterior Commissure,5
+Corpus Callosum,5
+Third Ventricle,3
+Medial Globus Pallidus,5
+Lateral Globus Pallidus,5
+Nucleus Accumbens Septi,5
+Medial Geniculum Body,5
+Lateral Geniculum Body,5
+Subthalamic Nucleus,5
+Lateral Ventricle,3
+Putamen,5

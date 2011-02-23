@@ -1,0 +1,14 @@
+ARCH = darwin
+CFLAGS = -g $(FLOAT_OPTION)
+SPLIOLIB = lib/$(ARCH)/splio.a
+OBJECTS = $(ARCH)/print_header.o
+# osx has all of these built into the standard system library that's linked implicitly
+# DICOMLIBS = -lsocket -lnsl -lani -lani_uls -lani_dsk -lani_tcp -lani_stub -lani
+DICOMLIBS = 
+
+print_header-$(ARCH) : $(OBJECTS) $(SPLIOLIB)
+	$(CC) -o print_header-$(ARCH) $(OBJECTS) $(CFLAGS) $(SPLIOLIB) \
+	$(DICOMLIBS) -lm 
+
+$(OBJECTS): print_header.c
+	$(CC) -o $(OBJECTS) -c print_header.c $(CFLAGS)

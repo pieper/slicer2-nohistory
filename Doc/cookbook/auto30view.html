@@ -1,0 +1,139 @@
+
+<title>Viewing data in Slicer</title>
+
+
+Slicer can be used to create many kinds of scenes, including:
+<ul>
+<li>A single series of
+grayscale images</li>
+<li>A complex scene comprised of several grayscale and
+segmented data sets </li>
+<li>3D models, such as the composite scene below of a
+grayscale MR dataset of an orange, with a single
+section of the orange (in red) and the rest of the orange (in orange)</li>
+</ul>
+Each scene
+has two parts in both the Normal mode (shown below) and the 4x512 mode.
+(Those two modes seem to be
+the most popular viewing modes.)
+
+
+<p><center>The top portion is the <b>3D Viewer</b>.<img SRC="images/orange.gif" ><br>
+The bottom portion is the <b>2D Viewer</b>.</center></p>
+<p>
+Slicer has many controls over the <b>3D Viewer</b> and <b>2D Viewer</b>. Here are some of them.</p>
+
+
+<h4>Selecting the View mode</h4>
+
+To select the View mode:
+<ol><li>Click <b>View</b>. A drop-down menu of available view modes appears.</li>
+<li>Select a view mode from the menu. The view will change to reflect your selection.</li>
+</ol>
+Different View modes are useful for different situations.
+Most users prefer the Normal (shown above) or 4D view for observing data after they are done editing
+and creating a scene.
+Users also prefer the 4x512 view during the editing process.
+
+
+ <H4>Controlling the 3D view </H4>
+There are several options for controlling the 3D view with the mouse:
+<ul>
+<li>Left-click the view and move the mouse to rotate the view.</li>
+<li>Click the middle button (if available) on the view and move the mouse to move the view left, right, up, or down.</li>
+<li>Right-click the view and move the mouse to change the size of the view.</li>
+</ul>
+
+<h4>Annotations on the scene</h4>
+
+Slicer can display annotations over images
+when you move the mouse around the scene to edit or view data.
+You can control the appearance of these annotations.
+
+<p>To control the annotations over images:</p>
+<ol><li>Click <b>More</b>. A drop-down menu of modules appears.
+<p><center><img SRC="images/more.jpg" ></center></p>
+</li>
+<li>Click <b>Anno</b>. A panel appears.</li>
+<li>Select the annotation options you prefer.</li>
+<li>To save options, click <b>File</b>, then click <b>Save Current Options</b>. This will save your
+options to a file called <code>Options.xml</code>.</li>
+</ol>
+
+<h4>Controlling the 2D view</h4>
+
+<p>
+The 2D view of the scene (see below) can display multiple data sets in a variety of ways.
+Each of the three separate windows displays the data as a view from one of the three major axes.
+<br>Note: Changing the 2D view may also change the 3D view.
+<br>Here are some of the ways to control the 2D view:
+
+</p>
+<ul>
+<li>To control whether a slice is visible in the 3D view,
+click <b>V</b> for that window.
+This is useful to view the orientation of multiple
+data sets and models with respect to each other.</li>
+<li>To select a slice in a volume, move the
+slider for that window.</li>
+<li>You can view up to three data sets at one time.
+To control how each dataset appears:
+    <ul>
+    <li>Click <b>Fg</b> to select the dataset in the foreground.</li>
+    <li>Click <b>Bg</b> to select the dataset in the background.</li>
+    <li>Click <b>Lb</b> to display a label map layer.</li>
+    <li>Click <b>Or</b> to change the default orientation of the data.</li>
+    </ul>
+</li>
+<li>To change the window/level for one of the views, right-click the view.
+A window appears. Adjust the sliders to change the display.</li>
+</ul>
+
+<center>
+<p><img SRC="images/bigslider.gif" ></p></center>
+
+In the view above, you can see different combinations of these controls:
+<ul>
+<li>In the first window, slice 0 is selected; the view is visible in the 3D view; the orientation is Axial; the grayscale data is in the background; the skin is in the foreground; and the label of one section of the orange is loaded as a label map (blue outline).</li>
+<li>In the second window, slice -15 is selected; the view is not visible in the 3D view; the orientation is Saggital; the skin is in the background; the section of the orange is in the foreground; and there is no label map.</li>
+<li>In the third window, slice -3 is selected; the view is not visible in the 3D view; the orientation is Coronal; the grayscale data is in the background; the section of the orange is in the foreground; and there is no label map.</li>
+</ul>
+
+ <h4>Controlling the scene with the user interface panel </h4>
+
+ <table>
+ <tr>
+ <td valign="top">Move the cursor over the Slicer icon:</td>
+ <td>
+<img SRC="images/welcome.gif" >
+</td></tr>
+<tr><td valign="top">The user interface panel appears:</td>
+<td>
+<img SRC="images/lowpanel.gif" >
+</td></tr>
+</table>
+
+The controls on the user interface panel include:
+<ul>
+<li>The slider on the left between <b>Fade</b> and <b>Exit</b> is useful
+when you have data in the foreground and background.
+When the slider is at the top, it will display only the foreground dataset;
+when it is at the bottom, it will display only the background dataset.
+When the slider is in between, it will blend the two data sets.
+This is particularly useful when you are registering two data sets, and want to see how accurate the registration is.</li>
+<li>The head icon rotates the 3D view.
+Click R (Right), L (Left), P (Posterior), A (Anterior), I (Inferior), or S (Superior) to rotate the image in each direction.</li>
+<li>The arrows pointing up, down, left, and right can rotate the 3D view in
+the appropriate direction. Click the arrow and the 3D view will rotate.</li>
+<li><b>FOV</b> stands for Field Of View, which is the size of your image.
+If the image is too small, enter a larger value for <b>FOV</b>. If the image is too large, enter a smaller value for <b>FOV</b>.</li>
+<li><b>Save 3D</b> saves the current 3D scene.
+Enter a name for the scene in the field.
+Slicer saves the scene to the directory where you started Slicer.</li>
+<li><b>Parallel</b> toggles between a parallel projection
+(which preserves parallel lines, and displays an object the same size
+regardless of how far from the observer)
+and a perspective projection (which displays closer objects as larger than farther objects).</li>
+</ul>
+
+

@@ -1,0 +1,40 @@
+<title>This Web Site</title>
+<pre>
+1.) How to update the content at www.slicer.org
+--------------------------------------------------------------------------
+The website is hosted on the web server at the Surgical Planning Lab.
+Run this script: /projects/birn/slicer2/updateslicerweb
+
+which does this (order matters):
+cd /projects/birn/slicer2/slicerweb
+cvs update -d
+echo "Updating slicer2-web"
+cd /projects/birn/slicer2/slicer2-web
+cvs update -d
+echo "Calling slicer2-web/Scripts/document.tcl"
+cd Scripts
+./document.tcl
+
+The call to cvs update in /projects/birn/slicer2/slicerweb is to ensure 
+that all needed directories have been created before the documentation 
+is generated.
+
+The SLICER_DOC environment variable is set to
+/projects/birn/slicer2/slicerweb in the document script so that when
+the document script is run, it will place the output html pages in the
+directories that the web server displays to the rest of the world.
+
+2.) How To Restart the web server:
+--------------------------------------------------------------------------
+If there are problems with the pages being served, send an email to 
+help@bwh.harvard.edu detailing the symptoms. 
+The virtual hosting file is located here:
+/projects/web/support/apache-common/conf/vhosts/slicer.conf
+Namesdirect.com provides the redirection service, Steve Pieper at
+pieper@bwh.harvard.edu holds the account password for slicer.org.
+
+3.) How To View the error log
+--------------------------------------------------------------------------
+The error log is recorded here:
+/projects/web/support/apache-common/log/slicerweb/error_log
+</pre>

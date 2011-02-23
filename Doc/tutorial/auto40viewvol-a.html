@@ -1,0 +1,44 @@
+<title>Slices</title>
+
+
+<p>Slicer has multiple configurations to present image volumes.
+By default, the normal view is selected. In normal view, the viewer window is divided
+into two sections.
+<br>The upper portion of the view
+window shows the 3D formatted version.
+<b></b>In the lower quarter of the viewer window, a 2D multi-plane
+formatted version of the volume is shown.
+</p>
+
+<p><img src="images/2dslices.jpg"></p>
+
+<ul>
+
+  <li>There are three 2D windows (red, yellow, and green).
+  You can select both grayscale and label map images into each of the 2D windows.
+  For example, Slicer will automatically put the Axial grayscale images into the first (red) 2D window as the background layer.          </li>
+  <li>In each 2D window, the <b>slider</b> selects which slice of the volume to display.
+    The numerical field shows the slice number.</li>
+  <li>The <b>V</b> toggle button controls whether the selected slice is visible in the 3D viewer or     not. In the figure above, only the slice from the green window is visible in the 3D viewer. </li>
+  <li>There are <b>Or</b> (scan order), <b>Bg</b> (background), <b>Fg</b> (foreground),
+  and <b>Lb</b> (label map) buttons
+  for each of the three 2D windows.         </li>
+  <ul>
+    <li>Use <b>Or</b> to change the scan order in each 2D window.
+      For example, you can use the Axial view in the first 2D window,
+      the Coronal in the second, and the Saggital in the third window.
+      Or you can use the Coronal view in the first and the other two views in the other two windows.
+      Or you can set each view individually, to suit your need.        </li>
+    <li>Use <b>Bg</b> to select which volume to put in the background layer.        </li>
+    <li>Use <b>Fg</b> to select a volume for the foreground layer,
+     which is superimposed over the background layer.         </li>
+    <li>Use <b>Lb</b> to select label map images for the label map layer,
+    to display results of a segmentation. Images loaded into the label map layer
+    will appear as outlines around the structures that were segmented.
+    (You can use Slicer to create label maps, and also to make models from them.
+    See the <a href='../users/index.html'>User's Guide</a> for more information.)        </li>
+  </ul>
+
+</ul>
+
+

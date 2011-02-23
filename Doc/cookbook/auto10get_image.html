@@ -1,0 +1,303 @@
+
+<title>Acquiring your data</title>
+
+
+
+
+
+<p>This page is intended to help people who are working at the Surgical Planning
+Lab (SPL) to get their data into a safe place to begin working with Slicer.
+That data may be from the scanners at Brigham and Women's Hospital, or
+imported from other sites.
+Check the appropriate link below for your particular situation.
+</p>
+<p>
+<em>
+We suggest that other sites create a similar page describing their environment
+for data acquisition.
+Often, a major obstacle to using Slicer is
+finding your data, and getting it into a format that is compatible with Slicer.
+</em>
+</p>
+<ul>
+<LI> <A HREF="#a1">Recent MR scans done at Brigham and Women's Hospital</A></li>
+<LI> <A HREF="#b1">Older MR scans done at  Brigham and Women's Hospital</A></li>
+<LI> <A HREF="#c1"> Recent (within 3 months) CT scans done at  Brigham and Women's Hospital</A></li>
+<LI> <A HREF="#d1"> Older CT scans done at  Brigham and Women's Hospital</A></li>
+<LI> <A HREF="#e1">Any MR or CT scans that you would like to acquire via FTP from a remote site</A></li>
+<LI> <A HREF="#f1">Any MR or CT scans that you have stored on a CDROM that were acquired at a remote site</A></li>
+</ul>
+
+<P><A NAME="a1"><B>Recent MR scans done at Brigham and Women's Hospital</B></A></P>
+Currently there are 6 MR scanners at the hospital main campus:
+<ul>
+<li> MR1 - main clinical scanner</li>
+<li> MR2 - clinical and  research scanner</li>
+<li> MR3 - cardiac and research scanner</li>
+<li> MRT -  open magnet for surgical cases</li>
+<li> MRMAX - clinical scanner</li>
+<li> CNIMR1 - Center for Neuroimaging</li>
+</ul>
+<p>
+Data from each scanner is stored in an image database dedicated to the scanner.
+Recent data is kept in the database, and is directly available.
+As newer data becomes available, older data is archived to tape and removed from the database.
+The data persists in the database for different lengths of time, depending on the volume of
+scans being done on the scanners.
+Generally, the clinical scanners are
+busier and data is available in the database for less time.
+<br>Here are the typical days
+of on-line storage for each scanner:
+</p>
+<ul>
+<li> MR1 : 7 days</li>
+<li> MR2 : 11 days</li>
+<li> MR3 : 10 days</li>
+<li> MRT : 120 days</li>
+<li> MRMAX : NOT ARCHIVED IN SPL</li>
+<li> CNIMR1 : 30 days</li>
+</ul>
+<p>
+To work with this data, you need to know both the 8-digit  Medical Record Number (MRN)
+and on which scanner your data was acquired.
+<br>Change to the appropriate directory for that scanner data, and make a copy of the
+data. (The directories containing the data are read-only.)
+<br>The SPL provides
+limited short-term storage in a file system located in directory <code>/spl/tmp</code>.
+You can use this "staging area" to sort your data and find the series of interest,
+before moving the data to another location.
+This short-term storage currently provides 100 gigabytes of storage.
+Data in this area
+will persist for 2 weeks from the time it is last accessed.
+<br>
+For longer term storage, ask your supervisor for some disk space. Most
+data sets are either 512x512 resolution or 256x256 resolution and from
+50 to hundreds of images, so disk space needed is substantial: from 20
+to several hundred megabytes per dataset.
+</p>
+  For example, if your data was generated on the main clinical
+scanner and the MRN is 12345678 you could use the following sequence of
+commands:
+<ol>
+<li>
+Make a working directory for yourself in the temporary storage
+area: <br>
+<ul><code>mkdir /spl/tmp/your_name </code></ul><br></li>
+<li> Change to the directory with the patient data. The naming schemes for
+the scanners are the same as the scanner names above. In this case:  <br>
+<ul><code>cd /d/MR1/images/idb/GINX/GENESIS/BWS/12345678</code></ul> <br></li>
+<li> Copy the data to your working directory: <br>
+<ul><code>cp -r * /spl/tmp/your_name</code></ul></li> <br>
+</ol>
+Now you have a copy of the data to work with.
+
+<br><br><br>
+<P><A NAME="b1"><B>Older MR scans done at  Brigham and Women's Hospital</B>    </A></P>
+We also have long-term backup of virtually all MR cases.
+These cases are stored on older
+style exabyte tapes as UNIX tar files.
+<br>Our current procedure is somewhat cumbersome.
+To find your data you need to know the Medical Record Number (MRN) or the patient name.
+(Since the MRN is
+unique and the patient name may be very common, it is best to use the MRN.) It is also very useful to know the date of the scan that you are interested in, so that you can determine which case you want to restore if there are multiple cases for the patient. This is actually the rule rather than the exception.
+<br>Data
+archives are also categorized by scanner.
+Each scanner has its own series of tapes
+and also a command for searching the database for the data you are seeking:
+
+<ul><table border="1">
+<tr>
+<td>
+Scanner</td>
+<td>Command</td>
+</tr>
+
+<tr><td> MR1</td><td> where1</td></tr>
+<tr><td> MR2</td><td> where2</td></tr>
+<tr><td> MR3</td><td> where3</td></tr>
+<tr><td> MRT</td><td> wheremrt</td></tr>
+<tr><td> CNIMR1</td><td> wherecni</td></tr>
+</table>
+</ul>
+
+<p>To find an older MR case use the following procedure:</p>
+<ol>
+<li>
+Run a script to set up the above commands:
+ <br>
+<ul><code>source /local/bin/setup_search </code></ul></li>
+<li> Search for your data in the appropriate database. In this example, we
+will search the MR1 database for MRN 12345678: <br>
+<ul><code>where1 12345678 </code></ul><br>
+
+This will produce entries of the following form:<br>
+
+<ul><code>/d/nile/backups/MR1/95111/tar25:12345678    </code></ul>
+<ul><code>/d/nile/backups/MR1/96011/tar12:123456789   </code></ul>
+<br>
+The key field above is the one after <code>MR1</code> (for example, <code>96011</code>).
+<br>This tells the date and tar file: <code>96 </code>is the year 1996, <code>01 </code>is the month 01 (January), and the last <code>1 </code>is the tape number. You can use this information to determine if you have the
+correct dataset. <br>
+</li>
+<li> The next step is to make sure you have enough disk space for the data.</li>
+<li>Then, send both the disk location where to store the data
+and the information about the data you want (for example, <code>/d/nile/backups/MR1/96011/tar12:123456789</code>)
+to the manager of the SPL data archive.
+He will restore the data from the tape to the disk location for you.</li>
+</ol>
+Now you have a copy of the data to work with.
+
+
+
+<br><br>
+<P><A NAME="c1"><B>Recent (up to 3 months)  CT scans done at Brigham and Women's Hospital</B></A></P>
+
+Currently the SPL does not maintain archives of the CT data.
+To access recent CT cases, you will need to use the Partners HealthCare System
+Radiology Web Server.
+<br>To do this, please follow these steps:
+<ol>
+<li>Get a BICS account (if you don't already have one).
+After you get
+your BICS account, you will be able to look up information in the hospital database
+and view images with your browser. However, to transfer the image to the
+SPL, you will need to contact the BICS manager and get your BICS account modified
+to include data transfer privileges. Also, make sure that your browser
+accepts cookies, or you will not be able to use your BICS account.</li>
+<li> Point your browser at <a href="https://private_to_bwh/">RadReport</a>.</li>
+<li> Click <b>RadReport</b> and enter your BICS access key (which you received from
+the BICS manager).</li>
+
+<li> Enter the Medical Record Number (MRN) of the patient, or do a BWH search to
+find the information for recent cases. Most of this page is self-explanatory.
+<br>The one important field that is not obvious is the one labeled "Stat" (Status) and it is
+important to know what the letters stand for:
+<ul>
+<li>S : Scheduled</li>
+<li>I : In progress</li>
+<li>C : Completed</li>
+<li>D : Dictated</li>
+<li>P : Preliminary Report available</li>
+<li>F : Finalized Report</li>
+<li>A : Report Addendum</li>
+<li>X : Cancelled exam</li>
+</ul>
+Reports that are <em>not</em> in
+F : Finalized are not likely to be available.</li>
+
+<li> When you have located the dataset of interest, you can view any or all of the images in the series to determine if this is the data that you want. Select
+images and click <b>View Image(s)</b>.</li>
+<li> After viewing the images, return to the previous page to transfer the images. Click <b>Transfer</b>. Again, you can select any or all of the images to transfer.</li>
+<li> Select <b>Transfer compressed .gz</b> and click <b>Do it!</b>. This will build a
+compressed tar file of your images.
+This may take a while to complete if you are getting a lot of images.</li>
+<li> When the compression is done, click  <b>Click to download study</b>. By default,
+the data will go to your home directory, so make sure to change this to
+the actual file destination.</li>
+<li> Use the <code>cd</code> command to change to the directory where your data
+has been transferred.
+The file <code>images.tar</code> is the compressed tar file.</li>
+<li>Extract the tar file with the UNIX command:
+<ul><code>tar xvf images.tar</code></ul></li>
+<li> Uncompress the tar file with the command:
+<ul><code>gunzip -r images</code></ul></li>
+<li>Remove the tar file with:
+<ul><code>rm images.tar</code></ul></li>
+</ol>
+
+Now you have a copy of the data to work with.
+
+<br><br><br>
+<P><A NAME="d1"><B>Older CT scans done at  Brigham and Women's Hospital</B></A></P>
+The PACS (Picture Archiving and Communications Systems) system only keeps data available online for 1 to 3 months, depending on the volume of
+cases. The data is then archived to optical disk, which is not accessible
+directly via the Radweb interface.
+To get these older cases, you will need to
+use one of the following  procedures.
+
+<h4>Preferred procedure</h4>
+Note: This method will only work for cases
+scanned after September 1998.
+<ol>
+<li>Get a BICS account (if you don't already have one).
+You can do this through Suzanne Nagle (x2-6723) or Cheryl Mcdonald-Spriggs  (x2-6266).
+<br>After you get
+your BICS account, you will be able to look up information in the hospital database
+and view images with your browser.
+However, to transfer the image to the SPL you will need to have your
+BICS account modified to include transfer privileges. (Contact Bill Hanlon at x2-5938 or Dave Gigas at x2-6512.)  Also, make sure that your browser
+accepts cookies, or you will not be able to use your BICS account.</li>
+<li> Point your browser at <a href="https://private_to_bwh/">RadReport</a>.</li>
+<li> Click <b>RadReport</b> and enter your BICS access key (which you received from
+the BICS manager). Click  <b>Submit</b>.</li>
+<li>Click <b>Search PACS</b>.</li>
+<li> Enter the MRN and as much information that you know about the study that you
+want to restore. Click <b>Submit Query</b>.</li>
+<li> A list of cases matching your search criteria will appear as hypertext links.
+To put your case in the retrieval queue, click the link. The case should be
+restored within 1 hour and will persist in the Radweb database for 30 days.</li>
+<li> After waiting an hour for the case to be restored, follow steps 5-12 in the previous section to
+finish restoring the data.</li>
+</ol>
+
+<h4>Alternate procedure</h4>
+<ol>
+<li> Go to the CT reading area and ask for the chief technician (or someone who can
+restore a case to the PACS from the optical disk).
+(Unfortunately, we
+do not have an established person to handle this procedure. It is sometimes
+difficult to find a person who is capable of assisting in this regard.)
+You will need to know the patient name, MRN, and date of the exam.
+The data is automatically restored so that it is visible from the CT consoles.</li>
+
+<li> When the case is restored to the PACS, it will show up in a list of
+patients available for display at the CT reading stations. From the console,
+you (or one of the technicians) can choose to send the data to remote
+destination SPL. This will send the data to the SPL.</li>
+<li> Once the data is sent back to the SPL, it will be available in
+directory <code>/spl/tmp/incoming</code>.</li>
+</ol>
+
+This data will be in DICOM (digital imaging and communications in medicine) format.
+
+<br><br><br>
+<P><A NAME="e1"><B>Any MR or CT scans that you would like to acquire via FTP from a remote site</B></A></P>
+The SPL provides an anonymous ftp server. To get data to the SPL via ftp,
+use the following commands:
+<ol>
+<li> <code>ftp -i</code> to <code>duke.bwh.harvard.edu</code> (duke's IP address is <code>134.174.9.66</code>).</li>
+<li> <code>login</code> as anonymous, using your email address as password.</li>
+<li> <code>cd pub/incoming</code></li>
+<li> <code>binary</code> (this puts you in binary file mode).</li>
+<li> <code>mput *</code> (this assumes that you are in the directory where the remote images
+exist).</li>
+<li> Locally, in the SPL:
+<ul> <code>cd /d/ftp/pub/incoming</code></ul></li>
+<li> <code>cp</code> your files to a place to work on them, for example:
+<ul><code>cp your_images /spl/tmp/your_name</code></ul></li>
+<li> After you have made a copy of your data, make sure to remove your
+files from the ftp directory.</li>
+</ol>
+Now you have a copy of the data to work with.
+
+<br><br><br>
+<P><A NAME="f1"><B>Any MR or CT scans that you have stored on a CDROM that were acquired at a remote site</B></A></P>
+Most of the workstations in the SPL are equipped with CDROM readers. To get
+your data from CDROM to the SPL you will need to use the following procedure.
+<ol>
+<li> Insert your CDROM into the CDROM reader.</li>
+<li> On the same workstation, change to the directory where the CDROM is
+mounted. The mount point is <code>/cdrom</code>, so the command is:<br>
+<ul><code>cd /cdrom</code></ul></li>
+<li> Look in this directory for your data. It may take a few minutes to
+mount the drive, so be patient.</li>
+<li> When your data shows up, copy it to a "staging area" so that you can
+sort through it, for example:
+<ul><code>cp -r * /spl/tmp/yourname</code></ul></li>
+<li> Eject the CDROM with the command:
+<ul><code>eject</code></ul></li>
+<li> Take your CDROM.</li>
+</ol>
+Now you have a copy of the data to work with.
+
+

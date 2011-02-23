@@ -1,0 +1,11 @@
+# This line is the label that tells the code that this is a pattern file
+vtkDTMRIprotocol
+
+ 
+# Enter a new pattern in the following order
+
+# Name NoOfGradients FirstGradient LastGradient FirstBaseLine LastBaseLine Lebihan GradientDirections
+
+
+ 
+6 2 7 1 1 1000 {"0.70710677  0.0         0.70710677"  "0.70710677  0.70710677  0." " 0.0         0.70710677  0.7071067" " 0.70710677 -0.70710677  0." " -0.70710677  0.0         0.7071067" "  0.0         0.70710677 -0.70710677"} VOLUME

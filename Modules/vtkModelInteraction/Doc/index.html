@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>ModelInteraction Module Instructions</title>
+  </head>
+
+  <body>
+    <h1>ModelInteraction Module Instructions</h1>
+
+    <p>
+      This module allows interactive selection of models in the slicer
+      scene.  You can create "clipboards" which contain various
+      models.  By using the mouse to select models in 3D, models can
+      be added to and deleted from these clipboards.  Each clipboard
+      can be named, and made visible/invisible.
+
+    <h3> Model Selection </h3>
+
+    <b> Select (S): </b> Click the 's' key on the keyboard to select the model
+    under the mouse pointer.  This adds the model to the current
+    clipboard. The selected model will become highlighted (red color).
+
+    <p>
+    <b> Delete (D): </b> Click the 'd' key on the keyboard to delete the model
+    from the clipboard.  If highlighted, the model will become
+    un-highlighted (not red).
+
+    <p>
+    <b> Highlight: </b> You can turn this on and off for the current group.
+
+    <h3> Display </h3>
+    By using the Show/Hide All button, you toggle between showing
+    all models, showing only those not on a clipboard, and showing
+    none.  By using this button you may easily identify those models
+    which have not yet been placed on a clipboard.
+    
+    <p>
+      Using the Show/Hide Group button allows you to make the current
+      clipboard visible or invisible. 
+
+    <h3> Saving </h3>
+    To save clipboards, they can be exported to the MRML scene in
+    the form of ModelGroups.  Each clipboard becomes a
+    ModelGroup. Then by saving the scene under File->Save, the
+    groups are saved as well.
+    
+    <p>
+      When reading a MRML scene file that contains model groups, these
+      can be imported to clipboards for further editing of the groups.
+
+    <p>
+      Currently, a model may only be in one ModelGroup. When exporting
+      the clipboards you may get an error message in the tkcon window
+      about models in more than one group.  Then the duplicated models
+      will be shown highlighted in the Viewer window, and you must
+      ensure they are in only one group before exporting to
+      ModelGroups.
+
+    <hr>
+<!-- Created: Mon Feb 13 16:32:41 EST 2006 -->
+<!-- hhmts start -->
+Last modified: Mon Feb 13 16:49:32 EST 2006
+<!-- hhmts end -->
+  </body>
+</html>

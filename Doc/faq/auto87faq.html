@@ -1,0 +1,95 @@
+<title>Debugging Slicer</title>
+
+
+<li class=faq>
+<p class=question>
+What are some things I can do to debug code in Slicer?
+<p class=answer>
+There are lots of tricks, as you've got access to all of tcl and all of
+vtk as well as all of Slicer's code.
+<p>
+If Slicer is crashing after you change some cxx code, you can use a third party debugger. Under Unix, you can use <a href="http://www.gnu.org/software/gdb/documentation/">gdb</a> (GUI interfaces are provided by ddd and xgdb), and on Windows you can use <code>Microsoft Visual Studio Debugger</code>. It helps if Slicer has been compiled in Debug mode rather than Release (see flags in <code>slicer_variables.tcl</code>.
+<p>
+Under Unix, you need to launch Slicer and then get the process id of the vtk executable. Then, start <code>gdb</code> and issue the <code>attach</code> command with the process id as the argument. Then issue the <code>continue</code> command to allow Slicer to continue executing. Once a segmentation fault occurs in Slicer, go back to <code>gdb</code> and issue the backtrace command <code>bt</code> in order to see the stack of calls that led to the crash. 
+<p>
+Under Windows, start up Visual Studio and select <code>Attach to
+Process</code> to link it into a currently running Slicer.
+<p>
+If Slicer is crashing during start up, you can start it manually using these steps from a terminal window:
+<p class=code>
+./slicer2-[osname] Base/tcl/tkcon.tcl
+</p>
+Attach the debugger, and then in the TK console:
+<p class=code>
+package require vtkSlicerBase<br>
+source Base/tcl/Go.tcl
+</p>
+<p>
+The TK console allows you to call tcl procedures and cxx methods, as well as some inspection methods.
+<br>
+You can declare variables, print the current value of the class members, and set and get values, and call methods:
+<p class=code>
+vtkThreshold mythresh<br>
+mythresh Print<br>
+mythresh AllScalarsOff<br>
+mythresh GetAllScalars<br>
+mythresh ThresholdBetween 128 200
+</p>
+You can find out all the methods for a class:
+<p class=code>
+mythresh ListMethods
+</p>
+<br>
+You can turn on VTK level debugging (insert vtkDebugMacro calls in your code and recompile):
+<p class=code>
+mythresh DebugOn
+</p>
+You can find out all variables that have been declared to of a certain class:
+<p class=code>
+vtkThreshold ListInstances
+</p>
+You can list all the array elements for the Base and Module arrays:
+<p class=code>
+parray Slice
+</p>
+
+You can set variables:
+<p class=code>
+set Slice(2,visibility) 1
+</p>
+
+You can call tcl procs:
+<p class=code>
+Render3D
+<p>
+
+You can trace variables to find out when they're written, read, or unset: (<code>DevPrintTrace</code> added to Developer.tcl 5/26/06, use <code>echo</code> if it's not available)
+<p class=code>
+trace variable varname wru DevPrintTrace
+</p>
+
+You can explore TK window hierarchies using the winfo command:
+<p class=code>
+winfo children .tViewer
+</p>
+
+With newer versions of Slicer's tkcon (added to cvs May 12, 2006) you can autocomplete the methods for VTK classes using Shift-Tab.  
+<p class=code>
+(slicer2) 51 % vtkImageData id<br>
+(slicer2) 51 % id Up&#9001;Shift-Tab&#9002;<br>
+Update UpdateData UpdateInformation UpdateInformation<br>
+(slicer2) 52 % id Update<br>
+(slicer2) 52 % id UpdateD&#9001;Shift-Tab&#9002;<br>
+(slicer2) 52 % id UpdateData<br>
+</p>
+
+Also added with the Shift-Tab is the Control-] command, to wrap the current command line in square brackets.  This short cut is helpful when building long command that use accessors to get to VTK class instances.
+<p class=code>
+(slicer2) 51 % myclass GetOutput&#9001;Control-]&#9002; <br>
+(slicer2) 51 % [myclass GetOutput] 
+</p>
+
+</li>
+
+
+

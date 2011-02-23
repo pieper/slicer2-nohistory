@@ -1,0 +1,9 @@
+<MRML>
+<Volume Name='head1' Description='somebodys1'>
+  <VolumeArchetypeStorage FileArcheType='Testing/TestData/imagetest/nrrd/fixed.nrrd'></VolumeArchetypeStorage>
+</Volume>
+
+<Volume Name='head2' Description='somebodys2'>
+  <VolumeArchetypeStorage FileArcheType='Testing/TestData/imagetest/nrrd/moving.nrrd'></VolumeArchetypeStorage>
+</Volume>
+</MRML>

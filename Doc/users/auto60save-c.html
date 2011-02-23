@@ -1,0 +1,52 @@
+<title>Save Scene</title>
+
+
+
+<p>You can save a description of the current scene.
+This does not save any volumes, label maps, or models, but does save the path names
+to those files in an XML file.
+You can then open them all again later, just by opening the scene file.
+<br>Note: Before saving the scene, you should save any new volumes, label maps, and models separately first.
+<br>Note: The default directory to save files in is <code>SLICER_HOME</code>.
+</p>
+
+<p>To save a description of the current scene:</p>
+      <ol>
+
+        <li>Click <b>File</b>. A drop-down menu appears.
+        <p><img src="images/file_submenu.jpg"></p>
+        </li>
+
+        <li>There are several ways to save the scene,
+        depending on your preferences for file name and options.
+
+        <ul>
+
+        <li>To save the file with the default file name (<code>data.xml</code>) and path, and with no options,
+        select <b>Save Scene</b>.</li>
+
+        <li>To use another file name or path,
+        select <b>Save Scene As</b> and enter your own file name. </li>
+
+        <li>Use <b>Save Scene With Options</b> to include options in the scene description.
+        Options include view mode, field of view (FOV), background color, and other preferences
+        you set. Options are saved to file named <code>Options.xml</code>. </li>
+
+        <li>To save only the current viewing options, without saving the scene itself,
+        select <b>Save Current Options</b>.</li>
+
+        </ul>
+
+        </li>
+        </ol>
+
+        <p>To open a saved scene later:</p>
+<ol>
+
+<li>Click <b>File</b>.</li>
+
+<li>Click <b>Open Scene</b>.</li>
+
+<li>Find the scene file (usually <code>.xml</code> or <code>.mrml</code>), double-click it, and wait for the volumes and models to load.                </li>
+
+</ol>

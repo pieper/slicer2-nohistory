@@ -1,0 +1,537 @@
+<title>Proposed Details</title>
+
+
+
+
+
+
+The proposed MRML specification differs from the current by the addition
+of support for volume rendering and hierarchical models.
+<ul>
+<li><a href='http://www.na-mic.org/ViewVC/index.cgi/slicer/dtd/mrml26.dtd?root=Slicer2&view=log'>Proposed DTD</a></li>
+</ul>
+
+Handling volume rendering involves transfer functions for each color
+component (R,G,B) and opacity.  The window/level/threshold attributes of
+current Volume nodes will be removed and replaced with Transfer Function nodes.
+This architecture more closely resembles the model of a <i>normalized database</i>.
+There will be standard Window/Level nodes for viewing CT data of various
+anatomy such as brain, abdomen, and so forth.
+
+<!-- ------------------------------------------ !-->
+
+<h3>Volume node</h3>
+A proposed addition to the volume node is as follows:
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>id</td>
+<td class=box0>Required, a unique id for this volume. Default is ID.</td>
+</tr>
+<tr>
+<td class=box1>transferFunction</td>
+<td class=box1>An implied attribute.</td>
+</tr>
+</table>
+
+<!-- ------------------------------------------ !-->
+
+<h3>Model node</h3>
+A proposed addition to the model node is as follows:
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>id</td>
+<td class=box0>Required, a unique id for this model.</td>
+</tr>
+<tr>
+<td class=box1>displayProperties</td>
+<td class=box1>Moved the display properties from this node into a new DisplayProperties node.</td>
+</tr>
+</table>
+
+
+<!-- ------------------------------------------ !-->
+
+<h3>DisplayProperties node</h3>
+This node encapsulates information about how to display a model or a model group.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>id</td>
+<td class=box0>Unique identifier of the display properties node, required.</td>
+</tr>
+<tr>
+<td class=box1>name</td>
+<td class=box1>Name displayed on the user interface. Default is "".</td>
+</tr>
+<tr>
+<td class=box1>colorName</td>
+<td class=box1>Name of the model's color, which is defined by a Color node in a MRML file. Default is "".</td>
+</tr>
+<tr>
+<td class=box0>opacity</td>
+<td class=box0>Opacity of the surface expressed as a number from 0 to 1. Default is 1.0.</td>
+</tr>
+<tr>
+<td class=box1>visibility</td>
+<td class=box1>Indicates if the surface is visible. Can be true or false. Default is true.</td>
+</tr>
+<tr>
+<td class=box0>clipping</td>
+<td class=box0>Is clipping active? Default is false.</td>
+</tr>
+<tr>
+<td class=box1>backfaceCulling</td>
+<td class=box1>Is backface culling active? Default is true.</td>
+</tr>
+<tr>
+<td class=box0>scalarVisibility</td>
+<td class=box0>Default is false.</td>
+</tr>
+<tr>
+<td class=box0>scalarRange</td>
+<td class=box0>Default is "0 100".</td>
+</tr>
+</table>
+<!-- ------------------------------------------ !-->
+
+<h3>Transform node</h3>
+
+A Transform node can contain zero or more Matrix nodes, as well as zero or more of Transform or Volume or Model or ModelGroup nodes.
+This is a grouping node, and will be expanded to include other types of coordinate transformations than just Matrix.
+
+<!-- ------------------------------------------ !-->
+
+<!-- removed from 2.4 to 2.5
+<h3>Fiducials Node</h3>
+!-->
+
+<!-- ------------------------------------------ !-->
+
+<h3>ColorLUT node</h3>
+
+Information about color look up table.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>name</td>
+<td class=box0>A required attribute.</td>
+</tr>
+<tr>
+<td class=box1>numberOfColors</td>
+<td class=box1>Default is 256.</td>
+</tr>
+<tr>
+<td class=box0>fileName</td>
+<td class=box0>Default is "".</td>
+</tr>
+<tr>
+<td class=box1>hueRange</td>
+<td class=box1>A pair of numbers giving the hue range. Default is "0 0.8".</td>
+</tr>
+<tr>
+<td class=box0>saturationRange</td>
+<td class=box0>A pair of numbers giving the saturation range. Default is "0 0".</td>
+</tr>
+<tr>
+<td class=box1>valueRange</td>
+<td class=box1>Default is "0 1".</td>
+</tr>
+<tr>
+<td class=box0>annoColor</td>
+<td class=box0>Default is "1 0 0".</td>
+</tr>
+</table>
+
+<!-- ------------------------------------------ !-->
+
+<h3>TransferFunction node</h3>
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>name</td>
+<td class=box0>A required attribute.</td>
+</tr>
+</table>
+
+<!-- ------------------------------------------ !-->
+
+<h3>Hierarchy node</h3>
+
+A Hierarchy node can hold zero or more of a ModelGroup or a ModelRef node.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>id</td>
+<td class=box0>If you have more than one hierarchy in the file, use this to differentiate them. Required, but default is programatically "H1".</td>
+</tr>
+<tr>
+<td class=box1>type</td>
+<td class=box1>The type of the hierarchy. Can be MEDICAL or LANGUAGE. Default is MEDICAL.</td>
+</tr>
+</table>
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>ModelGroup node</h4>
+
+A node of the hierarchical tree, not connected to a model.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>id</td>
+<td class=box0>Unique identifier of the model group, required.</td>
+</tr>
+<tr>
+<td class=box1>name</td>
+<td class=box1>Name displayed on the user interface. Default is "".</td>
+</tr>
+<tr>
+<td class=box0>description</td>
+<td class=box0>Optional text description of the data. Default is "".</td>
+</tr>
+<tr>
+<td class=box1>displayProperties</td>
+<td class=box1>Moved the display properties from this node into a new DisplayProperties node.</td>
+</tr>
+<tr>
+<td class=box0>overRideChildProperties</td>
+<td class=box0>Do the display properties of the group override the display properties of any child models? Default is true.</td>
+</tr>
+</table>
+
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>ModelRef node</h4>
+
+A reference to a model.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>modelRefId</td>
+<td class=box0>Required, ID of the referenced model.</td>
+</tr>
+</table>
+
+<!-- ------------------------------------------ !-->
+
+<h3>Scene node</h3>
+
+A Scene node can hold a matrix, a volume state, a model state, scene options, options, a cross section, or a locator.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>lang</td>
+<td class=box0>Language, not used. Default is "".</td>
+</tr>
+<tr>
+<td class=box1>name</td>
+<td class=box1>Name of the scene. Default is "".</td>
+</tr>
+<tr>
+<td class=box0>description</td>
+<td class=box0>A short description of the scene. Default is "".
+</td>
+</tr>
+</table>
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>Matrix node</h4>
+<a href="index.html#3c">As previously defined</a>
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>VolumeState node</h4>
+
+State of a volume data set as visible in one scene.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>volumeRefId</td>
+<td class=box0>ID of the referenced volume. A required attribute.</td>
+</tr>
+<tr>
+<td class=box1>colorLUT </td>
+<td class=box1>Color look up table. Default is 0.</td>
+</tr>
+<tr>
+<td class=box0>foreground</td>
+<td class=box0>Is the volume showing in the foreground? A fading option. Default is false.</td>
+</tr>
+<tr>
+<td class=box1>background</td>
+<td class=box1>Is the volume shown in the background? A fading option. Default is false.</td>
+</tr>
+<tr>
+<td class=box0>fade</td>
+<td class=box0>Is the volume faded? A fading option. Default is false.</td>
+</tr>
+<tr>
+<td class=box1>opacity</td>
+<td class=box1>Opacity of the volume. A fading option. Default is 1.0.</td>
+</tr>
+</table>
+
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>ModelState node</h4>
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>modelRefID</td>
+<td class=box0>ID of the referenced model. A required attribute.</td>
+</tr>
+<tr>
+<td class=box1>visible</td>
+<td class=box1>Visibility, an attribute of the model. Default is true.</td>
+</tr>
+<tr>
+<td class=box0>opacity</td>
+<td class=box0>Opacity, an attribute of the model. Default is 1.0.</td>
+</tr>
+<tr>
+<td class=box1>sliderVisible</td>
+<td class=box1>Visibility of the opacity slider. Used in SPLVis, not Slicer. Default is true.</td>
+</tr>
+<tr>
+<td class=box0>childrenVisible</td>
+<td class=box0>Are the children of this node visible? Only used for model groups. Default is true.</td>
+</tr>
+<tr>
+<td class=box1>clipping</td>
+<td class=box1>Is clipping active? Default is false.</td>
+</tr>
+<tr>
+<td class=box0>backfaceCulling</td>
+<td class=box0>Is backface culling active? Default is true.</td>
+</tr>
+</table>
+
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>SceneOptions node</h4>
+
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>showAxes</td>
+<td class=box0>Show the 3D axes? An annotation option. Can be true or false. Default is false.</td>
+</tr>
+<tr>
+<td class=box1>showBox</td>
+<td class=box1>Show 3D cube? An annotation option. Can be true or false. Default is true.</td>
+</tr>
+<tr>
+<td class=box0>showAnnotations</td>
+<td class=box0>Show slice window text? An annotation option. Can be true or false. Default is false.</td>
+</tr>
+<tr>
+<td class=box1>showSliceBounds</td>
+<td class=box1>Show 3D outline around slices? An annotation option. Can be true or false. Default is false.</td>
+</tr>
+<tr>
+<td class=box0>showLetters</td>
+<td class=box0>Show 3D Letters? Default is true.</td>
+</tr>
+<tr>
+<td class=box1>showCross</td>
+<td class=box1>Show the crosshair? Default is true.</td>
+</tr>
+<tr>
+<td class=box0>showHashes</td>
+<td class=box0>Show hash marks? Default is true.</td>
+</tr>
+<tr>
+<td class=box1>showMouse</td>
+<td class=box1>Not used in Slicer. Only for SPLViz compatibility. Show the mouse pointer? Default is true.</td>
+</tr>
+<tr>
+<td class=box0>viewUp</td>
+<td class=box0>View up direction for the camera. VTK camera option. Default is "0 1 0".</td>
+</tr>
+<tr>
+<td class=box1>position</td>
+<td class=box1>The position of the camera in world coordinates. VTK camera option. Default is "0 0 1".</td>
+</tr>
+<tr>
+<td class=box0>clippingRange</td>
+<td class=box0>3D view, the near and far clipping planes. VTK camera option. Default is "0.1 1000".</td>
+</tr>
+<tr>
+<td class=box1>focalPoint</td>
+<td class=box1>VTK camera option. The focal point of the camera in world coordinates. Default is "0.0 0.0 0.0".</td>
+</tr>
+<tr>
+<td class=box0>viewAngle</td>
+<td class=box0>VTK camera option. Angular height of the camera view, in degrees. Default is "30".</td>
+</tr>
+<tr>
+<td class=box1>viewMode</td>
+<td class=box1>The current Slicer viewing mode (3D, 4x512, 4x256, and so forth). Default is "".</td>
+</tr>
+<tr>
+<td class=box0>viewBgColor</td>
+<td class=box0>Background color of the 3D view: blue, black, or midnight. Default is "".</td>
+</tr>
+</table>
+
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>Options node</h4>
+<a href="index.html#3c">As previously defined</a>
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>CrossSection node</h4>
+
+This node holds information about the state of the saved volume. It gives camera positioning information that allows the view to be reproduced the next time the volume is loaded. <br>To be finished.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>position</td>
+<td class=box0>Which cross section is referenced. A required attribute. Can be 0, 1, or 2. Default is programatically 0.</td>
+</tr>
+<tr>
+<td class=box1>direction</td>
+<td class=box1>Can be axial, coronal, sagittal, or none. Default is none.</td>
+</tr>
+<tr>
+<td class=box0>sliceSlider</td>
+<td class=box0>Position of the slider, showing which slice is currently displayed. Default is 0.</td>
+</tr>
+<tr>
+<td class=box1>rotatorX</td>
+<td class=box1>Rotation X. Not used in Slicer. Only in SPLVis. Default is 0.</td>
+</tr>
+<tr>
+<td class=box0>rotatorY</td>
+<td class=box0>Rotation Y. Not used in Slicer. Only in SPLVis. Default is 0.</td>
+</tr>
+<tr>
+<td class=box1>inModel</td>
+<td class=box1>Visibility in 3D view. The slice is shown in the 3D view. Can be true or false. Default is false.</td>
+</tr>
+<tr>
+<td class=box0>zoom</td>
+<td class=box0>Zoom. Default 1.0.</td>
+</tr>
+<tr>
+<td class=box1>clipState</td>
+<td class=box1>Clipping state. Can be true or false. Default is true.</td>
+</tr>
+<tr>
+<td class=box0>backVolRefId</td>
+<td class=box0>ID of background volume.</td>
+</tr>
+<tr>
+<td class=box1>foreVolRefId</td>
+<td class=box1>ID of foreground volume.</td>
+</tr>
+<tr>
+<td class=box0>labelVolRefID</td>
+<td class=box0>ID of label volume.</td>
+</tr>
+</table>
+
+
+<!-- ---   ---   ---   ---   ---   ---   ---   ---  !-->
+
+<h4>Locator node</h4>
+
+Holds the options for the locator.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>driver</td>
+<td class=box0>Who or what is driving the locator? Default is "".</td>
+</tr>
+<tr>
+<td class=box1>diffuseColor</td>
+<td class=box1>Locator color. Default is "".</td>
+</tr>
+<tr>
+<td class=box0>visibility</td>
+<td class=box0>Is the locator visible? Can be true or false. Default is false.</td>
+</tr>
+<tr>
+<td class=box1>transverseVisibility</td>
+<td class=box1>Is the transverse of the locator visible? Can be true or false. Default is true.</td>
+</tr>
+<tr>
+<td class=box0>normalLen</td>
+<td class=box0>Length of the normal of the locator. Default is 100.</td>
+</tr>
+<tr>
+<td class=box1>transverseLen</td>
+<td class=box1>Length of the transverse of the locator. Default is 25.</td>
+</tr>
+<tr>
+<td class=box0>radius</td>
+<td class=box0>Radius of the locator. Default is 3.0.</td>
+</tr>
+</table>
+
+
+

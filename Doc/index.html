@@ -1,0 +1,359 @@
+<!DOCTYPE html lang="en">
+
+<head>
+<meta name="keywords" content="Slicer,Slicer3,Slicer3:Developers,Slicer:Developer, Slicer:Editor,">
+<title>3D Slicer</title>
+</head>
+
+<body>
+<font face="arial">
+<h1> 3D Slicer </h1>
+<br>
+We are developing a new web site. Please take a <a href="http://slicer.spl.harvard.edu">look</a> and give us feedback.
+<br>
+<hr>
+<font size="-1">
+<table align="center" cellpadding="5">
+<tr>
+<td><a href="#Introduction">Introduction</a>&nbsp;</td>
+<td><a href="#Downloading">Downloading Slicer</a>&nbsp;</td>
+<td><a href="#Source">Accessing Source Code</a>&nbsp;</td>
+<td><a href="#Lists">Slicer Mailing Lists</a>&nbsp;</td>
+<td><a href="#Learn">Learn how to use Slicer 2.6</a>&nbsp;</td>
+<td><a href="#Developers">Additional Information for Developers</a>&nbsp;</td>
+<td><a href="#License">License</a></td>
+</tr>
+</table>
+</font>
+<hr>
+
+<a name="Introduction"><h2> Introduction </h2>
+
+<p>The <b>3D Slicer</b> (or simply <b>Slicer</b>) software was initially developed as a joint effort between the <a href="http://spl.harvard.edu/" class="external text" title="http://spl.harvard.edu/" rel="nofollow">Surgical Planning Lab at Brigham and Women's Hospital</a> and at the <a href="http://csail.mit.edu/" class="external text" title="http://csail.mit.edu/" rel="nofollow">MIT AI Lab</a>. The program has evolved into a national plattform supported by a variety of federal funding sources. This versatile research environment has resulted in a wide array of functionality, supporting a variety of medical imaging projects. </p>
+
+<p>Slicer is a "point and click" end-user application. Slicer is used as a vehicle for delivering algorithms to computer scientists, biomedical researchers and clinical investigators. Slicer is distributed under an open source license without a reciprocity requirement and without restrictions on use. For a sampling of the portfolio of applications, please see the <a href="http://slicer.spl.harvard.edu/pages/Slicer_Community" title="Slicer:Feedback"><b>Slicer Gallery</b></a> page. </p>
+
+<h2>For NCIA Users</h2>
+<table>
+<tr>
+<td><a href="https://imaging.nci.nih.gov/ncia/faces/baseDef.tiles#"><img src="images/logoNCIA.jpg"></a></td>
+</tr>
+<tr>
+<td bgcolor=#e5e5e5>
+Slicer is listed on the NCIA page under Tools, DICOM Image Viewers, on the left.<br>
+Download this version of Slicer: <a href="http://www.na-mic.org/Wiki/index.php/Slicer:Slicer2.6_Getting_Started">Slicer 2.6</a>. <br>
+Use this tutorial to get you started: <a href="http://www.na-mic.org/Wiki/images/e/ee/SlicerTraining1LoadingAndViewingData.ppt">Slicer Training 1: Loading and Viewing Data</a> and <a href="http://www.na-mic.org/Wiki/images/f/f8/Tutorial-with-dicom.zip">sample data set</a>.<br>
+<a href="http://www.na-mic.org/Wiki/index.php/Image:3DVisualization_NCIA_SPujol.pdf">NCIA specific tutorial</a>.
+</td>
+</tr>
+</table>
+</P>
+
+<a name="Acknowledgements"><h2>Acknowledgements</h2>
+
+<p>Slicer is expected to evolve dynamically in architecture and implementation by drawing on the expertise and effort of the wider <a href="http://www.na-mic.org/" class="external text" title="http://www.na-mic.org" rel="nofollow">NA-MIC</a>, NAC, <a href="http://www.nbirn.net">BIRN</a> and <a href="http://www.ncigt.org/" class="external text" title="http://www.ncigt.org" rel="nofollow">NCIGT</a>
+communities. The NA-MIC software engineering methodology, as applied to the problems which Slicer has historically addressed, is expected to result in a cleaner architecture that is easier for developers to support and extend.
+</p>
+
+<p>Major funding for Slicer was provided through a variety of federal and private funding sources, including <a href="http://www.ncrr.nih.gov/">NCRR</a>, <a href="http://www.nibib.nih.gov/">NIBIB</a>, <a href="http://nihroadmap.nih.gov/">Roadmap</a>, <a href="http://www.cancer.gov/">NCI</a>, <a href="http://www.nsf.gov/">NSF</a>, <a href="http://www.defenselink.mil/">DOD</a> and others.
+
+<p><br></p>
+<table valign="top" align="center" border="1" cellpadding="5">
+<tr>
+<td align="center">
+<a class="internal" title=" Slicer 2 is the released product"><img src="images/3DSlicer2.jpg" alt=" Slicer 2 is the released product"></a>
+</td>
+<td align="center">
+<a class="internal" title=" Slicer 3 beta release in Jan 2007"><img src="images/3DSlicer3.jpg" alt=" Slicer 3 beta was released in Jan 2007"></a>  
+</td>
+</tr>
+<tr>
+<td align="center">
+<div class="thumbcaption"><div class="magnify" style="float: right;"></div> <a href="http://wiki.na-mic.org/Wiki/index.php/Slicer:Workshops:User_Training_101">Slicer 2</a> is the released product</div></div>
+</td>
+<td align="center">
+<div class="thumbcaption"><div class="magnify" style="float: right;"></div> <A HREF="http://www.na-mic.org/Wiki/index.php/Slicer3">Slicer3</A> beta was released in January 2007</div></div>
+</td>
+</tr>
+</table>
+
+
+
+<a name="Downloading"><h2> Downloading Slicer </h2>
+<h3> For Stable Releases of Slicer </h3>
+
+<ul><li>To use Slicer, you will need to download a binary and install it on your computer.  Go to <a href="http://www.na-mic.org/Slicer/Download/Release" class="external text" title="http://www.na-mic.org/Slicer/Download/Release" rel="nofollow"><b>the Slicer releases download page</b></a>
+and select the directory appropriate for your computer. For the official release of Slicer 2.6, the supported platforms are Darwin PPC, Windows, Solaris, and 32-bit Linux.
+</li></ul>
+<ul><li>Installation instructions for Slicer 2.x can be found <a href="http://wiki.na-mic.org/Wiki/index.php/Slicer:Slicer2.6_Getting_Started" class="external text" title="http://wiki.na-mic.org/Wiki/index.php/Slicer:Slicer2.6_Getting_Started" rel="nofollow">here</a>.
+</li></ul>
+
+<h3> For a development version of Slicer</h3>
+
+<ul><li><a href="http://wiki.na-mic.org/Wiki/index.php/Slicer3" title="Slicer3"><b>Slicer3</b></a>
+beta has been released in January of 2007. The beta release is still lacking some features, but is fully functional. Click on download in the box on the upper left.
+</li></ul>
+
+<ul><li>The development version of Slicer 2.7 is also available in binary form, but is still a work in progress. You will need to
+download a binary and install it on your computer. Go to <a href="http://www.na-mic.org/Slicer/Download/Snapshots/" class="external text" title="http://www.na-mic.org/Slicer/Download/Snapshots/" rel="nofollow"><b>the Slicer snapshots page</b></a> and select the directory appropriate for your computer. For the development release of Slicer 2.7, the supported platforms are Darwin x86 (Intel Mac), Darwin PPC, Windows, Solaris, 32-bit Linux, and 64-bit Linux.
+</li></ul>
+
+<a name="Source"><h2> Accessing Source Code </h2>
+<p>The source code for Slicer 2 is located in a CVS repository. To
+do an anonymous checkout of the Slicer2 source, run the following
+command:
+</p>
+<pre>cvs -d&nbsp;:pserver:anonymous@cvs.spl.harvard.edu:/projects/cvs/slicer login
+</pre>
+<p>Enter 'bwhspl' as the password and then
+</p>
+<pre>cvs -z3 -d&nbsp;:pserver:anonymous@cvs.spl.harvard.edu:/projects/cvs/slicer checkout slicer2
+</pre>
+
+<p>To browse the Slicer2 code through the ViewVC web interface, go to: 
+</p><p><a href="http://www.na-mic.org/ViewVC/index.cgi/slicer2/?root=Slicer2" class="external free" title="http://www.na-mic.org/ViewVC/index.cgi/slicer2/?root=Slicer2" rel="nofollow">http://www.na-mic.org/ViewVC/index.cgi/slicer2/?root=Slicer2</a>
+</p>
+
+<p><br></p>
+
+<p>The source code for Slicer3 is located in a Subversion repository.  To checkout the Slicer3 source, run the following command:
+</p>
+
+<pre>svn co <a href="http://www.na-mic.org/svn/Slicer3/trunk" class="external free" title="http://www.na-mic.org/svn/Slicer3/trunk" rel="nofollow">http://www.na-mic.org/svn/Slicer3/trunk</a> Slicer3
+</pre>
+<p>To browse the Slicer3 code through the ViewVC web interface, go to:
+</p>
+
+<p><a href="http://www.na-mic.org/ViewVC/index.cgi/" class="external free" title="http://www.na-mic.org/ViewVC/index.cgi/" rel="nofollow">http://www.na-mic.org/ViewVC/index.cgi/</a>
+</p>
+
+<a name="Lists"><h2> Slicer Mailing lists </h2>
+<ul><li><b>slicer-users@bwh.harvard.edu</b>
+</li></ul>
+
+<p>Questions about running Slicer can be sent to the <a href="mailto:slicer-users@bwh.harvard.edu" class="external text" title="mailto:slicer-users@bwh.harvard.edu" rel="nofollow">Slicer User's Mailing List</a>.  Archives of slicer-users and subscription management tools are available at:
+</p>
+
+<p><a href="http://massmail.spl.harvard.edu/mailman/listinfo/slicer-users" class="external free" title="http://massmail.spl.harvard.edu/mailman/listinfo/slicer-users" rel="nofollow">http://massmail.spl.harvard.edu/mailman/listinfo/slicer-users</a>
+</p>
+
+<ul><li><b>slicer-devel@bwh.harvard.edu</b>
+</li></ul>
+
+<p>Slicer compilation/development questions can be sent to the <a href="mailto:slicer-devel@bwh.harvard.edu" class="external text" title="mailto:slicer-devel@bwh.harvard.edu" rel="nofollow">Slicer Developer's Mailing List</a>.  Archives of slicer-devel and subscription management tools are available at:
+</p>
+
+<p><a href="http://massmail.spl.harvard.edu/mailman/listinfo/slicer-devel" class="external free" title="http://massmail.spl.harvard.edu/mailman/listinfo/slicer-devel" rel="nofollow">http://massmail.spl.harvard.edu/mailman/listinfo/slicer-devel</a>
+</p>
+
+<p><br>
+</p>
+
+<a name="Learn"><h2> Learn how to use Slicer 2.6 </h2>
+<ul><li><a href="http://wiki.na-mic.org/Wiki/index.php/Slicer:Workshops:User_Training_101" title="Slicer:Workshops:User Training 101"> Slicer 101 page</a>. This page contains sample data sets and self-guided tutorials.
+</li></ul>
+
+<a name="Developers"><h2> Additional Information for Developers </h2>
+<p><a href="http://wiki.na-mic.org/Wiki/index.php/Slicer3:Developers" title="Slicer3:Developers">Information for Slicer3 Developers</a></p>
+<p><a href="http://wiki.na-mic.org/Wiki/index.php/Slicer:Developer_Meetings" title="Slicer:Developer Meetings">Developer Meeting Notes</a></p>
+<p><a href="http://wiki.na-mic.org/Wiki/index.php/Slicer:Editor_Improvements" title="Slicer:Editor Improvements">Editor Improvements</a></p>
+
+
+<a name="License"><h1> Slicer License </h1>
+<p><b> Summary:  </b>The 3D Slicer software is distributed under a license that is essentially a BSD-style, open source license. The
+license is an open source license compatible with the definition in opensource.org and contains no restrictions on use of the software. for
+all the legal specifics, please see the full text below. </p>
+
+<p><b>3D Slicer Software License Agreement(c)</b></p>
+<p>3D Slicer Contribution and Software License Agreement ("Agreement") Version 1.0 (December 20, 2005)</p>
+<p>This Agreement covers contributions to and downloads from the 3D Slicer project ("Slicer") maintained by The Brigham and Women's Hospital, Inc. ("Brigham"). Part A of this Agreement applies to contributions of software and/or data to Slicer (including making revisions of or additions to code and/or data already in Slicer). Part B of this Agreement applies to downloads of software and/or data from Slicer. Part C of this Agreement applies to all transactions with Slicer. If you distribute Software (as defined below) downloaded from Slicer, all of the paragraphs of Part B of this Agreement must be included with and apply to such Software.</p>
+
+<p>Your contribution of software and/or data to Slicer (including prior to the date of the first publication of this Agreement, each a
+"Contribution") and/or downloading, copying, modifying, displaying, distributing or use of any software and/or data from Slicer
+(collectively, the "Software") constitutes acceptance of all of the terms and conditions of this Agreement. If you do not agree to such
+terms and conditions, you have no right to contribute your Contribution, or to download, copy, modify, display, distribute or use the Software.</p>
+
+<p>PART A. CONTRIBUTION AGREEMENT - License to Brigham with Right to Sublicense ("Contribution Agreement").</p>
+
+<p>1. As used in this Contribution Agreement, "you" means the
+individual contributing the Contribution to Slicer and the institution
+or entity which employs or is otherwise affiliated with such individual
+in connection with such Contribution.</p>
+
+<p>2. This Contribution Agreement applies to all Contributions
+made to Slicer, including without limitation Contributions made prior
+to the date of first publication of this Agreement. If at any time you
+make a Contribution to Slicer, you represent that (i) you are legally
+authorized and entitled to make such Contribution and to grant all
+licenses granted in this Contribution Agreement with respect to such
+Contribution; (ii) if your Contribution includes any patient data, all
+such data is de-identified in accordance with U.S. confidentiality and
+security laws and requirements, including but not limited to the Health
+Insurance Portability and Accountability Act (HIPAA) and its
+regulations, and your disclosure of such data for the purposes
+contemplated by this Agreement is properly authorized and in compliance
+with all applicable laws and regulations; and (iii) you have preserved
+in the Contribution all applicable attributions, copyright notices and
+licenses for any third party software or data included in the
+Contribution.</p>
+
+<p>3. Except for the licenses granted in this Agreement, you reserve all right, title and interest in your Contribution.
+</p>
+
+<p>4. You hereby grant to Brigham, with the right to sublicense, a
+perpetual, worldwide, non-exclusive, no charge, royalty-free,
+irrevocable license to use, reproduce, make derivative works of,
+display and distribute the Contribution. If your Contribution is
+protected by patent, you hereby grant to Brigham, with the right to
+sublicense, a perpetual, worldwide, non-exclusive, no-charge,
+royalty-free, irrevocable license under your interest in patent rights
+covering the Contribution, to make, have made, use, sell and otherwise
+transfer your Contribution, alone or in combination with any other
+code.
+</p>
+
+<p>5. You acknowledge and agree that Brigham may incorporate your
+Contribution into Slicer and may make Slicer available to members of
+the public on an open source basis under terms substantially in
+accordance with the Software License set forth in Part B of this
+Agreement. You further acknowledge and agree that Brigham shall have no
+liability arising in connection with claims resulting from your breach
+of any of the terms of this Agreement.
+</p>
+
+<p>6. YOU WARRANT THAT TO THE BEST OF YOUR KNOWLEDGE YOUR
+CONTRIBUTION DOES NOT CONTAIN ANY CODE THAT REQURES OR PRESCRIBES AN
+"OPEN SOURCE LICENSE" FOR DERIVATIVE WORKS (by way of non-limiting
+example, the GNU General Public License or other so-called "reciprocal"
+license that requires any derived work to be licensed under the GNU
+General Public License or other "open source license").
+</p>
+
+<p>PART B. DOWNLOADING AGREEMENT - License from Brigham with Right to Sublicense ("Software License").
+</p>
+
+<p>1. As used in this Software License, "you" means the individual
+downloading and/or using, reproducing, modifying, displaying and/or
+distributing the Software and the institution or entity which employs
+or is otherwise affiliated with such individual in connection
+therewith. The Brigham and Women?s Hospital, Inc. ("Brigham") hereby
+grants you, with right to sublicense, with respect to Brigham's rights
+in the software, and data, if any, which is the subject of this
+Software License (collectively, the "Software"), a royalty-free,
+non-exclusive license to use, reproduce, make derivative works of,
+display and distribute the Software, provided that:
+</p>
+
+<p>(a) you accept and adhere to all of the terms and conditions of this Software License;
+</p>
+
+<p>(b) in connection with any copy of or sublicense of all or any
+portion of the Software, all of the terms and conditions in this
+Software License shall appear in and shall apply to such copy and such
+sublicense, including without limitation all source and executable
+forms and on any user documentation, prefaced with the following words:
+"All or portions of this licensed product (such portions are the
+"Software") have been obtained under license from The Brigham and
+Women's Hospital, Inc. and are subject to the following terms and
+conditions:"
+</p>
+
+<p>(c) you preserve and maintain all applicable attributions,
+copyright notices and licenses included in or applicable to the
+Software;
+</p>
+
+<p>(d) modified versions of the Software must be clearly
+identified and marked as such, and must not be misrepresented as being
+the original Software; and
+</p>
+
+<p>(e) you consider making, but are under no obligation to make,
+the source code of any of your modifications to the Software freely
+available to others on an open source basis.
+</p>
+
+<p>2. The license granted in this Software License includes
+without limitation the right to (i) incorporate the Software into
+proprietary programs (subject to any restrictions applicable to such
+programs), (ii) add your own copyright statement to your modifications
+of the Software, and (iii) provide additional or different license
+terms and conditions in your sublicenses of modifications of the
+Software; provided that in each case your use, reproduction or
+distribution of such modifications otherwise complies with the
+conditions stated in this Software License.
+</p>
+
+<p>3. This Software License does not grant any rights with respect
+to third party software, except those rights that Brigham has been
+authorized by a third party to grant to you, and accordingly you are
+solely responsible for (i) obtaining any permissions from third parties
+that you need to use, reproduce, make derivative works of, display and
+distribute the Software, and (ii) informing your sublicensees,
+including without limitation your end-users, of their obligations to
+secure any such required permissions.
+</p>
+
+<p>4. The Software has been designed for research purposes only
+and has not been reviewed or approved by the Food and Drug
+Administration or by any other agency. YOU ACKNOWLEDGE AND AGREE THAT
+CLINICAL APPLICATIONS ARE NEITHER RECOMMENDED NOR ADVISED. Any
+commercialization of the Software is at the sole risk of the party or
+parties engaged in such commercialization. You further agree to use,
+reproduce, make derivative works of, display and distribute the
+Software in compliance with all applicable governmental laws,
+regulations and orders, including without limitation those relating to
+export and import control.
+</p>
+
+<p>5. The Software is provided "AS IS" and neither Brigham nor any
+contributor to the software (each a "Contributor") shall have any
+obligation to provide maintenance, support, updates, enhancements or
+modifications thereto. BRIGHAM AND ALL CONTRIBUTORS SPECIFICALLY
+DISCLAIM ALL EXPRESS AND IMPLIED WARRANTIES OF ANY KIND INCLUDING, BUT
+NOT LIMITED TO, ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL BRIGHAM OR
+ANY CONTRIBUTOR BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL,
+INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY ARISING IN ANY WAY RELATED TO THE SOFTWARE,
+EVEN IF BRIGHAM OR ANY CONTRIBUTOR HAS BEEN ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGES. TO THE MAXIMUM EXTENT NOT PROHIBITED BY LAW OR
+REGULATION, YOU FURTHER ASSUME ALL LIABILITY FOR YOUR USE,
+REPRODUCTION, MAKING OF DERIVATIVE WORKS, DISPLAY, LICENSE OR
+DISTRIBUTION OF THE SOFTWARE AND AGREE TO INDEMNIFY AND HOLD HARMLESS
+BRIGHAM AND ALL CONTRIBUTORS FROM AND AGAINST ANY AND ALL CLAIMS,
+SUITS, ACTIONS, DEMANDS AND JUDGMENTS ARISING THEREFROM.
+</p>
+
+<p>6. None of the names, logos or trademarks of Brigham or any of
+Brigham's affiliates or any of the Contributors, or any funding agency,
+may be used to endorse or promote products produced in whole or in part
+by operation of the Software or derived from or based on the Software
+without specific prior written permission from the applicable party.
+</p>
+
+<p>7. Any use, reproduction or distribution of the Software which
+is not in accordance with this Software License shall automatically
+revoke all rights granted to you under this Software License and render
+Paragraphs 1 and 2 of this Software License null and void.
+</p>
+
+<p>8. This Software License does not grant any rights in or to any
+intellectual property owned by Brigham or any Contributor except those
+rights expressly granted hereunder.
+</p>
+
+<p>PART C. MISCELLANEOUS
+</p>
+
+<p>This Agreement shall be governed by and construed in accordance
+with the laws of The Commonwealth of Massachusetts without regard to
+principles of conflicts of law. This Agreement shall supercede and
+replace any license terms that you may have agreed to previously with
+respect to Slicer.
+</p>
+
+<hr>
+<a href="slicer2.html">Previous version of slicer.org</a>
+</font>
+</body></html>

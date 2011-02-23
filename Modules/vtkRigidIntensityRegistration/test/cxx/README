@@ -1,0 +1,26 @@
+This code is taken from InsightApplications-1.4.0/MultiResMIRegistration.
+The input file is exactly the same as the one from there, so read the
+directions for the input there. Or, see below.
+
+Alas, most of the input is ignored.  Only the first file is read in. A
+transform is applied to it.  Then, we see if the Registrator can
+capture that transform. That is the test
+
+An example input file is in this directory. It is called ExampleInputFile.
+
+The first critical parts is the volume to be read in:
+/projects/test/rotz/tt-rot-z
+1
+256 256 60
+0.9375 0.9375 2.5
+
+The second critical part is below:
+5                                # The number of multi-res levels
+4 4 1                            # The down-sampling of the first volume
+4 4 1                            # The down-sampling of the second volume
+2500 2500 2500 2500 2500         # The number of iterations at each level
+1e-4 1e-5 5e-6 1e-6 5e-7         # The step multiplier for grad descent
+320                              # The translation scale factor
+
+
+

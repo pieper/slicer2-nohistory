@@ -1,0 +1,69 @@
+# CMakeListsLocal.txt sample file.
+# Copy it to CMakeListsLocal.txt and edit to match your files.
+
+# The names of the source files for your module go here. Include
+# abstract files noted below in this list too. Do not include file
+# suffixes.
+
+#
+# Change all 'MyClass' to appropriate source file name 
+# and 'MYCLASS' to your module name (all CAPS)
+#
+
+SET(LOCAL_MODULE_SRCS
+vtkIbrowserIO.cxx
+vtkIntervalDrop.cxx
+vtkRigidTransformInterpolate.cxx
+vtkVoxelTimeCourseExtractor.cxx
+#vtkIntervalSpan.cxx
+#vtkIntervalHashNode.cxx
+#vtkIntervalHash.cxx
+#vtkIntervalDropCollection.cxx
+#vtkInterval.cxx
+#vtkIntervalCollection.cxx        
+#vtkIntervalStudy.cxx                                 
+#vtkImageIntervalDrop.cxx
+#vtkDataIntervalDrop.cxx
+#vtkIntervalAnimator.cxx
+#vtkIntervalCollection.cxx
+)
+
+#SOURCE_FILES (LOCAL_MODULE_SRCS
+#vtkIbrowserIO
+#vtkBVolReader
+#)
+
+
+# Place names of abstract class implementations here. No file suffixes.
+# Comment this out if there are no abstracts.
+
+
+# You can add additional include paths here
+
+#### if you code depends on SlicerBase, uncomment the 
+#### INCLUDE_DIRECTORIES and LINK_LIBRARIES
+#### lines below
+####
+#INCLUDE_DIRECTORIES( 
+#   ${VTKSLICERBASE_SOURCE_DIR}/cxx 
+#   ${VTKSLICERBASE_BUILD_DIR}
+#)
+#LINK_LIBRARIES (${VTKSLICERBASE_BUILD_LIB})
+
+
+# Add additional directories to look in for libraries
+LINK_DIRECTORIES(
+${VTKIBROWSER_SOURCE_DIR}/lib
+)
+
+# To add a list of additional libraries you need to link with, uncomment
+# the following line.  The library names should omit the "lib" and any
+# trailing suffix.
+# LINK_LIBRARIES (${LOCAL_LIBRARY_BASENAME} library_names_here)
+
+
+# Here's the rule to create the implementation C++ library.
+# It should happen in the CMakeLists.txt file that includes this one,
+# but because of a CMake bug that doesn't work.
+#
+ADD_LIBRARY (${LOCAL_LIBRARY_BASENAME} ${LOCAL_MODULE_SRCS})

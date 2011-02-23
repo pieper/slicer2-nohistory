@@ -1,0 +1,21 @@
+#! /bin/csh -f
+# Test Function for vtkImageEMLocalSegment - all environment variables are automatically set 
+if (${?OS} == 0) then
+    setenv OS $OSTYPE
+endif
+
+setenv SLICER_HOME ../../..
+
+if ($OS == linux) then   
+    setenv VTK_EXE $SLICER_HOME/slicer2-linux-x86
+endif 
+
+if ($OS == solaris) then   
+   setenv VTK_EXE $SLICER_HOME/slicer2-solaris-sparc
+endif 
+
+if ($OS == Windows_NT) then   
+   setenv VTK_EXE $SLICER_HOME/slicer2-win32.exe
+endif 
+ 
+${VTK_EXE} TestImageEMLocalSegment.tcl $*

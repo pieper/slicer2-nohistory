@@ -1,0 +1,177 @@
+<title>Build Slicer</title>
+
+<p> This section details how to build your own development version of Slicer. You can also use it if you wish to run a version from the CVS repository. It details what support libraries that you need to install first, how to get the Slicer code from CVS, and how to build it all. 
+<br>These instructions were originally written for UNIX/Linux machines. Windows requires a similar setup if you are using <a href="http://www.cygwin.com/">cygwin</a>, which provides a UNIX-like command prompt. </p>
+<p>
+The build process that the developers use assumes that third-party sources (Tcl and VTK) are built in subdirectories of <code>slicer2/Lib/[osname]</code>. This procedure assumes that arrangement.</p>
+<p>You can also refer to the alternate instructions for <a href="http://www.na-mic.org/Wiki/index.php/Slicer:Slicer_2.6_Building">Building Slicer 2.6</a> if you wish to build the release from sources.</p>
+<p>
+<h3>1. Set Up</h3>
+<p>
+You need some software on your machine before starting. 
+<br>
+After you check out the Slicer code from CVS first, run the tcl script found in <code>slicer2/Scripts/genlib.tcl</code> and it will build the support software for you (assuming you have a compiler and a cvs client available).
+<ul>
+<li>Compiler<br>
+On Solaris, we use <code>g++</code>, which is available free from <a href="http://gcc.gnu.org/">http://gcc.gnu.org/</a>. <br>
+On Windows, we use Microsoft Developer Studio, version 6 or 7. (Version 7 is also called .NET). You can obtain the C++ compiler separately, if you prefer.
+
+
+</li>
+
+<li><code>cvs</code><br>
+A standard UNIX environment will supply this.<br>
+On Windows, you will need <code>cygwin</code>. You can download it from <a href="http://sources.redhat.com/cygwin/">http://sources.redhat.com/cygwin/</a>. Install everything on the options list, if possible, but be sure to get <code>cvs</code>, <code>zip</code>, <code>curl</code>, <code>svn</code>.
+</li>
+</ul>
+
+<!--
+<li><code>cmake</code><br>
+You can get this from <a href="http://www.cmake.org/">cmake.org</a>.<br>
+For Windows, get a binary version later than 2.0.6.
+
+</li>
+
+
+<li>Tcl<br>
+Get the latest release of ActiveState Tcl from <a href="http://tcl.activestate.com/">tcl.activestate.com</a>. <br>
+On UNIX, you will most likely need to download the source and compile it using <code>cmake</code> and <code>g++</code> (due to compiler compatibility issues with <code>g++</code> that will arise when compiling VTK). But for Windows, you can probably just get the binary release.<br>
+Any Tcl/Tk version greater than 8.4 should work fine. Select the
+install directory <code>slicer2/Lib/[osname]/ActiveTcl-[version]</code> for
+installation of the precompiled files. 
+</li>
+
+<li>GSL<br>
+The GNU Scientific Library is used in some modules. Get release 1.4 from <a href="http://sources.redhat.com/gsl/">http://sources.redhat.com/gsl/</a>. Select the install directory <code>slicer2/Lib/[osname]/gsl</code> for the installation of the precompiled files. 
+</li>
+
+<li>VTK<br>
+Obtain the VTK (Visualization Toolkit) source code (pre-compiled binaries won't work). You can download it from 
+<a href="http://public.kitware.com/">http://public.kitware.com/</a>. Check the section on <a href="#4">matching versions of VTK and Slicer</a> to verify which version we are currently developing with.<br>
+Place the source in <code>slicer2/Lib/[osname]/vtk/VTK-[version]</code> and build it using <code>cmake</code>, instructing it to place the resulting binaries into <code>slicer2/Lib/[osname]/vtk/VTK-build</code>. Valid <code>osname</code> values (so they match up when you compile Slicer) are currently <code>solaris8</code>, <code>linux-x86</code>, <code>darwin-ppc</code>, and <code>win32</code>.<br>
+When building VTK using <code>cmake</code> on UNIX, or <code>CMakeSetup.exe</code> on Windows, make sure that you configure it with tcl, tkwidget, patented, local, shared, hybrid. Make sure <code>WRAP_TCL</code> and <code>VTK_USE_HYBRID</code> are set to <code>ON</code>. You will need to point it to the version of Tcl that you downloaded. Consult the VTK documentation in the root source code directory.
+</li>
+
+
+<li>ITK<br>
+If you wish to use the <code>vtkITK</code> module (if you don't want to use it, you can delete the <code>Modules/vtkITK</code> directory), you need to obtain ITK (Insight Toolkit). It can be download from <a href="http://www.itk.org/HTML/Download.php"> www.itk.org </a>.
+</li>
+
+</ul>
+-->
+
+<p>
+On Solaris especially, you must build VTK (and ITK) against the same version of Tcl that you will be
+using to run Slicer. Tcl, VTK, and Slicer must all be compiled with the same compiler. 
+<br>For Windows, chances are good that the precompiled binaries were compiled with Microsoft Visual Studio, though there may be version issues. 
+<p>
+
+<p> The classes that Slicer adds to VTK are found in the directory
+<code>slicer2/Base/cxx</code>. 
+<p>
+<h3>2. Get Slicer2</h3><br>
+You will need to check the source code out from CVS in order to get the latest version. In an <code>xterm</code> or a <code>cygwin</code> window, do the following:
+<pre><p class=code>
+  cvs -d :pserver:anonymous@cvs.spl.harvard.edu:/projects/cvs/slicer login<br>
+  cvs -d :pserver:anonymous@cvs.spl.harvard.edu:/projects/cvs/slicer checkout slicer2</p></pre>
+The password for the anonymous (read only) account is <code>bwhspl</code>. Replace anonymous with your user name if you have a CVS account.<br>
+If, under <code>cygwin</code>, you have problems logging into the CVS server because your <code>cvspass</code>
+file couldn't be found, set your <code>HOME</code> variable to the path to your cygwin home directory and
+use the <code>tcsh</code> shell instead of <code>bash</code>.
+<!--
+<p>
+Make a sub directory in the <code>slicer2/Base/builds</code> directory named for your operating system: <code>solaris8</code>, <code>redhat7.3</code>, <code>Win32VC7</code> are the current valid operating system values. If you change this, you will need to edit <code>slicer2/slicer_variables.tcl</code> to reset your operating system version. At run time, the launcher will look in the subdirectory for the operating system on which you are running the program in order to load the library files.
+<p>
+Then point <code>cmake</code> or <code>CMakeSetup.exe</code> to <code>slicer2/Base</code> as the source and your new <code>builds</code> directory as the
+destination, and point it to your <code>vtk4.x</code> build and you should be ready
+to compile.
+<p>
+-->
+<h3>3. Compile the Support Libraries</h3><br>
+We have provided a convenient script to allow one step configuring and building of Slicer's support libraries. <code>slicer2/Scripts/genlib.tcl</code> contains the commands to download and build Tcl/Tk, VTK, ITK, etc. <code>genlib.tcl</code> sources the <code>slicer2/slicer</code>_<code>variables.tcl</code> file, which sets up the environment variables needed for the compilation. For Windows, you will need to point the <code>COMPILER</code> variable to the MS Visual Studio compiler, <code>cl.exe</code>. Slicer will pick up the Tcl settings from VTK.<p>
+Then execute:
+<pre><p class=code>slicer2/Scripts/genlib.tcl</p></pre>
+This will configure and build the support libraries needed before you can build Slicer.
+
+<h3>4. Compile Slicer2</h3><br>
+We have provided a convenient script to allow one step configuring and building of Slicer.
+<code>slicer2/Scripts/cmaker.tcl</code> contains the commands to set up <code>cmake</code> and then start the compilation after <code>cmake</code> generates your make files. <code>cmaker.tcl</code> sources the <code>slicer2/slicer</code>_<code>variables.tcl</code> file, which sets up the environment variables needed for the compilation (and run) step. 
+<!--
+<br>Edit <code>slicer_variables.tcl</code>
+ with your favourite text editor and set the variables for your platform. The variables that need to be set are at the bottom of the file, switched on the operating system. <code>SLICER_HOME</code> is set automatically from the directory that the <code>slicer_variables.tcl</code> file is in. At the SPL, under SunOS, we use:
+<pre><p class=code>
+        set VTK_DIR /projects/birn/slicer2/Lib/solaris8/vtk/VTK-build-[version]<br>
+        set VTK_SRC_DIR /projects/birn/slicer2/Lib/solaris8/vtk/VTK-[version]<br>
+        set ITK_BINARY_PATH /projects/birn/itk/itk-1.2/itk-build<br>
+        set COMPILER_PATH "/local/os/bin"
+        set COMPILER "g++"
+</p></pre>
+-->
+For Windows, you will need to point the <code>COMPILER</code> variable to the MS Visual Studio compiler, <code>cl.exe</code>, if you have not already done so.<p>
+Then execute:
+<pre><p class=code>slicer2/Scripts/cmaker.tcl</p></pre>
+This will configure and build the Slicer core against the version of VTK that <code>slicer_variables.tcl</code> supplies. It will also compile the distributed Modules in the <code>slicer2/Modules</code> subdirectory and any others that you specify (see <a href="#3">Adding a Module</a> for more details). Slicer inherits <code>CMake</code> settings from VTK, which inherits some <code>CMake</code> settings from Tcl, which is why all three must be compiled with the same compiler.
+<p>
+<!--
+<h3>3.5. Compiling Slicer2 the Hard Way</h3><br>
+For finer control over the build process:
+<pre><p class=code>cd slicer2/Base/builds<br>
+  mkdir [my-os]<br>
+  cd slicer2/Base/builds/[my-os]<br>
+  ccmake -i ../../<br>
+</p></pre>
+NOTE: Replace <code>[my-os]</code> with the name and version of your operating system, for example, <code>solaris8</code> or <code>redhat7.3</code> or <code>Win32VC7</code>.<br>
+You will need to point <code>ccmake</code> to either the installed or the built versions of VTK, as you would have set above while editing <code>slicer_variables.tcl</code>. You must point to the proper tcl library, following the example from the SPL system:
+<ul>
+<li>Set <code>TCL_LIBRARY</code> to <pre><p class=code>-L/projects/birn/slicer2/Lib/solaris8/ActiveTcl8.4.2.0-solaris-sparc/lib -ltcl8.4</p></pre>
+<li>Set <code>TCL_INCLUDE_PATH</code> to <pre><p class=code>/projects/birn/slicer2/Lib/solaris8/ActiveTcl8.4.2.0-solaris-sparc/include</p></pre>
+<li>Similarly for the Tk variables
+</ul>
+<p>
+Make sure <code>WRAP_TCL</code> is set to <code>ON</code>, and you are configured to use tkwidget, patented, local, shared, hybrid.
+<p>
+Once you're happy with your settings, you will need to type c to configure (repeat until all fields are filled in) and then g to generate make files.<br>
+<code>ccmake</code> writes a file called <code>CMakeCache.txt</code>. If you have errors using <code>
+ccmake</code> or compiling you may wish to edit that file directly, and
+then simply run <code>cmake</code>, which will read the file.  However, it is
+often better to erase all subdirectories and start again.
+<p>
+Then run <code>make</code> in the <code>slicer2/Base/builds/[my-os]</code> directory. Repeat for any modules that you wish to build, starting in <code>slicer2/Base/vtkCustomModule</code> if you wish a practice directory.
+<p>
+-->
+
+<h3>5. Running Slicer</h3><br>
+<!--
+Edit <code>slicer2/slicer_variables.tcl</code> to reflect your local setup. Make sure that the environment variables <code>VTK_DIR</code>, <code>ITK_BINARY_PATH</code>, <code>TCL_BIN_DIR</code>, and <code>TCL_LIB_DIR</code> are pointing at the right directories. 
+-->
+If you installed the support packages in <code>slicer2/Lib</code> or built them using the genlib.tcl script, you shouldn't need to make any changes to <code>slicer2/slicer_variables.tcl</code>, otherwise edit it to reflect your local setup. <p>
+The <code>slicer2/slicer2-[os]-[arch]</code> executables from <code>cvs</code> will read in <code>launch.tcl</code> 
+and bootstrap Slicer. (NOTE: There is no need to run <code>Scripts/make-launchers.tcl</code> since most of 
+the launch process is now in <code>launch.tcl</code> and <code>cvs</code> has the pre-made launchers.) Execute the file labeled for your operating system to start Slicer.
+
+<p>
+<h3>6. Running Tests of the slicer code</h3><br>
+You need to have downloaded VTK4 data from <a href="http://prdownloads.sourceforge.net/vtk/VTKData-4.2.tar.gz?download">http://prdownloads.sourceforge.net/vtk/VTKData-4.2.tar.gz?download</a>. Then set the environment variable <code>VTK_DATA_ROOT</code> to point to where you installed it.<br>
+The <code>launch.tcl</code> script will accept a path to a Tcl script to execute, instead of the Slicer user interface. You can call it via:
+<pre><p class=code>
+cd ${SLICER_HOME}/Base/tests<br>
+../../slicer-[os]-[arch] ./TestImageCloseUp2D.tcl
+</p></pre>
+You can also run the tests from VTK. 
+Set the following environment variables appropriately, as they are set automatically in the <code>slicer2</code> launching script, but we by-pass that script for the test: 
+<pre><p class=code>
+  SLICER_HOME /path_to_slicer2/slicer2<br>
+  TCL_LIBRARY /path_to_lib/tcl8.4<br>
+  TK_LIBRARY  /path_to_lib/tk8.4<br>
+  VTK_DATA_ROOT /projects/VTKData/<br>
+  LD_LIBRARY_PATH ${SLICER_HOME}/Base/builds/[my-os]/bin:${LD_LIBRARY_PATH}<br>
+  TCLLIBPATH "${SLICER_HOME}/Base/Wrapping/Tcl/vtkSlicerBase /usr/local/src/vtk4/VTK/Wrapping/Tcl"
+</p></pre>
+ To run <code>TestImageCloseUp2D.tcl</code>, for example, do the following:
+<pre><p class=code>
+ cd ${SLICER_HOME}/Base/tests<br>
+ vtk TestImageCloseUp2D.tcl
+</p></pre>
+
+
+

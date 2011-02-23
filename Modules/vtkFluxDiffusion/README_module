@@ -1,0 +1,65 @@
+Quick notes for creating your own custom VTK module.
+Michael Halle -- 2002/05/17
+
+
+1. Copy this entire directory tree to the place where you'd like to develop
+your module.  Name it while you're doing so.
+    
+    rsync -av vtkCustomModule/  /home/halazar/vtk/vtkTestModule
+
+2. Change directories to your new module directory.
+
+    cd /home/halazar/vtk/vtkTestModule
+
+3. Run vtkNameModule.  This program is a simple Tcl script that
+   runs through the entire directory, substituting the name of the
+   module in many different locations.  By default, vtkNameModule
+   will get the name of the module from the directory name.
+
+    ./vtkNameModule
+
+4. change to the cxx directory.
+    
+    cd cxx
+
+5. Put your source and header files here.  All of your header files
+   should include the file of the form <vtk[ModuleName]Configure.h"> .
+   They should also declare your classes exported appropriately for
+   Windows platforms, with a line like the following:
+
+            class VTK_[MODULENAME]_EXPORT vtk[Modulename] : ...
+
+6. Copy the file CMakeListsLocal-SAMPLE.txt to CMakeListsLocal.txt
+
+    cp CMakeListsLocal-SAMPLE.txt CMakeListsLocal.txt
+
+7. Edit this file to include the names of your source files.  Be sure
+   not to include suffixes.  If you have abstract classes, put them
+   in the source files area as well as the abstract files area.  The
+   file also includes directions for adding link libraries.
+
+8. You're ready to build.  Change directory to the location where
+   you'd like to build your code.  We recommend a subdirectory of the
+   "builds" directory.  The subdirectory could have the name of your
+   machine architecture, or anything that's meaningful to you.
+
+    cd ..; mkdir -p builds/local; cd  builds/local
+
+9. Run CMake, using your toplevel module directory as the target.  You
+   can use the shortcut below to fill in the location of your VTK 
+   build.  The example below uses the built VTK tree, but you could
+   instead use the installed tree by changing the variable 
+   to be VTK_INSTALL_PATH.
+
+    ccmake -DVTK_BINARY_PATH:PATH=/local/os/src/vtk-4.0 ../..
+
+10.Configure your module.  Hopefully, all you'll have to do is type
+   "c" a couple of times until the "g" option becomes available, then
+   type "g" and files will generate and the program will complete.
+
+11. Make.
+
+     make
+
+12.If all went well, your libraries will now be in the bin subdirectory.
+

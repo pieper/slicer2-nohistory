@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//IETF//DTD HTML//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><title>Start ARROWSMITH</title>
+<link rel="stylesheet" type="text/css" href="http://arrowsmith.psych.uic.edu/arrowsmith_uic/data/styles.css" />
+</head><body leftmargin="0" topmargin="0" background="/arrowsmith_uic/pictures/arrowsmith-final-mid.jpg"><table width="702"><tr><td width="80" valign="top"><font size="-3"><strong><a href="/arrowsmith_uic/index.html">Arrowsmith Home Page</a></strong></font size></td><td width="622"><blockquote><h2 align="center">Start ARROWSMITH</h2><font size="-1">
+This search mode will assist you in looking for items or concepts that
+may be present in common between two distinct sets of
+articles. Another context for using this search mode is when you
+want to find information that is present in one field that
+may be relevant to another field of inquiry. You will be guided through two PubMed searches to retrieve biomedical articles from the
+Medline database: the first search defines "literature A" and the second
+defines "literature C." The program then generates a "B-list" of words and
+phrases found in the titles of both literatures.
+
+<p>
+The B-list can be edited further by selecting only certain semantic
+categories (e.g. anatomical regions, or disorders, or drugs), by adjusting
+frequency thresholds (e.g., one can select only B-terms that appear in more than one
+paper in each literature), by adjusting first publication date thresholds (e.g., one can select B-terms that first appeared in the A or C literature within the last 2 years), or by manual selection of terms.  Finally, for
+each B-term of interest, one can view the titles containing A and B ("AB
+titles") juxtaposed to the titles containing B and C ("BC titles").   In
+this manner, one can readily assess whether there appears to be a
+biologically significant commonality or relationship between the two sets of
+articles.
+</font>
+<form method="post" action="http://arrowsmith2.psych.uic.edu/cgi-bin/arrowsmith_uic/pubsmith.cgi" enctype="application/x-www-form-urlencoded">
+<input type="submit" name="select" value="Begin New Search" />
+<input type="hidden" name="A-query" value="&quot BA 9 &quot NOT (barium OR (ba AND &quot 2+ &quot)) OR (Brodmann AND 9) AND (Middle Frontal Gyrus)" /> &quot BA 9 &quot NOT (barium OR (ba AND &quot 2+ &quot)) OR (Brodmann AND 9) AND (Middle Frontal Gyrus) 
+
+<p> (for advanced options click <a href="http://arrowsmith2.psych.uic.edu/cgi-test/arrowsmith_uic/start.cgi?advanced=1">here</a>)</form><p><br><form method="post" action="/cgi-test/arrowsmith_uic/edit_b.cgi" enctype="application/x-www-form-urlencoded">
+Or enter an existing search id # <input type="text" name="ID"  size="6" /> <input type="submit" name="select" value="Continue Existing Search" /></form>  </blockquote>
+    </td>
+      </tr>
+  </table>
+</body></html>

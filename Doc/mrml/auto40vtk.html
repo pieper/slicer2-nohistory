@@ -1,0 +1,54 @@
+<title>VTK Implementation</title>
+
+We have implemented MRML as a set of <a href='http://www.kitware.com/vtk.html'>VTK</a>
+classes.  There is a <code>vtkMrmlNode</code> class, which is the superclass of specific types
+of nodes, such as <code>vtkMrmlVolumeNode</code>.  There is a <code>vtkMrmlTree</code> class, derived from
+<code>vtkCollection</code>, to be a collection of MRML nodes.  This tree class contains member
+functions for traversing the tree, adding and deleting nodes, and writing the
+entire scene as a MRML file.  This is achieved by calling the <code>Write()</code> member function
+of each node. (There should also be a <code>Read()</code> function, but we currently have the
+parsing implemented in Tcl, since that's so easy.)
+<p>
+Here is an example of creating and writing a MRML tree:</p>
+
+<!----------------------------- Code Block --------------------------------->
+
+<p class=code>
+#Construct MRML nodes after parsing the file
+<br>vtkMrmlVolumeNode skin
+<br>&nbsp;&nbsp;&nbsp;skin SetName Skin
+<br>&nbsp;&nbsp;&nbsp;skin SetPrefix models/Skin.vtk
+<br>&nbsp;&nbsp;&nbsp;skin SetOpacity 0.7
+<br>&nbsp;&nbsp;&nbsp;skin SetColor Tan
+
+<br>vtkMrmlColorNode tan
+<br>&nbsp;&nbsp;&nbsp;tan SetName Tan
+<br>&nbsp;&nbsp;&nbsp;tan SetDiffuseColor 1.0 0.8 0.7
+
+<br># Construct tree
+<br>vtkMrmlTree tree
+<br>&nbsp;&nbsp;&nbsp;tree AddNode model
+<br>&nbsp;&nbsp;&nbsp;tree AddNode tan
+
+<br># Traverse tree
+<br>tree InitTraversal
+<br>set node [tree GetNextItem]
+<br>while {$node != ""} {
+<br>&nbsp;&nbsp;&nbsp;puts "name='[$node GetName]'"
+<br>&nbsp;&nbsp;&nbsp;set node [tree GetNextItem]
+<br>}
+
+<br># Write MRML file
+<br>tree Write "scene.xml"</p>
+
+<p>
+To assist developers who would like to use MRML, we offer our Tcl parser and
+VTK classes.</p>
+
+<h3>Download MRML Toolkit</h3>
+<ul>
+<li><b>MRML Parser: </b>&nbsp;<a href='Parse.txt'>Parse.tcl</a></li>
+<li><b>VTK Classes: </b>&nbsp;<a href='vtkMrml.zip'>vtkMrml.zip</a> or <a href='vtkMrml.tar.gz'>vtkMrml.tar.gz</a></li>
+</ul>
+
+

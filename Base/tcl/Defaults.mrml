@@ -1,0 +1,71 @@
+MRML V1.0
+Url (
+	url ""
+	link 0 
+)
+Volume (
+	name Volume
+	labelMap 0
+	filePattern %s.%03d
+	filePrefix I
+	headerSize 7904
+	imageRange 1 124
+	dimensions 256 256
+	spacing 0.937500 0.937500 1.5
+	tilt 0.0
+	littleEndian 0
+	scalarType Short
+	numScalars 1
+	rasToIjkMatrix 1 0 0 0 0 -1 0 0 0 0 1 0 0 0 0 1
+	rasToVtkMatrix 1 0 0 0 0  1 0 0 0 0 1 0 0 0 0 1
+	scanOrder LR
+	scanOrigin 0 0 0
+	scanOrientation 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+	autoWindowLevel 1
+	window 256
+	level 150
+	ignore 0
+	options
+	desc
+)
+Model ( 
+	name Model
+	fileName model.vtk
+	colorName None
+	opacity 1.0
+	visibility 1
+	clipping 0
+	backfaceCulling 1 
+	scalarRange 0 100
+	scalarVisibility 0 
+	ignore 0
+	options
+	desc
+)
+Color (
+	name Color
+	diffuseColor 1.0 1.0 1.0
+	ambient 0.0
+	diffuse 1.0
+	specular 0.0
+	power 1
+	labels
+	options
+)
+Config (
+	options
+)
+Transform (
+	matrix 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+	scale 1 1 1
+	rotateX 0
+	rotateY 0
+	rotateZ 0
+	translate 0 0 0
+	desc
+)
+Separator (
+)
+Desc (
+	desc
+)

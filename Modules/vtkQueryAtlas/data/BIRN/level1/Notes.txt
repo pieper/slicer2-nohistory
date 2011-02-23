@@ -1,0 +1,1 @@
+models reduced from original detailed brain set to only the currently loaded objects (4)

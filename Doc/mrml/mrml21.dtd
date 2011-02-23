@@ -1,0 +1,108 @@
+<!ELEMENT MRML (Transform | Volume | Model | Color | Options |
+    ColorLUT | TransferFunction | ModelGroup)*>
+
+<!ELEMENT Transform (Matrix *, (Transform | Volume | Model | ModelGroup)*)>
+
+<!ELEMENT Matrix (#PCDATA)>
+<!ATTLIST Matrix 
+    name NMTOKEN "Matrix"
+    description CDATA ""
+    matrix NMTOKENS "1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1">
+
+<!ELEMENT Volume (#PCDATA)>
+<!ATTLIST Volume 
+    name NMTOKEN ""
+    filePattern CDATA "s.03d"
+    filePrefix CDATA #REQUIRED
+    rasToIjkMatrix NMTOKENS "1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1"
+    rasToVtkMatrix NMTOKENS "1 0 0 0  0 -1 0 0  0 0 1 0  0 0 0 1"
+    positionMatrix NMTOKENS "1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1"
+    colorLUT NMTOKEN ""
+    scanOrder (LR | RL | SI | IS | AP | PA) "SI"
+    description CDATA ""
+    scalarType (Int8 | UnsignedInt8 | Int16 | UnsignedInt16 | Int32 | UnsignedInt32 | Float4 | Float8) "Int16"
+    numScalars NMTOKEN "1"
+    labelMap (true | false) "false"
+    interpolate (true | false) "true"
+    littleEndian (true | false) "false"
+    tilt NMTOKEN "0.0"
+    autoWindowLevel (true | false) "true"
+    window CDATA "256"
+    level CDATA "128"
+    applyThreshold (true | false) "false"
+    autoThreshold (true | false) "false"
+    lowerThreshold CDATA "-32768"
+    upperThreshold CDATA "32767"
+    ignore (true | false) "false"
+    imageRange NMTOKENS "1 1"
+    dimensions NMTOKENS "256 256"
+    spacing NMTOKENS "1 1 1"
+    transferFunction IDREF #IMPLIED>
+
+<!ELEMENT Model (#PCDATA)>
+<!ATTLIST Model 
+    name NMTOKEN ""
+    fileName CDATA  #REQUIRED
+    color NMTOKEN ""
+    description CDATA ""
+    opacity NMTOKEN "1.0"
+    visibility (true | false) "true"
+    clipping (true | false) "false"
+    backfaceCulling (true | false) "true"
+    scalarVisibility (true | false) "false"
+    ignore (true | false) "false"
+    scalarRange NMTOKENS "0 100">
+
+<!ELEMENT Color (#PCDATA)>
+<!ATTLIST Color 
+    name NMTOKEN #REQUIRED
+    description CDATA ""
+    diffuseColor NMTOKENS "1.0 1.0 1.0"
+    ambient NMTOKEN "0.0"
+    diffuse NMTOKEN "1.0"
+    specular NMTOKEN "0.0"
+    power NMTOKEN "1"
+    labels NMTOKEN "">
+
+<!ELEMENT Options (#PCDATA)>
+<!ATTLIST Options 
+    program CDATA #REQUIRED
+    content CDATA "">
+
+<!ELEMENT ModelGroup (ModelGroup | Model)*>
+<!ATTLIST ModelGroup 
+    name NMTOKEN #REQUIRED
+    description CDATA""
+    color NMTOKEN ""
+    opacity NMTOKEN "1.0"
+    visibility (true | false) "true">
+
+<!ELEMENT TransferFunction ((TFPoint)* | WindowLevel)>
+<!ATTLIST TransferFunction name ID #REQUIRED>
+
+<!ELEMENT WindowLevel (#PCDATA)>
+<!ATTLIST WindowLevel
+    autoWindowLevel (true | false) "true"
+    window CDATA "256"
+    level CDATA "128"
+    applyThreshold (true | false) "false"
+    autoThreshold (true | false) "false"
+    lowerThreshold CDATA "-32768"
+    upperThreshold CDATA "32767">
+
+<!ELEMENT TFPoint (#PCDATA)>
+<!ATTLIST TFPoint 
+    r NMTOKEN "0"
+    g NMTOKEN "0"
+    b NMTOKEN "0">
+
+<!ELEMENT ColorLUT (#PCDATA)>
+<!ATTLIST ColorLUT 
+    name NMTOKEN #REQUIRED
+    numberOfColors NMTOKEN "256"
+    fileName CDATA ""
+    hueRange NMTOKENS "0 0.8"
+    saturationRange NMTOKENS "0 0"
+    valueRange NMTOKENS "0 1"
+    annoColor NMTOKENS "1 0 0">
+

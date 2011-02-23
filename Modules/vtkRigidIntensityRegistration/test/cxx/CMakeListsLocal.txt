@@ -1,0 +1,60 @@
+# Find ITK
+INCLUDE (${CMAKE_ROOT}/Modules/FindITK.cmake)
+
+
+
+# Use ITK.  This sets up include/link directories for us.
+IF (USE_ITK_FILE)
+  INCLUDE(${USE_ITK_FILE})
+ENDIF(USE_ITK_FILE)
+
+
+SET( LOCAL_MODULE_SRCS
+ 
+)
+
+SET ( LOCAL_NO_WRAP_SRC
+  MultiResMIRegistration.cxx
+  TestKL-simple.cxx
+)
+
+ADD_EXECUTABLE(TestMI1 MultiResMIRegistration.cxx)
+ADD_EXECUTABLE(TestKL-simple TestKL-simple.cxx)
+
+#### if you code depends on SlicerBase, uncomment the 
+#### INCLUDE_DIRECTORIES and LINK_LIBRARIES
+#### lines below
+####
+INCLUDE_DIRECTORIES( 
+   ${VTKSLICERBASE_SOURCE_DIR}/cxx 
+   ${VTKSLICERBASE_BUILD_DIR}
+)
+
+# To add a list of additional libraries you need to link with, uncomment
+# the following line.  The library names should omit the "lib" and any
+# trailing suffix.
+# LINK_LIBRARIES (${LOCAL_LIBRARY_BASENAME} library_names_here)
+
+
+# Here's the rule to create the implementation C++ library.
+# It should happen in the CMakeLists.txt file that includes this one,
+# but because of a CMake bug that doesn't work.
+#
+
+
+# Add additional directories to look in for libraries
+#LINK_DIRECTORIES(
+##${VTKMYCLASS_SOURCE_DIR}/lib
+#)
+#
+LINK_LIBRARIES (
+${LOCAL_LIBRARY_BASENAME}
+ITKAlgorithms
+ITKNumerics 
+ITKCommon
+ITKBasicFilters
+ITKNumerics
+ITKBasicFilters
+ITKIO
+)
+

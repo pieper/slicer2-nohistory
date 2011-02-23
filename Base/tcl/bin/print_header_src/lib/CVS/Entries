@@ -1,0 +1,27 @@
+/datadict.h/1.1/Wed Nov  9 20:39:16 2005//
+/dheader.h/1.1/Wed Nov  9 20:39:16 2005//
+/dicom.h/1.1/Wed Nov  9 20:39:16 2005//
+/fileops.h/1.1/Wed Nov  9 20:39:17 2005//
+/genesis_hdr_def.h/1.1/Wed Nov  9 20:39:17 2005//
+/genesis_pixeldata.h/1.1/Wed Nov  9 20:39:17 2005//
+/idbm_err_def.h/1.1/Wed Nov  9 20:39:17 2005//
+/idbm_hdr_def.h/1.1/Wed Nov  9 20:39:17 2005//
+/imageFileOffsets.h/1.1/Wed Nov  9 20:39:17 2005//
+/image_info.h/1.1/Wed Nov  9 20:39:17 2005//
+/image_info_private.h/1.1/Wed Nov  9 20:39:17 2005//
+/make_darwin/1.1/Wed Nov  9 20:33:00 2005//
+/make_gnu/1.1/Wed Nov  9 20:33:00 2005//
+/make_share_solaris/1.1/Wed Nov  9 20:33:00 2005//
+/make_solaris/1.1/Wed Nov  9 20:33:00 2005//
+/make_sun/1.1/Wed Nov  9 20:33:00 2005//
+/offsets.h/1.1/Wed Nov  9 20:39:17 2005//
+/siemens_hdr_def.h/1.1/Wed Nov  9 20:39:17 2005//
+/signa_header.h/1.1/Wed Nov  9 20:39:17 2005//
+/spect.h/1.1/Wed Nov  9 20:39:17 2005//
+/spl_get_image_info.c/1.1/Wed Nov  9 20:33:00 2005//
+/spl_get_image_info_fast.c/1.1/Wed Nov  9 20:33:00 2005//
+/spl_get_vol.c/1.1/Wed Nov  9 20:33:00 2005//
+/spl_put_vol.c/1.1/Wed Nov  9 20:33:00 2005//
+/spl_read_image.c/1.1/Wed Nov  9 20:33:00 2005//
+/spl_write_image.c/1.1/Wed Nov  9 20:33:00 2005//
+D

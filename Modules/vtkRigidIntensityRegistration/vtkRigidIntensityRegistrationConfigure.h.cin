@@ -1,0 +1,21 @@
+/* 
+ * Here is where system computed values get stored.
+ * These values should only change when the target compile platform changes.
+ */
+
+#cmakedefine VTKRIGIDINTENSITYREGISTRATION_BUILD_SHARED_LIBS
+#ifndef VTKRIGIDINTENSITYREGISTRATION_BUILD_SHARED_LIBS
+#define VTKRIGIDINTENSITYREGISTRATION_STATIC
+#endif
+
+#if defined(WIN32) && !defined(VTKRIGIDINTENSITYREGISTRATION_STATIC)
+#pragma warning ( disable : 4275 )
+
+#if defined(vtkRigidIntensityRegistration_EXPORTS)
+#define VTK_RIGIDINTENSITYREGISTRATION_EXPORT __declspec( dllexport ) 
+#else
+#define VTK_RIGIDINTENSITYREGISTRATION_EXPORT __declspec( dllimport ) 
+#endif
+#else
+#define VTK_RIGIDINTENSITYREGISTRATION_EXPORT
+#endif

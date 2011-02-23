@@ -1,0 +1,58 @@
+<title>Possible caveats</title>
+
+
+<h3>Some Slicer caveats and some possible solutions </h3>
+<p>
+Slicer is a research effort and a work in progress. As such, there are
+many features that don't always work in all cases. Here are some
+known issues and some ways to deal with them.
+</p>
+<ul>
+<li>My data is 512x512 resolution and this seems to confuse Slicer.
+<p>
+Originally, Slicer was designed for images that are 256x256 resolution.
+However, Slicer has been modified to accommodate 512x512 and larger images.
+If your data is 512x512,
+and Slicer is still having difficulties handling it,
+try reducing the resolution of your data to 256x256 resolution.
+If you do this, please realize that:
+<ul>
+<li> Your reduced number of pixels will now be twice as big as they were,
+since there are half as many pixels in the X direction
+and half as many in the Y-direction after reduction.</li>
+<li> In most cases, the reduced data sets look visually acceptable.
+But, since there is one-fourth the information in each reduced slice,
+some smaller structures may not be acceptable for viewing or editing.
+</li>
+</ul>
+</p>
+</li>
+
+<li> The headers on my data are confusing Slicer.
+<p>
+Some users find that things work best if they record the information about their images manually,
+and then throw the headers away.
+Any data that you create and save with Slicer will be written out in no-header format and numbered
+<code>slice.001</code> to <code>slice.xxx</code> where xxx is the highest numbered slice.
+</p>
+</li>
+
+<li>When I try to save my changes, Slicer crashes and prints a "Segmentation fault" message.
+
+<p>
+Segmentation fault is usually caused by one of two reasons:
+<ul>
+<li>The user is trying to write data to a directory that is owned by
+another user.</li>
+<li>The user is trying to write data to a full file system.
+To check if the file system is full, change to the directory where the data is
+and try to copy one image to a temporary file in the same directory (for example, <code>cp I.001 junk</code>).
+If this does not work, then the file system is likely full.
+Note that the <code>df</code> command does not always give the correct results,
+so the above approach is preferred
+</li>
+</ul>
+</p>
+</li>
+</ul>
+

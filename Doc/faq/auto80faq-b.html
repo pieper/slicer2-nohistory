@@ -1,0 +1,52 @@
+<title>tcl/vtk*Tcl.cxx: syntax error before 'found'</title>
+
+<li class=faq>
+<p class=question>
+As I'm compiling Slicer, the VTK files in the Tcl directory are
+generating errors similar to this:<br>
+<pre></pre>
+<p class=code>tcl/vtkImageAccumulateDiscreteTcl.cxx:1: syntax
+error before 'found'</p>
+
+<p class=answer>
+
+The automatic wrapper generator failed, since the parser wasn't able to
+read the input file properly. This is most likely due to saving the files in
+a different operating system format than the parser is running on. For
+example, if the source was transferred from Windows, but was being compiled
+under Linux.
+
+<p class=answer>
+
+Here's how VTK works with Tcl/Tk.
+You can get shared libraries by compiling VTK.
+However, Tcl/Tk is able to
+use code from shared libraries only if they are in a specific format.
+Unfortunately, VTK is not in this format.
+That's why VTK has the ability to generate
+another shared library, which will be the "bridge" between the two.
+To do this, a special program parses all the VTK class headers and
+generates a new C file (called, for example, <code>vtkImageAccumulateDiscreteTcl.cxx</code>).
+The resulting C file will then be compiled.
+This parser has some limitations, though: it can only accept a subset of legal C and C++ syntax.
+If some error does occur, it will generate a C file containing only one line
+and this will make the compiler stop.
+
+<p class=answer>
+
+If <code>vtkImageAccumulateDiscrete</code> is correct, you probably transferred the
+source from Windows and the sources are in DOS text mode.  This is
+usually not a problem for compilers, but it may confuse the
+parser.
+
+<p class=answer>
+
+If this is the case, use the <a href="http://www.bastet.com/software/software.html"><code>dos2unix</code></a> utility to convert <code>vtkImageAccumulateDiscreteTcl.h</code>
+in your local directory and compile again. This should give you an error
+message also, but, hopefully, with the next file, you will see a valid
+<code>vtkImageAccumulateDiscreteTcl.cxx</code> in your Tcl directory. Then you must convert
+the rest of your files to UNIX mode and compile again.
+
+</li>
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE AUTO SYSTEM "../auto.dtd">
+<auto>
+<title>MRMLaid</title>
+
+<teaser>
+Medical Reality Modeling Language
+</teaser>
+
+<summary>
+MRML is a format for describing 3D scenes that consist of various types of 
+medical data sets collected in various geometric locations.
+</summary>
+</auto>

@@ -1,0 +1,1 @@
+Synapse image, generated from scan.

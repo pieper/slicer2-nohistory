@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE AUTO SYSTEM "../auto.dtd">
+<auto>
+<title>Segmentation Guide</title>
+
+<teaser>
+An Introduction to the Suite
+<br>of Segmentation Tools.</br>
+</teaser>
+
+<summary>
+Volumetric data can be semi-automatically segmented using  
+editing tools such as thresholding, morphological operations, 
+island-removal, free-hand drawing, and more.
+</summary>
+
+</auto>

@@ -1,0 +1,22 @@
+This is a snapshot of an anonymous checkout of the slicer2 cvs
+repository checked out with these commands:
+
+cvs -d :pserver:anonymous@cvs.spl.harvard.edu:/projects/cvs/slicer login
+
+Enter 'bwhspl' as the password and then
+
+cvs -z3 -d :pserver:anonymous@cvs.spl.harvard.edu:/projects/cvs/slicer checkout slicer2
+
+3D Slicer version 2 is no longer actively developed, but is still available
+for binary download at slicer.org.
+
+A lot of training material is available, which serves as examples of what
+is possible with the platform:
+
+http://wiki.na-mic.org/Wiki/index.php/Slicer:Workshops:User_Training_101
+
+Many of the 207 slicer-related publications at this site were
+based on slicer2:
+
+http://www.na-mic.org/publications/pages/display/?collection=11&entriesPerPage=50
+

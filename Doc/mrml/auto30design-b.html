@@ -1,0 +1,29 @@
+<title>Hierarchical Structure</title>
+
+
+Transforms along each branch are concatenated to form a composite
+transform applied to the leaf node.
+<br>The figure below displays
+an example MRML file and the tree-like graph it represents.  The order of nodes
+in the file defines the tree structure; each transform is a parent
+node, and all the nodes following it (until the next transform)
+are its children. In the figure, the transform for the last volume in
+the file is the concatenation of all the transforms in the file.  More
+complex trees, such as where multiple siblings have children, can be
+constructed.
+
+<center>
+<img src='images/mrml.jpg' border=0>
+</center>
+
+<p>
+In the figure above, pre-operative volumes named <code>spgr</code> and <code>fmri</code> were
+registered, and the <code>fMRI</code> transform was computed to align the <code>fmri</code>
+volume to the <code>spgr</code>. Then, the <code>Pre-op</code> transform was computed to
+align this fused, pre-operative data to the intra-operative volume
+called <code>intra</code>.  Thus, the transform applied to the <code>fmri</code> volume is
+the concatenation of both transform nodes in the MRML file.
+</p>
+
+
+

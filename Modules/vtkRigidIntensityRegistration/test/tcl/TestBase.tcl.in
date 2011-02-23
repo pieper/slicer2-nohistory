@@ -1,0 +1,55 @@
+#
+# Need to source in the correct libraries
+#
+
+package require vtk;
+package require vtkRigidIntensityRegistration;# this pulls in the package
+
+set SLICER_DATA_ROOT ${SLICER_DATA_ROOT}
+set DATA1    $SLICER_DATA_ROOT/RigidRegData/MRT
+set NumX     256
+set NumY     256
+set NumZ     60
+set SpaceX   0.9375
+set SpaceY   0.9375
+set SpaceZ   3
+
+## transferring matricies to itk OK?
+source TestParamToMatrix.tcl
+
+## Does a Simple KL Test work?
+source TestKL-simple.tcl
+
+##
+## For these tests, we test for an error of 0.05, though the errors
+## are between 0.02 and 0.03. Should be good enough though...
+
+## Simple, Centered Images
+source TestMIReg-CenteredImages.tcl
+TestMutualInformationTransform $DATA1 $NumX $NumY $NumZ \
+                               $SpaceX $SpaceY $SpaceZ
+
+## Now, un-center the images
+source TestMIReg-UnCenteredImages.tcl
+TestMutualInformationTransform $DATA1 $NumX $NumY $NumZ \
+                               $SpaceX $SpaceY $SpaceZ
+
+## Now, tests with flipping
+source TestMIReg-FlippedCenteredImages.tcl
+TestMutualInformationTransform $DATA1 $NumX $NumY $NumZ \
+                               $SpaceX $SpaceY $SpaceZ
+
+
+source TestMIReg-FlippedUnCenteredImages.tcl
+TestMutualInformationTransform $DATA1 $NumX $NumY $NumZ \
+                               $SpaceX $SpaceY $SpaceZ
+
+#source TestMIReg-DoubleRead.tcl
+#source TestMIReg-FlipDoubleRead.tcl
+
+# Does not work, and is covered by other tests
+# source TestMIReg-FlippedOnlyCenteredImages.tcl
+# TestMutualInformationTransform $DATA1 $NumX $NumY $NumZ \
+#	 			$SpaceX $SpaceY $SpaceZ 
+
+exit

@@ -1,0 +1,21 @@
+<title>Explain Script Files</title>
+
+<li class=faq>
+<p class=question>
+How does Slicer start up, and what are all these script files for?
+<p class=answer>
+The <code>README.scripts</code> file in the <code>slicer2/Scripts</code> directory describes
+the purpose and usage of each script. Here are excerpts from that file:
+<ul>
+<li><code>slicer2/launch.tcl</code>: Called from slicer2-[osname]. Bootstraps the slicer.</li>
+<li><code>slicer2/Scripts/cmaker.tcl</code>: Builds Slicer.</li>
+<li><code>slicer2/Scripts/genlib.tcl</code>: Builds Slicer's support libraries.</li>
+<li><code>slicer2/Scripts/tarup.tcl</code>: Archives Slicer for binary distribution.</li>
+<li><code>slicer2/Scripts/comment</code>: Comments Tcl files.</li>
+<li><code>slicer2/Scripts/document.tcl</code>: Creates the Slicer website. Requires doxygen to build the C++ documentation.</li>
+<li><code>slicer2/Scripts/mrmlize</code>: Creates a MRML (Medical Reality Modeling Language) file for a volume.</li>
+<li><code>slicer2/Scripts/printmrml</code>: Prints a MRML file.</li>
+</ul>
+</li>
+
+

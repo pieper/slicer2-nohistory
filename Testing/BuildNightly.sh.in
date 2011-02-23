@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Do a Nightly Build"
+cd @VTKSLICER_BINARY_DIR@
+"@TCL_TCLSH@" "@DART_ROOT@/Source/Client/DashboardManager.tcl" DartConfiguration.tcl Nightly Start Update Configure Build Test Submit

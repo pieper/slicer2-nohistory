@@ -1,0 +1,139 @@
+<title>Viewing Volumes</title>
+
+<p>After loading volumes, you can optimize how you view them.</p>
+
+<p>Slicer has multiple configurations to display volumes.
+By default, the normal view is selected. In normal view, the viewer window is divided
+into two sections.
+<br>The upper portion of the view
+window shows the 3D formatted version.</p>
+<p><img src="images/viewer_normal_volume_3d_2d.jpg"></p>
+<p>In the lower quarter of the viewer window, a 2D multi-plane
+formatted version of the volume is shown.
+</p>
+
+<h3>2D Window Controls</h3>
+
+<ul>
+
+  <li>There are three 2D windows (red, yellow, and green).
+  You can select both grayscale and label map volumes into each of the 2D windows.
+  For example, Slicer will automatically put the Axial grayscale volumes into the first (red) 2D window as the background layer.          </li>
+  <li>In each 2D window, the <b>slider</b> selects which slice of the volume to display.
+    The numerical field shows the slice number.</li>
+  <li>The <b>V</b> toggle button controls whether the selected slice is visible in the 3D viewer or     not. In the figure above, only the slice from the green window is visible in the 3D viewer. </li>
+  <li>There is an <b>Or</b> (scan order), <b>Bg</b> (background), <b>Fg</b> (foreground),
+  and <b>Lb</b> (label map) button
+  for each of the three 2D windows.         </li>
+  <ul>
+    <li>Use <b>Or</b> to change the scan order in each 2D window.
+      For example, you can use the Axial view in the first 2D window,
+      the Coronal in the second, and the Saggital in the third window.
+      Or you can use the Coronal view in the first and the other two views in the other two windows.
+      Or you can set each view individually, to suit your need.        </li>
+    <li>Use <b>Bg</b> to select which volume to put in the background layer.        </li>
+    <li>Use <b>Fg</b> to select a volume for the foreground layer,
+     which is superimposed over the background layer.         </li>
+    <li>Use <b>Lb</b> to select label map volumes for the label map layer,
+    to display results of a segmentation. Volumes loaded into the label map layer
+    will appear as outlines around the structures that were segmented.
+    (You can use Slicer to create label maps, and also to make models from them.)        </li>
+  </ul>
+  <li>Use the <b>Fade</b> vertical slider (in the lower left of the <b>Menu</b> window)
+to fade from the images displayed in the background (<b>Bg</b>) layer
+to the images displayed in the foreground (<b>Fg</b>) layer.
+This is useful for checking alignment or coverage of a label map, for example.</li>
+
+</ul>
+
+
+<h3>Adjusting <b>Window/Level</b></h3>
+
+<p>By adjusting the <b>Window</b>/<b>Level</b>
+of the volume, you can optimize displaying the region of interest of gray-scale volumes.
+Adjust the <b>Level</b> value until the dark areas become barely
+visible. Then adjust the <b>Window</b> value so that the bright areas are not
+saturated into white. You may need to go back and forth to readjust until
+you have optimally displayed your data.</p>
+
+<p>To adjust the <b>Window</b>/<b>Level</b> of a volume:</p>
+
+<ol>
+<li>Click <b>Volumes</b> on the <b>Main</b> menu.
+<br><img src="images/main_menu.jpg">
+<br>The <b>Volumes</b>
+panel appears.</li>
+<li>Select the <b>Display</b> tab.
+</li>
+<li>From the <b>Active Volume</b> pull-down menu,
+select a volume.
+<p><img src="images/volumes_display_tab_windowlevel.jpg"></p>
+</li>
+<li>Move the sliders, or click <b>Auto</b>,
+to adjust the display properties of the volume.</li>
+
+</ol>
+
+
+<h3>Using <b>Threshold</b> to Display</h3>
+
+<p>By adjusting the <b>Threshold</b> of the volume, you can limit the display to labels whose values fall within the threshold range.</p>
+
+<p>To adjust the <b>Threshold</b> of a volume:</p>
+
+<ol>
+<li>Click <b>Volumes</b> on the <b>Main</b> menu.
+<br><img src="images/main_menu.jpg">
+<br>The <b>Volumes</b>
+panel appears.</li>
+<li>Select the <b>Display</b> tab.
+</li>
+<li>From the <b>Active Volume</b> pull-down menu,
+select a volume.
+<p><img src="images/volumes_display_tab_threshold.jpg"></p>
+</li>
+<li>Toggle <b>Apply</b> to apply or not apply the threshold. <b>Apply</b> is selected automatically if you select <b>Auto</b>, or move the <b>Lo</b> or <b>Hi</b> sliders.</li>
+<li>Move the <b>Lo</b> slider to the lower limit you want, or click <b>Auto</b> for automatic threshold.</li>
+<li>Move the <b>Hi</b> slider to the upper limit you want, or click <b>Auto</b> for automatic threshold.</li>
+
+</ol>
+
+<p>To define the upper and lower limit of the <b>Threshold</b> sliders:</p>
+<ol>
+<li>Click <b>Volumes</b>, then click the <b>Other</b> tab. This tab appears.
+<p><img src="images/volumes_other_tab.jpg"></p></li>
+<li>Select either <b>Auto</b> or <b>Manual</b> for <b>Slider Range</b>.</li>
+<li>Enter values for the <b>Low</b> and <b>High</b> values of the <b>Slider Range</b>.</li>
+</ol>
+
+
+<h3>Color Palette</h3>
+
+
+<p>You can select a color scheme to colorize your gray-scale
+volume.
+This can help you distinguish different regions of interest better.</p>
+<p>Use the <b>Palette</b> pull-down menu (on the <b>Display </b>tab of the <b>Volumes
+</b>panel) to select one of seven available color schemes:
+<br><b>Gray</b>, <b>Iron</b>, <b>Rainbow</b>, <b>Ocean</b>, <b>Desert</b>, <b>InvGray</b>, or <b>Label</b>.</p>
+<p><img src="images/volumes_display_tab_palette_menu.jpg"></p>
+
+<h3>Image Fusion</h3>
+
+
+<p>Use the <b>Fade</b> vertical slider (in the lower left of the <b>Menu</b> window)
+to fade from the images displayed in the background (<b>Bg</b>) layer
+to the images displayed in the foreground (<b>Fg</b>) layer.
+This is useful for checking alignment or coverage of a label map, for example.</p>
+<p>
+<img src="images/user_interface_panel_fade_slider.jpg">
+</p>
+
+<p>
+In the example below,
+the images in the background are grayscale (non-brain) images and the images in
+the foreground are label map or segmented (brain) images.</p>
+
+<p>
+<img src="images/fusion-2.jpg">
+</p>

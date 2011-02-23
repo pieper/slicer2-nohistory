@@ -1,0 +1,12 @@
+ARCH = solaris
+CFLAGS = -g $(FLOAT_OPTION)
+SPLIOLIB = lib/$(ARCH)/splio.a
+OBJECTS = $(ARCH)/print_header.o
+DICOMLIBS = -lsocket -lnsl -lani -lani_uls -lani_dsk -lani_tcp -lani_stub -lani
+
+print_header-$(ARCH) : $(OBJECTS) $(SPLIOLIB)
+	$(CC) -o print_header-$(ARCH) $(OBJECTS) $(CFLAGS) $(SPLIOLIB) \
+	$(DICOMLIBS) -lm 
+
+$(OBJECTS): print_header.c
+	$(CC) -o $(OBJECTS) -c print_header.c $(CFLAGS)

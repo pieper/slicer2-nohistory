@@ -1,0 +1,11 @@
+# This line is the label that tells the code that this is a pattern file
+vtkDTMRIprotocol
+
+ 
+# Enter a new pattern in the following order
+
+# Name NoOfGradients FirstGradient LastGradient FirstBaseLine LastBaseLine Lebihan GradientDirections
+
+
+ 
+6 1 6 7 7 1000 {{0 1 1} {0 -1 1} {-1 0 1} {-1 0 -1} {-1 1 0} {1 1 0}} SLICE

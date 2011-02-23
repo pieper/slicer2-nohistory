@@ -1,0 +1,37 @@
+<title>Creating 3D Models with Slicer</title>
+
+
+One of the most important uses of Slicer is to create three dimensional reconstructions
+of anatomical structures, using two dimensional slices as input.
+This type of reconstruction is called a 3D model.
+The input to this process is label map data that has been
+created with Slicer's editing tools.
+
+<br>To create a 3D model:
+<ol>
+<li>From the <b>Main</b> menu, click <b>ModelMaker</b>. The <b>ModelMaker</b> panel appears.</li>
+<li>Click the <b>Create</b> tab. The <b>Create</b> panel appears.</li>
+<center>
+<img SRC="images/create_model_if.gif" ></center>
+<li>Select the <b>Volume</b>.</li>
+<li>Click <b>Label</b> and select a color, or enter a <b>Label</b> color number.
+This is the value that will be used to create the model.
+This should correspond to the value in the label map.</li>
+<li>Enter a <b>Name</b> for this model.
+</li>
+<li>Enter a <b>Smooth</b> value, which controls how smooth the resulting model will be.</li>
+<li>Enter a <b>Decimate</b> value, which indicates how redundant polygons will be reduced.</li>
+<li>Click <b>Create</b> to start the model creation process.</li>
+</ol>
+
+Here is an example.
+Below is a skull image segmented using the <b>Threshold</b> effect.
+All voxels labeled 4 (blue) will be included in the resulting model.
+<center>
+<img SRC="images/threshold_skull.gif" >
+</center>
+<p>Below is the resulting 3D skull model.
+<center>
+<img SRC="images/skull_model.gif" ></center></p>
+
+

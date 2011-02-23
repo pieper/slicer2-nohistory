@@ -1,0 +1,18 @@
+#! /bin/csh -f
+
+### Test the ModelCompare module, Array functionality.
+### Look in TestModelCompareArray.tcl to see how the test works.
+
+if (${?SLICER_HOME} == 0) then
+  echo MUST set SLICER_HOME!!
+  exit -1
+endif
+
+if (${?SLICER_DATA} == 0) then
+  echo MUST set SLICER_DATA!!
+  exit -1
+endif
+
+setenv SLICER_SCRIPT $SLICER_HOME/Base/tests/TestModelCompareArray.tcl
+
+slicer

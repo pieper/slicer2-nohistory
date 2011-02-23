@@ -1,0 +1,43 @@
+
+Slicer2 Launcher info - sp 2002-09-10
+
+Important files:
+	slicer2.vfs/main.tcl --- controls the launch processes
+	make-launcers.tcl --- regenerates the toplevel executables
+
+This launcher code addresses a long-standing issue about
+just how to conveniently have different slicer versions
+in arbitrary directories.  The old method was to set the SLICER_HOME
+variable in the script (either slicer or slicer.bat) and let
+it be overridden by an environment variable, but this was 
+confusing to users and prone to error.
+
+This method uses the tcl-plus-script-in-a-binary method so there's
+a single entry point to slicer that automatically sets the SLICER_HOME
+variable before launching the appropriate shell or batch script.
+
+Ultimately, we can put more and more of the functionality of the shell
+and batch script into the startup script in the launcher, but for now it's 
+just a simple dialog and passing the args.
+
+The linux and solaris versions use the brand new "starpack" concept
+(see www.equi4.com) and can be generated using the make-launcher.tcl
+script.  These are build by running make-launchers.tcl on any platform.
+The incorporate slicer2.vfs/main.tcl into the newly created executable.
+
+Be sure to run tclkitsh where available (windows) to avoid entering into 
+an infinite loop in the tk event loop.
+
+//// comment from older version: this has been fixed as of 2002-10-22
+//
+//In the current version (8.4 200209) starpacks don't work right on windows,
+//but fortunately there's another solution called freewrap that works
+//for windows (see http://freewrap.sourceforge.net/).  To make this
+//just run:
+//	freewrap.exe slicer2-win32.tcl
+//and copy the new executable to the toplevel.
+//
+//A bug report has been filed on the starpack issue and hopefully
+//a future release will let us unify the platforms and move more
+//functionality into the starpack.
+////

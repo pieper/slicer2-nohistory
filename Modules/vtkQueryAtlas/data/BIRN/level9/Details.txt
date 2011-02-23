@@ -1,0 +1,12 @@
+Interim Gene Symbol and Name: 
+  DAT1: neuronal specific
+    transcription factor DAT1.
+  LocusID: 55885.
+Proteome Summary: May mediate
+  protein-protein interactions;
+  contains LIM domains.
+Locus Type: gene with protein
+  product, function known or
+  inferred.
+Product: neuronal specific 
+  transcription factor DAT1.

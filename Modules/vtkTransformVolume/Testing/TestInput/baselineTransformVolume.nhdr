@@ -1,0 +1,13 @@
+NRRD0004
+# Complete NRRD file format specification at:
+# http://teem.sourceforge.net/nrrd/format.html
+type: short
+dimension: 3
+space: left-posterior-superior
+sizes: 256 256 269
+space directions: (0.9375,0,0) (0,0,-0.9375) (0,-0.9375,0)
+kinds: domain domain domain
+endian: little
+encoding: gzip
+space origin: (-119.531,125.625,119.531)
+data file: baselineTransformVolume.raw.gz

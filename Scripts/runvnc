@@ -1,0 +1,233 @@
+#!/bin/sh
+# the next line starts tcl \
+exec tclsh "$0" "$@"
+
+#
+# simple command line argument parsing
+#
+
+set VERSION 1.0
+
+proc Usage { {msg ""} } {
+    
+    set msg "$msg\nusage: runvnc \[options\] \[command\]"
+    set msg "$msg\n  \[options\] is one of the following:"
+    set msg "$msg\n   -h | --help : prints this message and exits"
+    set msg "$msg\n   :<number> | -d <number> | --display <number> : use the specified display number"
+    set msg "$msg\n   --Xvnc <path to X server>"
+    set msg "$msg\n   --wm <path to window manager>"
+    set msg "$msg\n   --not-secure : accept connections from other hosts"
+    set msg "$msg\n   -rfbauth : vnc passwd file"
+    set msg "$msg\n   -v | --verbose : increase debugging level"
+    set msg "$msg\n   --version : print out the version info and continue"
+    puts stderr "$msg\n"
+    exit 1
+}
+
+#
+# simple arg parsing 
+#
+set DISPLAY ""
+set VERBOSE 0
+set XVNC [file dirname [info script]]/Xvnc
+set WM ""
+set AUTHORIZATION "-localhost"
+set RFBAUTH "$::env(HOME)/.vnc/passwd"
+#set WM gnome-session
+#set WM /usr/bin/startkde
+
+set strippedargs ""
+set argc [llength $argv]
+for {set i 0} {$i < $argc} {incr i} {
+    set a [lindex $argv $i]
+    switch -glob -- $a {
+        "--verbose" - "-v" {
+            set VERBOSE 1
+        }
+        "--help" - "-h" {
+            Usage
+            exit 0
+        }
+        "-d" - "--display" {
+            incr i
+            if { $i == $argc } {
+                Usage "missing argument for $a\n"
+            } else {
+                set DISPLAY [lindex $argv $i]
+            }
+        }
+        ":*" {
+            set DISPLAY [string range $a 1 end]
+            if { ![string length $DISPLAY] } {
+                Usage "missing display number :\n"
+            }
+        }
+        "--xvnc" - "--Xvnc" {
+            incr i
+            if { $i == $argc } {
+                Usage "missing argument for $a\n"
+            } else {
+                set XVNC [lindex $argv $i]
+            }
+        }
+        "--wm" - "--WM" {
+            incr i
+            if { $i == $argc } {
+                Usage "missing argument for $a\n"
+            } else {
+                set WM [lindex $argv $i]
+            }
+        }
+        "--not-secure" {
+            puts stderr "warning: allowing connections from anywhere"
+            set AUTHORIZATION "-rfbauth /home/pieper/.vnc/passwd"
+        }
+        "--rfbauth" -
+        "-rfbauth" {
+            incr i
+            if { $i == $argc } {
+                Usage "missing argument for $a\n"
+            } else {
+                set RFBAUTH [lindex $argv $i]
+            }
+        }
+        "-v" - "--version" {
+            puts $VERSION
+        }
+        "--" {
+            incr i
+            set strippedargs [concat $strippedargs [lrange $argv $i end]]
+            break
+        }
+        "-*" {
+            Usage "unknown option $a\n"
+        }
+        default {
+            lappend strippedargs $a
+        }
+    }
+}
+set argv $strippedargs
+set argc [llength $argv]
+
+#
+# find an open display number to use
+# - port = 5900 + display
+#   so look for unused port to determine the display
+#
+proc echo {args} {puts $args}
+
+if { $DISPLAY == "" } {
+    # look for an open port
+    for {set p 5900} {$p < 6000} {incr p} {
+        if { ![ catch "set sp \[socket -server echo $p\]" ] } {
+            set DISPLAY [expr $p - 5900]
+            close $sp
+            break
+        }
+    }
+}
+
+if { $DISPLAY == "" } {
+    puts stderr "couldn't find a free vnc display port between 5900 and 6000"
+    exit -1
+} else {
+    puts "using display :$DISPLAY"
+}
+
+
+#
+# start the server
+#
+
+set LOGDIR $::env(HOME)/runvnclogs
+if { ![file exists "$LOGDIR"] } {
+    file mkdir $LOGDIR
+}
+
+set STARTDATE [exec date -Iseconds]
+
+set LOGFILE $LOGDIR/runvnclog-[pid]-$STARTDATE
+
+#
+# look for the fonts - special trick for compute nodes that don't have
+# a full X distribution
+#
+set fparg ""
+set fpdirs {/usr/X11R6/lib/X11/fonts /usr/share/X11/fonts ~/fonts birn/lib/fonts}
+foreach fpdir $fpdirs {
+    if { [file isdirectory $fpdir] } {
+        set fparg "/dev/null" ;# start with a dummy for simplicity
+        foreach fdir [glob $fpdir/*] {
+            set fparg "$fparg,$fdir"
+        }
+    }
+}
+
+if { $AUTHORIZATION == "-localhost" } {
+    # local only - must be accessed through tunneled ssh using vnc command
+    #set vncpid [exec $XVNC :$DISPLAY -fp $fparg -alwaysshared $AUTHORIZATION -rfbauth $RFBAUTH -depth 32 -geometry 1280x1024 >& $LOGFILE &]
+    set vncpid [exec $XVNC :$DISPLAY -fp $fparg -alwaysshared $AUTHORIZATION -rfbauth $RFBAUTH -geometry 1280x1024 -depth 16  -log *:stderr:100 >& $LOGFILE &]
+} else {
+    # not-secure mode - uses vnc passwords and supports java/browser connections
+    set vncpid [exec $XVNC :$DISPLAY -fp $fparg -alwaysshared -rfbauth $RFBAUTH -rfbwait 2000 -httpd [file dirname [info script]]/vnc-classes -depth 32 -geometry 1280x1024 >& $LOGFILE &]
+}
+
+set tries 0
+
+while { [catch "exec grep Listening $LOGFILE"] } {
+    incr tries
+    if { $tries > 50 } {
+        puts stderr "vnc didn't start correctly (log follows)\n"
+        puts stderr [exec cat $LOGFILE]
+        exit 1
+    }
+    after 100
+}
+
+#
+# start the clients
+#
+
+set env(DISPLAY) :$DISPLAY
+
+if { $WM != "" } {
+    set wmpid [exec $WM &]
+}
+
+set RETURN_CODE 0
+proc file_event {fp} {
+    global END RETURN_CODE
+    if {[eof $fp]} {
+        set RETURN_CODE [catch "close $fp"]
+        set END 1
+    } else {
+        gets $fp line
+        puts $line
+    }
+}
+
+# if there was a command line arg, run the program and then exit
+if { $argc > 0 } {
+    set cmd ""
+    foreach arg $argv {
+        lappend cmd $arg
+    }
+    set fp [open "| csh -c \"$cmd \" |& cat" r]
+
+    fileevent $fp readable "file_event $fp"
+
+    set END 0
+    while { ![catch "pid $fp"] && ![eof $fp] } {
+        vwait END
+    }
+
+
+    if { $WM != "" } {
+        exec kill $wmpid
+    }
+    exec kill $vncpid
+}
+
+exit $RETURN_CODE
+

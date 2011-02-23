@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Transform>
+  <Matrix name='manual' matrix='1 0 0 -3 0 1 0 -12 0 0 1 28 0 0 0 1'></Matrix>
+  <Volume name='SPGR' filePattern='%s.%03d' filePrefix='spgr/I' rasToIjkMatrix='0 -1.06667 0 142.187 0 0 -1.06667 98.1333 0.666667 0 0 59.9667 0 0 0 1' rasToVtkMatrix='0 -1.06667 0 142.187 0 0 1.06667 157.867 0.666667 0 0 59.9667 0 0 0 1' positionMatrix='0 0 1 -89.95 -1 0 0 133.3 0 1 0 -148 0 0 0 1' description='LR' colorLUT='0' window='146' level='76' applyThreshold='yes' lowerThreshold='17' upperThreshold='355' imageRange='1 124'></Volume>
+</Transform>
+<Volume name='all' filePattern='%s.%03d' filePrefix='labels/all' rasToIjkMatrix='0 -1.06667 0 128 0 0 -1.06667 128 0.666667 0 0 62 0 0 0 1' rasToVtkMatrix='0 -1.06667 0 128 0 0 1.06667 128 0.666667 0 0 62 0 0 0 1' positionMatrix='0 0 1 -93 -1 0 0 120 0 1 0 -120 0 0 0 1' description='LR' colorLUT='-1' labelMap='yes' interpolate='no' littleEndian='yes' window='4' level='1' lowerThreshold='0' upperThreshold='0' imageRange='1 124'></Volume>
+<Model name='Skin' fileName='models/Skin.vtk' color='Skin' visibility='no'></Model>
+<Model name='Ventricles' fileName='models/Ventricles.vtk' color='Ventricles' visibility='no'></Model>
+<Model name='Vessels' fileName='models/Vessels.vtk' color='Vessels' visibility='no'></Model>
+<Options program='slicer' content='presets'>
+ View,0,viewUp='0 0 1 ' View,2,viewUp='0.367546 -0.233241 0.900282 ' View,3,viewUp='-0.442903 0.140948 0.885421 ' View,0,position='0 750 0 ' View,2,position='-383.298 227.108 215.322 ' View,3,position='358.357 -260.263 220.687 ' View,0,focalPoint='0 0 0 ' View,2,focalPoint='0 0 0 ' View,3,focalPoint='0 0 0 ' View,0,clippingRange='1 2001 ' View,2,clippingRange='0.659776 1320.21 ' View,3,clippingRange='0.659776 1320.21 ' View,2,viewBgColor='Black'
+ Slices,2,opacity='0.3' Slices,3,opacity='0.0' Slices,2,0,visibility='1' Slices,3,0,visibility='1' Slices,2,0,backVolID='1' Slices,3,0,backVolID='1' Slices,2,0,foreVolID='2' Slices,2,0,labelVolID='2' Slices,3,0,labelVolID='2' Slices,2,1,visibility='1' Slices,3,1,visibility='1' Slices,2,1,backVolID='1' Slices,3,1,backVolID='1' Slices,2,1,foreVolID='2' Slices,2,1,labelVolID='2' Slices,3,1,labelVolID='2' Slices,2,2,visibility='1' Slices,3,2,visibility='1' Slices,2,2,backVolID='1' Slices,3,2,backVolID='1' Slices,2,2,foreVolID='2' Slices,2,2,labelVolID='2' Slices,3,2,labelVolID='2'
+ Models,0,0,visibility='0' Models,2,0,visibility='0' Models,3,0,visibility='1' Models,0,0,opacity='1.0' Models,2,0,opacity='1.0' Models,3,0,opacity='1.0' Models,0,0,clipping='0' Models,2,0,clipping='0' Models,3,0,clipping='1' Models,0,0,backfaceCulling='1' Models,2,0,backfaceCulling='1' Models,3,0,backfaceCulling='0' Models,0,1,visibility='0' Models,2,1,visibility='0' Models,3,1,visibility='1' Models,0,1,opacity='1.0' Models,2,1,opacity='1.0' Models,3,1,opacity='1.0' Models,0,1,clipping='0' Models,2,1,clipping='0' Models,3,1,clipping='0' Models,0,1,backfaceCulling='1' Models,2,1,backfaceCulling='1' Models,3,1,backfaceCulling='1' Models,0,2,visibility='0' Models,2,2,visibility='0' Models,3,2,visibility='1' Models,0,2,opacity='1.0' Models,2,2,opacity='1.0' Models,3,2,opacity='1.0' Models,0,2,clipping='0' Models,2,2,clipping='0' Models,3,2,clipping='0' Models,0,2,backfaceCulling='1' Models,2,2,backfaceCulling='1' Models,3,2,backfaceCulling='1'
+</Options>
+</MRML>

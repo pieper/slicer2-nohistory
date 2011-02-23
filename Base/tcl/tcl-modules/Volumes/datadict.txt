@@ -1,0 +1,32 @@
+#
+# DICOM Data Dictionary
+#
+# Format of AN/API library is used.
+# The data elements list in this file must be defined with the following
+# format:
+#
+#    Group Element VR "Name"
+#
+# The group and element number MUST be defined as hexadecimal numbers.
+# The VR is defined by the DICOM Part 6 document.
+#
+# A VR of OX is used for Data Elements that can be either OW or OB.
+# A VR of DL is used for Delimiters.
+#
+# Improperly formatted lines will be ignored.
+#
+
+0010 0010 PN "Patient's Name"
+0018 0050 DS "Slice Thickness"
+0018 0088 DS "Spacing Between Slices"
+0018 1100 DS "Reconstruction Diameter"
+0020 0013 IS "Image Number"
+0020 0032 DS "Image Position (Patient)"
+0020 1041 DS "Slice Location"
+0028 0010 US "Rows"
+0028 0011 US "Columns"
+0028 0030 DS "Pixel Spacing"
+0028 0100 US "Bits Allocated"
+0028 0101 US "Bits Stored"
+0028 0102 US "High Bit"
+0028 0103 US "Pixel Representation"

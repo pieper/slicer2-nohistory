@@ -1,0 +1,98 @@
+#!/usr/bin/env tclsh
+
+
+proc getSubstitutions {modname} {
+    return [list [list "@Modulename@" $modname] \
+		[list "@MODULENAME@" [string toupper $modname]]]
+
+}
+
+proc substitute {text subs} {
+    foreach sub $subs {
+	regsub -all [lindex $sub 0] $text [lindex $sub 1] text
+    }
+    return $text
+}
+
+proc readAndSubstitute {infile outfile subs} {
+    if {[catch {open $infile r} infd]} {
+	puts stderr "warning: could not open $infile"
+	return
+    }
+
+    if {[catch {open $outfile w} outfd]} {
+	puts stderr "warning: could not open $outfile"
+	close $infd
+	return
+    }
+
+    set outtext [substitute [read $infd] $subs]
+    puts -nonewline $outfd $outtext 
+    close $infd
+    close $outfd
+}
+
+
+proc substituteFiles {modname filelist} {
+    set subs [getSubstitutions $modname]
+
+    foreach infile $filelist {
+	set newfile [substitute $infile $subs]
+	regsub {(.*).in$} $newfile {\1} outfile
+	
+	puts "$infile -> $outfile"    
+	readAndSubstitute $infile $outfile $subs
+    }
+}
+
+proc expandDirectoryGetMatches {modname dir} {
+    set matches {}
+    foreach file [glob -nocomplain [file join $dir *]] {
+	if {[file isdirectory $file] 
+			&& [string match "*@Modulename@*" $file]} {
+		regsub "@Modulename@" $file $modname newdir
+		puts "$file -> $newdir"    
+		file copy $file $newdir
+		set file $newdir
+	}
+	if {[file isdirectory $file]} {
+	    set matches [concat $matches [expandDirectoryGetMatches $modname $file]]
+	}
+	
+	if {[string match "*.in" $file]} {
+	    lappend matches $file
+	}
+    }
+    return $matches
+}
+
+# get the module name and directory
+if {[llength $argv] == 0} {
+    set dirname [file tail [pwd]]
+    regsub {^(vtk)*(.*)} $dirname {\2} modname
+    set dirname .
+
+} elseif {[llength $argv] == 1} {
+    set arg [lindex $argv 0]
+    if {[string first / $arg] != -1 || 
+	  [string first . $arg] != -1
+      } {
+	# user gave only directory
+	set dirname $arg
+	if {"$arg" == "." || "$arg" == "./"} {
+	    set arg [file tail [pwd]]
+	}
+	regsub {^(vtk)*(.*)} $arg {\2} modname
+    } else {
+	regsub {^(vtk)*(.*)} [lindex $argv 0] {\2} modname
+	set dirname .
+    }
+
+} elseif {[llength $argv] > 1} {
+    # two args
+    regsub {^(vtk)*(.*)} [lindex $argv 0] {\2} modname
+    set dirname [lindex $argv 1]
+} 
+
+
+substituteFiles $modname [expandDirectoryGetMatches $modname $dirname]

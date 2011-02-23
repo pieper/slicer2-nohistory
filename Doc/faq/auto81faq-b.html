@@ -1,0 +1,28 @@
+<title>Couldn't execute "C:/Documents"</title>
+<li class=faq>
+<p class=question>
+When I try to start Slicer on my Windows system, I get an error
+similar to one of the following:
+<ul>
+<li>Error: couldn't execute "C:\Documents": invalid argument
+<li>Error: couldn't execute "C:\Programs": invalid argument
+</ul>
+
+<p class=answer>
+This is a problem with some older versions of Slicer. There are no
+provisions in place to deal with spaces in the directory path leading
+up to the <code>slicer2</code> directory.
+<br>More recent versions have fixed this
+problem for Windows by using the canonical short name of the
+directories (namely, <code>C:\PROGRA~1</code>) to avoid the Tcl parsing problems
+that occur with unexpected spaces in the directory path
+strings.
+<br>There is no current fix for UNIX pathnames
+that include spaces, as this is something that generally causes
+problems, and should be avoided.
+<p>
+To solve this problem, either move the <code>slicer2</code> directory to a new
+location, such as <code>c:\slicer2</code> (with no spaces in the directory names
+leading up to it), or obtain a newer version.
+
+

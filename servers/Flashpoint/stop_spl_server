@@ -1,0 +1,19 @@
+#! /bin/csh -f
+
+set PROG = ~/MRTSW/spl_server
+
+findproc $PROG
+if ($status == 0) then
+    echo The spl_server is not running, so there.
+    exit
+endif
+
+sendsig TERM spl_server
+findproc $PROG
+if ($status == 1) then
+    echo The spl_server won't go away. 
+    exit
+endif
+
+echo The spl_server has been stopped.  Have a nice day.
+

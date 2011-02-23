@@ -1,0 +1,166 @@
+0,Unknown,,
+1,Corpus_callosum,C0010090,
+2,G_and_S_Insula_ONLY_AVERAGE,,
+3,G_cingulate-Isthmus,C0175192,
+4,G_cingulate-Main_part,C0018427 ,cingulate gyrus
+5,G_cuneus,C0152307,
+6,G_frontal_inf-Opercular_part,C0262296,
+7,G_frontal_inf-Orbital_part,C0262300,
+8,G_frontal_inf-Triangular_part,C0262350,
+9,G_frontal_middle,C0152297,
+10,G_frontal_superior,C0152296,
+11,G_frontomarginal,,
+12,G_insular_long,C0228261,
+13,G_insular_short,C0262329 ,
+14,G_occipital_inferior,C0228231,
+15,G_occipital_middle,C0228220,occipital gyrus
+16,G_occipital_superior,C0228230,
+17,G_occipit-temp_lat-Or_fusiform,C0228243,
+18,G_occipit-temp_med-Lingual_part,C0228244,
+19,G_occipit-temp_med-Parahippocampal_part,C0228249,parahippocampal gyrus;  may not be correct label
+20,G_orbital,C0152301,
+21,G_paracentral,C0228203,paracentral lobule
+22,G_parietal_inferior-Angular_part,C0152305,
+23,G_parietal_inferior-Supramarginal_part,C0458319,
+24,G_parietal_superior,C0152303,
+25,G_postcentral,C0152302,
+26,G_precentral,C0152299,
+27,G_precuneus,C0152306,
+28,G_rectus,C0152300,
+29,G_subcallosal,C0175231,
+30,G_subcentral,,
+31,G_temp_sup-G_temp_transv_and_interm_S,C0152309,superior temporal gyrus
+32,G_temp_sup-Lateral_aspect,C0152309,superior temporal gyrus
+33,G_temp_sup-Planum_polare,C0152309,superior temporal gyrus
+34,G_temp_sup-Planum_tempolale,C0152309,superior temporal gyrus
+35,G_temporal_inferior,C0152311 ,
+36,G_temporal_middle,C0152310,
+37,G_transverse_frontopolar,,
+38,Lat_Fissure-ant_sgt-ramus_horizontal,C0262190 ,
+39,Lat_Fissure-ant_sgt-ramus_vertical,C0262186,anterior ascending limb of lateral fissure
+40,Lat_Fissure-post_sgt,C0262310 ,posterior ascending limb of lateral fissure
+41,Medial_wall,,
+42,Pole_occipital,C0228217,
+43,Pole_temporal,C0149552,
+44,S_calcarine,C0228224 ,
+45,S_central,C0228188 ,
+46,S_central_insula,C0228260,
+47,S_cingulate-Main_part,C0228189,cingulate sulcus
+48,S_cingulate-Marginalis_part,C0259792,
+49,S_circular_insula_anterior,C0228258,circular sulcas
+50,S_circular_insula_inferior,C0228258,circular sulcas
+51,S_circular_insula_superior,C0228258,circular sulcas
+52,S_collateral_transverse_ant,C0228226,collateral sulcus
+53,S_collateral_transverse_post,C0228226,collateral sulcus
+54,S_frontal_inferior,C0262251,
+55,S_frontal_middle,C0228199 ,
+56,S_frontal_superior,C0228198,
+57,S_frontomarginal,C0262269 ,
+58,S_intermedius_primus-Jensen,,
+59,S_intracingulate,C0262263,
+60,S_intraparietal-and_Parietal_transverse,C0228213 ,
+61,S_occipital_anterior,C0262194,
+62,S_occipital_inferior,C0262253,
+63,S_occipital_middle_and_Lunatus,C0262278,
+64,S_occipital_superior_and_transversalis,C0262348,
+65,S_occipito-temporal_lateral,C0228245,occipitotemporal sulcus
+66,S_occipito-temporal_medial_and_S_Lingual,C0447427 ,lingual sulcus
+67,S_orbital_lateral,C0228229,
+68,S_orbital_medial-Or_olfactory,C0262286 ,
+69,S_orbital-H_shapped,C0228206,orbital sulcus
+70,S_paracentral,C0228204,
+71,S_parieto_occipital,C0228191 ,
+72,S_pericallosal,,
+73,S_postcentral,C0228212,
+74,S_precentral-Inferior-part,C0262257,
+75,S_precentral-Superior-part,C0262338 ,
+76,S_subcentral_ant,C0262197 ,
+77,S_subcentral_post,C0262318,
+78,S_suborbital,,
+79,S_subparietal,C0228216 ,
+80,S_supracingulate,,
+81,S_temporal_inferior,C0228242,
+82,S_temporal_superior,C0228237,
+83,S_temporal_transverse,C0228239,
+84,S_transverse_frontopolar,,
+85,Hippocampus,C0019564
+86,Amygdala,C0002708
+87,Red Nucleus,C0034910
+88,Substantia Nigra,C0038590
+89,Caudate Tail,C0152337
+90,Caudate Body,C0152338 
+91,Caudate Head,C0152336
+92,Dentate,C0086120
+93,Ventral Anterior Nucleus,C0175276
+94,Ventral Posterior Medial Nucleus,C0752056
+95,Ventral Posterior Lateral Nucleus,C0175287
+96,Medial Dorsal Nucleus,C0228329
+97,Lateral Dorsal Nucleus,C0228342
+98,Pulvinar,C0152347
+99,Lateral Posterior Nucleus,C0228341
+100,Ventral Lateral Nucleus,C0228339
+101,Midline Nucleus,C0228323
+102,Anterior Nucleus,C0228316
+103,Mammillary Body,C0024670
+104,Optic Tract,C0152405
+105,Anterior Commissure,C0152335
+106,Corpus Callosum,C0010090
+107,Medial Globus Pallidus,C0262283
+108,Lateral Globus Pallidus,C0262267 
+109,Nucleus Accumbens Septi,C0028633 
+110,Medial Geniculum Body,C0086596
+111,Lateral Geniculum Body,C0086526
+112,Subthalamic Nucleus,C0152355
+113,Putamen,C0034169
+114,Hypothalamus,C0020663
+115,Posterior Cingulate,C0175191
+116,Anterior Cingulate,C0175190
+117,Subcallosal Gyrus,C0175231
+118,Transverse Temporal Gyrus,C0228238
+119,Uncus,C0228252
+120,Rectal Gyrus,C0152300
+121,Fusiform Gyrus,C0152313
+122,Inferior Occipital Gyrus,C0228231
+123,Inferior Temporal Gyrus,C0021640
+124,Insula,C0021640
+125,Parahippocampal Gyrus,C0228249
+126,Lingual Gyrus,C0152308
+127,Middle Occipital Gyrus,C1110642
+128,Orbital Gyrus,C0152301
+129,Middle Temporal Gyrus,C0152310
+130,Superior Temporal Gyrus,C0152309
+131,Superior Occipital Gyrus,C0228230
+132,Precentral Gyrus,C0152299
+133,Inferior Frontal Gyrus,C0152298
+134,Cuneus,C0152307
+135,Angular Gyrus,C0152305
+136,Supramarginal Gyrus,C0228214
+137,Cingulate Gyrus,C0018427
+138,Inferior Parietal Lobule,C0152304
+139,Precuneus,C0152306
+140,Superior Parietal Lobule,C0152303
+141,Middle Frontal Gyrus,C0152297
+142,Paracentral Lobule,C0228203
+143,Postcentral Gyrus,C0152302
+144,Precentral Gyrus,C0152299
+145,Superior Frontal Gyrus,C0152296
+146,Medial Frontal Gyrus,C0458310
+147,Uvula of Vermis,C0546037
+148,Pyramis of Vermis,C0228488
+149,Tuber of Vermis,C0228487
+150,Cerebellar Tonsil,C0152386
+151,Inferior Semi-Lunar Lobule,C0175476
+152,Fastigium,C0262232
+153,Nodule,C0028259
+154,Uvula,C0042173
+155,Pyramis,C0228488
+156,Tuber,C0228487
+157,Declive,C0228484
+158,Culmen,C0152384
+159,Lentiform Nucleus,C0162342
+160,Claustrum,C0008910
+161,Thalamus,C0039729
+162,Caudate,C0458335
+163,Lateral Ventricle,C0152279
+164,Fourth Ventricle,C0149556
+165,Third Ventricle,C0149555

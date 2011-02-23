@@ -1,0 +1,23 @@
+ARCH = darwin
+CFLAGS = -g $(FLOAT_OPTION)
+CC = cc
+LIB =   $(ARCH)/splio.a
+LIB_OBJECTS = spl_get_image_info.o spl_read_image.o spl_write_image.o
+
+$(ARCH)/%.o: %.c
+	$(CC) $(CFLAGS) -c $*.c -o $(ARCH)/$*.o
+
+.INIT:
+	@-mkdir $(ARCH) 2>/dev/null; exit 0
+
+all: $(LIB)
+
+$(LIB): $(LIB_OBJECTS:%=$(ARCH)/%)
+	-rm -f $@
+	ar rc $@ $(LIB_OBJECTS:%=$(ARCH)/%)
+	ar q $@ $(LIB_OBJECTS:%=$(ARCH)/%)
+	ranlib $(LIB)
+
+clean:
+	rm $(LIB)
+

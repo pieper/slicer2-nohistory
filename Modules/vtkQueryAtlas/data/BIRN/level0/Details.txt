@@ -1,0 +1,1 @@
+Generic representation of human schizophrenia behavior.

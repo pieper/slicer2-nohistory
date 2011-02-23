@@ -1,0 +1,8 @@
+<MRML>
+<Volume
+FileArcheType='Testing/TestData/imagetest/nrrd/fixed.nrrd' Name='head1'
+Description='somebodys1'></Volume>
+<Volume
+FileArcheType='Testing/TestData/imagetest/nrrd/moving.nrrd' Name='head2'
+Description='somebodys2'></Volume>
+</MRML>

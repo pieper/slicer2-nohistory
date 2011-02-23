@@ -1,0 +1,55 @@
+#! /bin/csh -f
+
+### Set the directory in which your slicer is installed
+# note: SLICER_HOME is set by the slicer2-linux-x86 or
+# slicer2-solaris-sparc launcher executables.  You may
+# want to set this default if you ever launch slicer directly
+# using this script.
+#
+if (${?SLICER_HOME} == 0) then
+    setenv SLICER_HOME /home/pieper/slicer2/latest/slicer2
+endif
+
+if (${?LD_LIBRARY_PATH} == 0) then
+    setenv LD_LIBRARY_PATH " "
+endif
+
+if (`uname` == "Linux") then
+    setenv BUILD redhat-7.3
+else
+    setenv BUILD solaris8
+endif
+
+setenv VTK_SRC_DIR ${SLICER_HOME}/Lib/${BUILD}/vtk/VTK
+setenv VTK_BIN_DIR ${SLICER_HOME}/Lib/${BUILD}/vtk/VTK-build
+
+### Set the library path to look in the build that you created
+
+setenv LD_LIBRARY_PATH ${VTK_BIN_DIR}/bin:${LD_LIBRARY_PATH}
+setenv LD_LIBRARY_PATH ${SLICER_HOME}/Base/builds/${BUILD}/bin:${LD_LIBRARY_PATH}
+setenv LD_LIBRARY_PATH ${SLICER_HOME}/Lib/${BUILD}/tcl:${LD_LIBRARY_PATH}
+setenv LD_LIBRARY_PATH ${SLICER_HOME}/Modules/vtkFastMarching/builds/${BUILD}/bin:${LD_LIBRARY_PATH}
+
+setenv TCL_LIBRARY ${SLICER_HOME}/Lib/${BUILD}/tcl/tcl8.3
+setenv TK_LIBRARY ${SLICER_HOME}/Lib/${BUILD}/tcl/tk8.3
+
+#### Set the Tcl Lib Path to look in VTK_HOME/Wrapping/Tcl
+
+if (${?TCLLIBPATH} == 0) then
+    setenv TCLLIBPATH " "
+endif
+
+setenv TCLLIBPATH "${SLICER_HOME}/Base/Wrapping/Tcl/vtkSlicerBase ${TCLLIBPATH}"
+setenv TCLLIBPATH "${VTK_SRC_DIR} ${TCLLIBPATH}"
+setenv TCLLIBPATH "${SLICER_HOME}/Modules/vtkFastMarching/Wrapping/Tcl ${TCLLIBPATH}"
+setenv TCLLIBPATH "${SLICER_HOME}/Lib/redhat-7.3/vtk/VTK/Wrapping/Tcl ${TCLLIBPATH}"
+
+echo TCL_LIBRARY  is $TCL_LIBRARY
+echo TK_LIBRARY  is $TK_LIBRARY
+echo SLICER_HOME  is $SLICER_HOME
+echo DISPLAY      is $DISPLAY
+echo LD_LIBRARY_PATH is $LD_LIBRARY_PATH
+echo TCLLIBPATH is $TCLLIBPATH
+
+exec ${VTK_BIN_DIR}/bin/vtk $SLICER_HOME/Base/tcl/Go.tcl $*
+

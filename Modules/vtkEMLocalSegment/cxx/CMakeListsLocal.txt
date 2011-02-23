@@ -1,0 +1,102 @@
+# CMakeListsLocal.txt sample file.
+# Copy it to CMakeListsLocal.txt and edit to match your files.
+
+# The names of the source files for your module go here. Include
+# abstract files noted below in this list too. Do not include file
+# suffixes.
+
+#
+# Change all 'MyClass' to appropriate source file name 
+# and 'MYCLASS' to your module name (all CAPS)
+#
+
+# Find ITK
+INCLUDE (${CMAKE_ROOT}/Modules/FindITK.cmake)
+# Use ITK.  This sets up include/link directories for us.
+IF (USE_ITK_FILE)
+  INCLUDE(${USE_ITK_FILE})
+ENDIF(USE_ITK_FILE)
+
+
+SET (LOCAL_MODULE_SRCS
+         vtkTimeDef.h
+         vtkImageEMMarkov.cxx
+
+	     vtkImageEMLocalGenericClass.cxx
+         vtkImageEMLocalSuperClass.cxx
+         vtkImageEMLocalClass.cxx
+         vtkImageEMLocalSegmenter.cxx
+   
+         vtkSimonParameterReaderWriter.cxx
+
+         vtkMrmlSegmenterNode.cxx 
+     	 vtkMrmlEndSegmenterNode.cxx 
+         vtkMrmlSegmenterGenericClassNode.cxx 
+         vtkMrmlSegmenterClassNode.cxx    	
+         vtkMrmlEndSegmenterClassNode.cxx  
+         vtkMrmlSegmenterSuperClassNode.cxx 
+         vtkMrmlEndSegmenterSuperClassNode.cxx
+         vtkMrmlSegmenterInputNode.cxx  
+         vtkMrmlSegmenterCIMNode.cxx 
+         vtkMrmlSegmenterGraphNode.cxx 
+         vtkMrmlSegmenterPCAEigenNode.cxx
+ )
+
+SET ( LOCAL_NO_WRAP_SRCS
+    ${VTKEMLOCALSEGMENT_SOURCE_DIR}/PriorModels/EMLocalInterface.cxx
+    ${VTKEMLOCALSEGMENT_SOURCE_DIR}/PriorModels/EMLocalRegistrationCostFunction.cxx
+    ${VTKEMLOCALSEGMENT_SOURCE_DIR}/PriorModels/EMLocalShapeCostFunction.cxx
+    ${VTKEMLOCALSEGMENT_SOURCE_DIR}/PriorModels/itkEMLocalOptimization.h
+) 
+
+# MESSAGE(STATUS  ${VTKEMLOCALSEGMENT_SOURCE_DIR}) 
+
+# You can add additional include paths here
+#INCLUDE_DIRECTORIES(
+#${VTKMYCLASS_SOURCE_DIR}/include
+#)
+
+#### if you code depends on SlicerBase, uncomment the 
+#### INCLUDE_DIRECTORIES and LINK_LIBRARIES
+#### lines below
+####
+INCLUDE_DIRECTORIES( 
+   ${VTKSLICERBASE_SOURCE_DIR}/cxx 
+   ${VTKSLICERBASE_BUILD_DIR}
+
+   ${VTKEMATLAS_SOURCE_DIR}/cxx 
+   ${VTKEMATLAS_BUILD_DIR}
+
+   ${VTKEMLOCALSEGMENT_SOURCE_DIR}/PriorModels
+   ${VTKEMLOCALSEGMENT_SOURCE_DIR}/Algorithm
+
+)
+LINK_LIBRARIES (
+   ${VTKSLICERBASE_BUILD_LIB} 
+   ${VTKSLICERBASE_BUILD_TCL_LIB}
+
+   ${VTKEMATLAS_BUILD_LIB}
+   ${VTKEMATLAS_BUILD_TCL_LIB}
+
+   ITKNumerics 
+)
+
+
+# Add additional directories to look in for libraries
+#LINK_DIRECTORIES(
+#${VTKMYCLASS_SOURCE_DIR}/lib
+#)
+
+
+
+# To add a list of additional libraries you need to link with, uncomment
+# the following line.  The library names should omit the "lib" and any
+# trailing suffix.
+# LINK_LIBRARIES (${LOCAL_LIBRARY_BASENAME} library_names_here)
+
+
+# Here's the rule to create the implementation C++ library.
+# It should happen in the CMakeLists.txt file that includes this one,
+# but because of a CMake bug that doesn't work.
+#
+ADD_LIBRARY (${LOCAL_LIBRARY_BASENAME} ${LOCAL_MODULE_SRCS} ${LOCAL_NO_WRAP_SRCS})

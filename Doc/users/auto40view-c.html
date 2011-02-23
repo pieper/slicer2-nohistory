@@ -1,0 +1,159 @@
+<title>Viewing 3D Models in Slicer</title>
+
+<p>You can view models (3D surfaces) in Slicer.</p>
+
+<h3>Selecting Models</h3>
+
+<p>The <b>Display</b> tab of the <b>Models</b> panel controls which models
+are visible in Slicer.</p>
+
+<p><img src="images/models_display_tab_visibilityopacity.jpg"></p>
+
+<ul>
+  <li type="square">Clicking the name of a model in the list turns its visibility on and
+off.</li>
+   <li type="square">Right-clicking the name of a model in the list displays a menu of display
+options for that model.</li>
+  <li type="square">Click <b>Show All</b> to display all models in the 3D Viewer.</li>
+  <li type="square">Click <b>Show None</b> to display none of the models in the 3D Viewer.</li>
+</ul>
+
+
+<h3>Controlling the 3D View </h3>
+There are several options for controlling the 3D view with the mouse:
+<ul>
+<li>Left-click the view and move the mouse to rotate the view.</li>
+<li>Click the middle button (or Alt-Left button) on the view and move the mouse to move the view left, right, up, or down.</li>
+<li>Right-click the view and move the mouse to change the zooming factor, making the view larger or smaller.</li>
+</ul>
+
+
+<h3>Controlling the Scene with the User Interface Panel</h3>
+
+ <table>
+ <tr>
+ <td valign="top">Move the cursor over the Slicer icon:</td>
+ <td>
+<img SRC="images/slicer_icon.jpg" >
+</td></tr>
+<tr><td valign="top">The user interface panel appears:</td>
+<td>
+<img SRC="images/user_interface_panel.jpg" >
+</td></tr>
+</table>
+
+<p>The controls on the user interface panel include:</p>
+<ul>
+<li>The <b>Image Fusion</b> slider on the left between <b>Fade</b> and <b>Exit</b> is useful
+when you have data in the foreground and background.
+When the slider is at the top, it will display only the foreground dataset;
+when it is at the bottom, it will display only the background dataset.
+When the slider is in between, it will blend the two data sets.
+This is particularly useful when you are registering two data sets, and want to see how accurate the registration is.
+<br><img src="images/user_interface_panel_fade_slider.jpg">
+</li>
+<li>The head icon snaps the 3D view to align with the selected major axis.
+Click <b>R</b> (Right), <b>L</b> (Left), <b>P</b> (Posterior), <b>A</b> (Anterior), <b>I</b> (Inferior), or <b>S</b> (Superior) to snap the image to each direction.</li>
+<li>The arrows pointing up, down, left, and right rotate the 3D view incrementally in the selected direction. Click the arrow and the 3D view will rotate.</li>
+<li><b>FOV</b> stands for Field Of View, which determines how much of the image to display.
+If the image is too small, enter a larger value for <b>FOV</b>. If the image is too large, enter a smaller value for <b>FOV</b>.</li>
+<li><b>Parallel</b> toggles between a parallel projection
+(which preserves parallel lines, and displays an object the same size
+regardless of how far from the observer)
+and a perspective projection (which displays closer objects as larger than farther objects).</li>
+</ul>
+
+
+<h3>Opacity</h3>
+
+
+<p>Opacity is how non-transparent a model is. (The higher the opacity, the less transparent the model is.)</p>
+<p>You can control the Opacity of each model.</p>
+<p>By default, Slicer creates models that are completely opaque (opacity = 1).
+<br>Setting the opacity to 0 makes the model completely  transparent. </p>
+
+<p>Adjust the opacity in either of two ways:</p>
+
+<ul>
+<li><p>
+On the <b>Display</b> tab of the <b>Models</b> panel, adjust the <b>Opacity</b> slider
+next to the model's name in the model list.</p>
+<p><img src="images/models_display_tab_visibilityopacity.jpg"></p>
+</li>
+
+<li><p>
+On the <b>Props</b> tab of the <b>Models</b> panel, set the <b>Active Model</b>,
+and use the <b>Opacity</b> slider below.</p>
+<p><img src="images/data_addmodel_props_tab_browse_opacity.jpg"></p>
+</li>
+</ul>
+
+
+<h3>Color</h3>
+
+<p>You can select colors for models.</p>
+<p>Click <b>Color</b> (on the <b>Props</b> tab of the <b>Models</b> panel) to select a color.
+Enter a description of what that color will represent.</p>
+
+
+<h3>Clipping</h3>
+
+<p>Clipping is cutting away sections of a model at one or more selected slices.
+On one side of each selected slice, the model is removed,
+revealing the image of each selected slice
+and the rest of the visible model.</p>
+
+<p>To turn clipping on:</p>
+<ol>
+
+  <li>On the <b>Display</b> tab of the <b>Models</b> panel,
+  right-click the model's name in the list.
+  <p><img src="images/models_display_tab_dropdown_clipping.jpg"></p></li>
+  <li>A drop-down menu appears. Select <b>Clipping</b>.         </li>
+</ol>
+
+<p>To control clipping:</p>
+  <ol>
+  <li>Select the <b>Clip</b> tab of the <b>Models </b>panel.
+  <p><img src="images/models_clip_tab.jpg"></p>
+  </li>
+  <li>Select which side of a slice to clip the model on, as follows:
+
+<table cellspacing=2 border=1 >
+        <tbody>
+     <tr>
+     <td align="center" ><b>&nbsp;&nbsp;Color&nbsp;&nbsp;</b></td>
+     <td align="center" ><b>&nbsp;&nbsp;Slice&nbsp;&nbsp;</b></td>
+     <td align="center" ><b>&nbsp;&nbsp;+ means:&nbsp;&nbsp;</b></td>
+     <td align="center" ><b>&nbsp;&nbsp;- means:&nbsp;&nbsp;</b></td>
+     </tr>
+    <tr>
+           <td bgcolor="#cc9999">red</td>
+           <td>Axial slices</td>
+           <td>Superior</td>
+           <td>Inferior</td>
+        </tr>
+        <tr>
+           <td bgcolor="#cccc99">yellow</td>
+           <td>Sagittal slices</td>
+           <td>Right</td>
+           <td>Left</td>
+        </tr>
+        <tr>
+           <td bgcolor="#99cc99">green</td>
+           <td>Coronal slices</td>
+           <td>Posterior</td>
+           <td>Anterior</td>
+        </tr>
+
+  </tbody>
+</table>
+
+Click <b>+</b> or <b>-</b> to select which side of each slice to clip on.</li>
+</ol>
+
+<p>In the sample below, the right-superior-posterior part of the cortical
+surface has been clipped.</p>
+
+<p><img src="images/clip_crop.jpg"></p>
+

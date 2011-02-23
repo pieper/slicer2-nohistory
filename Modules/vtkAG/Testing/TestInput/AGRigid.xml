@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Volume name='wcase1_t2' filePattern='%s.%03d' filePrefix='strct/spd/women/raw_axial/wcase1_t2' rasToIjkMatrix='-1.06666667 0 0 127.5 0 -1.06666667 0 127.5 0 0 0.333333333 25.5 0 0 0 1' rasToVtkMatrix='-1.06666667 0 0 127.5 0 1.06666667 0 127.5 0 0 0.333333333 25.5 0 0 0 1' positionMatrix='-1 0 0 119.53125 0 1 0 -119.53125 0 0 1 -76.5 0 0 0 1' scanOrder='IS' description='IS' colorLUT='0' fullPrefix='/projects/schiz/software/slicer2-nightly/Modules/vtkAG/Testing/TestInput/strct/spd/women/raw_axial/wcase1_t2' window='536' level='278' lowerThreshold='0' upperThreshold='2020' imageRange='1 52' spacing='0.9375 0.9375 3'></Volume>
+<Volume name='wcase1' filePattern='%s.%03d' filePrefix='strct/spgr/wcase1' rasToIjkMatrix='-1.06666667 0 0 127.5 0 0 -1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' rasToVtkMatrix='-1.06666667 0 0 127.5 0 0 1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' positionMatrix='-1 0 0 119.53125 0 0 1 -92.25 0 1 0 -119.53125 0 0 0 1' scanOrder='PA' description='PA' colorLUT='0' fullPrefix='/projects/schiz/software/slicer2-nightly/Modules/vtkAG/Testing/TestInput/strct/spgr/wcase1' window='174' level='91' lowerThreshold='0' upperThreshold='498' imageRange='0 123'></Volume>
+</MRML>

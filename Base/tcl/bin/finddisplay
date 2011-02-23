@@ -1,0 +1,40 @@
+#!/bin/sh
+# \
+exec $SLICER_HOME/program/tclsh $0 ${1+"$@"}
+
+set hostname ""
+if {[file exists /usr/bin/hostname]} {
+  set hostname [exec /usr/bin/hostname]
+} elseif {[file exists /usr/ucb/hostname]} {
+  set hostname [exec /usr/ucb/hostname]
+} 
+
+set domainname ""
+set domainlong 0
+if {$argc == 1} {
+  if {[string match long [lindex $argv 0]]} {
+    set domainlong 1
+  } else {
+    set domainlong 0
+  }
+}
+
+if {$domainlong && [file exists /usr/bin/domainname]} {
+  set domainname [exec /usr/bin/domainname]
+} 
+
+if {[info exists env(DISPLAY)]} {
+  set screens [lindex [split $env(DISPLAY) :] 1]
+} else {
+  set screens 0.0
+}
+ 
+set machine [lindex [split $hostname .] 0]
+if {[string match $domainname ""]} {
+  set DISPLAY ${machine}:${screens}
+} else {
+  set DISPLAY ${machine}.${domainname}:${screens}
+}
+puts $DISPLAY
+
+exit 0

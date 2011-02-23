@@ -1,0 +1,177 @@
+<title>File Organization</title>
+
+
+<p>Slicer includes several different types of files, stored in different locations.</p>
+
+<p>
+The Slicer core Tcl source files are in 3 subdirectories of the <code>slicer2/Base/tcl</code> directory, depending upon their use.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Tcl Source Files</th>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Base/tcl/tcl-main</div>
+    <div class=a>
+These are the files Slicer must have to run.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>slicer2/Base/tcl/tcl-modules</div>
+    <div class=a>
+These files are optional, and each one implements a specific function
+in Slicer.  These Tcl files are called modules.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Base/tcl/tcl-shared</div>
+    <div class=a>
+
+These files implement functionality that multiple modules may share.
+For example, generally helpful procedures or new widgets are here.
+
+    </div>
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+VTK classes that are part of the core of Slicer are in the <code>slicer2/Base/cxx</code> directory.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>C++ Source Files</th>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Base/cxx</div>
+    <div class=a>
+These are the classes that Slicer adds to VTK.
+<br>The VTK classes are compiled outside the source tree, in the slicer2/Base/builds/[os-name] subdirectory.
+    </div>
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Build Files</th>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Base/builds/[os-name]</div>
+    <div class=a><code>cmake</code> generated files are at this level.</div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>slicer2/Base/builds/[os-name]/bin</div>
+    <div class=a>Once built, the shared library files are placed here.</div>
+</td>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Base/builds/[os-name]/cxx</div>
+    <div class=a>The generated, Tcl-wrapped, cxx files are placed here, as well as compiled object files.</div>
+</td>
+</tr>
+</table>
+
+<p>
+We are migrating towards a more independent module structure, populating the <code>slicer2/Modules</code> directory. New modules are added by creating a directory with a name that starts with <code>vtk</code>, such as <code>vtkCustomModule</code>. Full instructions, and an automated script, for adding a new module can be found in that subdirectory.
+<br>
+In each module, there is a <code>tcl</code> subdirectory in which you can place the Tcl files associated with your module. There is also a <code>cxx</code> directory, similar to the Slicer core <code>cxx</code> directory.
+<p>
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Module Source Files</th>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Modules/vtkCustomModule/cxx</div>
+    <div class=a>
+These are the VTK classes that the Custom Module adds to Slicer.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>slicer2/Modules/vtkCustomModule/tcl</div>
+    <div class=a>Tcl files that implement the GUI and functionality of the module.</div>
+</td>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Modules/vtkCustomModule/builds/[os-name]</div>
+    <div class=a>Subdirectories are created for each OS on which you are going to build the C++ classes, for example, <code>solaris8</code>.</div>
+</td>
+</tr>
+</table>
+
+
+
+<p>
+Scripts to run Slicer and perform useful functions
+are in the <code>slicer2/Scripts</code> directory.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Shell Scripts</th>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Scripts</div>
+    <div class=a>
+Useful shell scripts. Read <code>slicer2/Scripts/README.scripts</code> for an overview.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>slicer2/Scripts/genlib.tcl</div>
+    <div class=a>Runs <code>cmake</code> and compiles C++ source code for the support libraries that are necessary for slicer to build (VTK, Insight, GSL, TCL, TK, BLT).</div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>slicer2/Scripts/cmaker.tcl</div>
+    <div class=a>Runs <code>cmake</code> and compiles C++ source code.</div>
+</td>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Scripts/tarup.tcl</div>
+    <div class=a>Packages Slicer for distribution.</div>
+</td>
+</tr>
+<tr></table>
+</p>
+
+<p>
+This website is also in the Slicer source code tree.  You may
+generate the website and Tcl code documentation locally yourself.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Website</th>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>slicer2/Doc</div>
+    <div class=a>
+This directory contains files used to generate this website.
+    </div>
+</td>
+</tr>
+</table>
+</p>
+
+

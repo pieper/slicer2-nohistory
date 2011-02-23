@@ -1,0 +1,16 @@
+#! /bin/csh -f
+
+if (${?SLICER_HOME} == 0) then
+    setenv SLICER_HOME /export/bigsur/slicer
+endif
+
+if (${?LD_LIBRARY_PATH} == 0) then
+    setenv LD_LIBRARY_PATH ${SLICER_HOME}/lib:/local/lib
+else
+    setenv LD_LIBRARY_PATH ${SLICER_HOME}/lib:/local/lib:${LD_LIBRARY_PATH}
+endif
+
+setenv TCL_LIBRARY ${SLICER_HOME}/lib/tcl8.3
+
+# exec $SLICER_HOME/program/tclsh $SLICER_HOME/program/GoPrintMrml.tcl $1
+exec tclsh $SLICER_HOME/Base/tcl/GoPrintMrml.tcl $1

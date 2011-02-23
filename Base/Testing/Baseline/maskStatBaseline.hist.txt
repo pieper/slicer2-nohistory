@@ -1,0 +1,2 @@
+maskStatBaseline.hist.txt 	 min 	 1 	 max 	 334 	 mean 	 84.7086 	 std 	 19.6101 
+

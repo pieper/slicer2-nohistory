@@ -1,0 +1,15 @@
+Here are rules when generating XML template files:
+1.) The first LocalPriorPrefix in the xml file has to define the spatial prior of the background. This is necessary as the resampling function assigns the value  
+   1 ( = 100% prior probability) to voxels outside the resampling space for the first spatial prior only. 
+   The other spatial priors are characterized by
+   0  (= 0% prior probability) to voxels outside the resampling space. 
+  
+   This rule ensures that the resampling does not causes voxels to assign 0 probability to each structure. When the EM algorithm encounters voxels with 
+   zero prior probability then the segmentation without prior information. This can produce segmentation with almost random assignment patters especially 
+   when segmenting structures with very similar intensity patterns.
+
+2.) The shape deformation functionality is not yet included into this module. 
+ 
+Kilian - Nov-05 
+
+  

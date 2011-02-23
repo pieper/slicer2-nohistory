@@ -1,0 +1,5 @@
+<!ELEMENT AUTO (title | teaser | summary)*>
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT teaser (#PCDATA)>
+<!ELEMENT summary (#PCDATA)>

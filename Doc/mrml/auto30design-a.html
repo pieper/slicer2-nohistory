@@ -1,0 +1,86 @@
+<title>Basic Nodes</title>
+
+
+We introduce the most important MRML nodes here, and more details can be found
+under the <a href='#3c'>Current Details</a> section.
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Basic MRML Nodes</th>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>Volume</div>
+    <div class=a>
+Volume nodes describe data sets that can be thought of as stacks of 2D
+images that form a 3D volume.  Volume nodes describe where the images
+are stored on disk, how to render the data (window and level), and how
+to read the files.  This information is extracted from the image
+headers (if they exist) of volume files at the time the MRML file is generated.
+Consequently, MRML files isolate MRML browsers from understanding how
+to read the myriad of file formats for medical data.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>Model</div>
+    <div class=a>
+Model nodes describe polygonal data.  They indicate where the model is
+stored on disk, and how to render it (color, opacity, and so forth).  Models
+(3D surfaces) are assumed to have been constructed with the orientation and voxel
+dimensions of the original segmented volume.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>Matrix</div>
+    <div class=a>
+The output of a rigid-body registration is a rotation and translation
+expressed mathematically as a transformation matrix.  These transforms
+can be inserted into MRML files as Matrix nodes.  Each matrix
+affects volumes and models that appear below it in the MRML file.
+Multiple matrices can be concatenated together.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>Transform</div>
+    <div class=a>
+A Transform is not a node with attributes, but a construct for
+building MRML files.  A Transform encapsulates the Matrix nodes inside it,
+such that they are invisible to nodes outside the Transform.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box0>
+    <div class=q>Color</div>
+    <div class=a>
+Color nodes define colors by describing not only the actual color
+value, but also its name and a list of label values.  One attribute of
+model nodes is the name of the associated color.  When Slicer displays
+label maps, it colors each voxel by looking up the color associated
+with that label value. Thus, when label maps appear on
+reformatted slices, their colors automatically match the corresponding
+surface models in the 3D view.
+    </div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+    <div class=q>Option</div>
+    <div class=a>
+Option nodes allow browser-specific information to be stored in
+a MRML file.  For example, Slicer uses Option nodes to store
+the user's 3D viewpoint information, since there currently is no
+View node in MRML 2.0.
+    </div>
+</td>
+</tr>
+</table>
+
+
+

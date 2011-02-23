@@ -1,0 +1,31 @@
+TestImageEMMarkov
+TestImageEMSegment
+TestImageLiveWire
+TestImageLiveWireEdgeWeights
+TestImageLiveWireScale
+TestImageLiveWireTester
+TestImageDrawROI        NO ?????        vtkImageDrawROI
+TestImageBandedDistanceMap NO ?????     vtkImageBandedDistanceMap
+TestMrmlVolume          NO not_good     vtkMrmlDataVolume
+TestImageCCA            NO  ???????     vtkImageConnectivity
+TestImageEditor         ?? looks_good   vtkImageEditor
+TestPlot                ?? looks_good   vtkImageBimodalAnalysis_vtkImagePlot
+TestAllMrml             OK bad          vtkMrmlNode
+TestImageFIllROI        OK bad_test     vtkImageFillROI
+TestImageOverlay        OK bad_test     vtkImageOverlay
+TestImageZoom2D         OK bad_test     vtkImageZoom2D
+TestImageReformatIJK    OK bad_test     vtkImageReformatIJK
+TestIndirectLookupTable OK not_sure     vtkIndirectLookupTable
+TestImageReformat       OK not_sure     vtkImageReformat
+TestCrossHair2D         OK pretty_good  vtkImageCrossHair
+TestCopy                OK good_test    vtkImageCopy
+TestImageFrameSource    OK good_test    vtkImageFrameSource
+TestImageErode          OK good_test    vtkImageErode
+TestImageDouble2D       OK good_test    vtkImageDouble2D
+TestImageCloseUp2D      OK good_test    vtkImageCloseUp2D
+TestImageLabelOutline   OK goot_test    vtkImageLabelOutline
+TestImageMeasureVoxels  OK good_test    vtkImageMeasureVoxels
+TestImageStatistics     OK goot_test    vtkImageStatistics
+TestImageWeightedSum    OK goot_test    vtkImageWeightedSum
+TestLabelChange         OK good_test    vtkImageLabelChange
+

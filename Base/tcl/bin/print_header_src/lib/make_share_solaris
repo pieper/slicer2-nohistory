@@ -1,0 +1,12 @@
+ARCH = solaris
+#CFLAGS = -g $(FLOAT_OPTION) -DGNU
+CC = cc -kpic -c
+LIB =   $(ARCH)/splio.so
+LIB_OBJECTS = $(ARCH)/spl_get_image_info.o \
+	$(ARCH)/spl_put_vol.o  $(ARCH)/spl_read_image.o \
+	$(ARCH)/spl_write_image.o  $(ARCH)/spl_get_image_info_fast.o
+
+all: $(LIB)
+
+$(LIB): $(LIB_OBJECTS:%=%)
+	$(LD) -G -z muldefs -o $@ $(LIB_OBJECTS)

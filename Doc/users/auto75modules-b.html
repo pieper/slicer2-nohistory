@@ -1,0 +1,316 @@
+<title>Modules I-N</title>
+
+<a name="modsb"></a>
+
+<h3> Using Modules I-N</h3>
+
+<ul>
+<LI> <A HREF="#modsldmmviewer"> LDMMViewer </a></li>
+<LI> <A HREF="#modslocator"> Locator </a></li>
+<LI> <A HREF="#modsmeasure"> Measure </a></li>
+<LI> <A HREF="#modsmeasurevol"> MeasureVol </a></li>
+<LI> <A HREF="#modsmodelcompare"> ModelCompare </a></li>
+<LI> <A HREF="#modsmodelhierarchy"> ModelHierarchy </a></li>
+<LI> <A HREF="#modsnavigator"> Navigator </a></li>
+</ul>
+
+
+
+<A NAME="modsldmmviewer"></A><h3>LDMMViewer module</h3>
+<p>The <b>LDMMViewer</b> module is tbd.
+<br>There is one tab: <b>LDMM</b>.
+</p>
+<!-- tbd--
+<h4>LDMM tab</h4>
+<p>The <b>LDMM</b> tab lets you tbd.
+<br><br>To use the <b>LDMM</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_ldmmviewer_ldmm_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>LDMM</b> tab. The panel at left appears.</li>
+<li>Click <b>Pick Directory</b> to tbd.</li>
+<li>Click <b>Make Models</b> to tbd.</li>
+<li>Click <b>Show Vectors</b> to tbd.</li>
+<li>Click <b>Hide Vectors</b> to tbd.</li>
+<li>Click <b>Start</b> to tbd.</li>
+<li>Click <b>Movie</b> to tbd.</li>
+</ol>
+</td></tr></table>
+-->
+
+
+
+
+<A NAME="modslocator"></A><h3>Locator module</h3>
+<p>The <b>Locator</b> module connects Slicer to a server that feeds a real-time stream of coordinates from a device called the locator.
+This is useful in the operating room to allow the surgeon to navigate the volume by pointing to a location with a probe that is tracked.
+They can use the probe to select a new plane for scanning, or to zero on on an area to scan again.
+It is also used as a base for developing navigation tools for ultrasound, CT, laser ablation, and the MR Robot project.
+<br>NOTE: The <b>Realtime</b> module provides real-time processing of images acquired using <b>Locator</b>.
+<br>There are three tabs: <b>Tracking</b>, <b>Server</b>, and <b>Handpiece</b>.
+</p>
+
+<h4>Server tab</h4>
+<p>The <b>Server</b> tab lets you specify the source of the data for the Locator.
+<br><br>To use the <b>Server</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_locator_server_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Server</b> tab. The panel at left appears.</li>
+<li>Click <b>Active Server</b> to select the source of Locator data. The choices include:
+<ul>
+<li>Select <b>File</b> to read Locator positions from a text file. Then click <b>Prefix</b> and select the text file to read positions from. Enter a value for the <b>Update Period</b>.</li>
+<li>Select <b>SignaSP</b> to read Locator positions and real-time images from a server process running on the GE Signa SP workstation. <br>Enter <b>Server Connection</b> parameters, including <b>Host name</b>, <b>Port number</b>, and <b>Update Period</b>.
+<br>Specify the <b>Patient Position</b> by selecting either <b>Head-first</b> or <b>Feet-first</b> for <b>Entry</b>; <b>Supine</b>, <b>Prone</b>, <b>Left-decub</b>, or <b>Right-decub</b> for <b>Patient</b>; and <b>Front</b> or <b>Side</b> for <b>Table</b>.</li>
+<li>Select <b>Images</b> to read existing images on disk to emulate real-time images coming from a Signa SP scanner. Then click <b>Prefix</b> and select the first image file to read images from. Enter a value for the <b>Image increment</b> and <b>Update Period</b>.</li>
+<li>Select <b>Csys</b> to display a <b>Csys actor</b> that indicates the position and orientation of the Locator. Click <b>Csys</b> to display the <b>Csys actor</b>.</li>
+</ul>
+</li>
+</ol>
+</td></tr></table>
+
+<h4>Tracking tab</h4>
+<p>The <b>Tracking</b> tab lets you specify the source of the data for the Locator.
+<br><br>To use the <b>Tracking</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_locator_tracking_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Tracking</b> tab. The panel at left appears.</li>
+<li>Click <b>Connect</b> to toggle the connection to the server (chosen using the <b>Server</b> tab).</li>
+<li>Click <b>Pause</b> to pause the stream of data from the server.</li>
+<li>Click <b>Show Locator</b> to toggle display of the Locator in the <b>3D Viewer</b>. Click <b>Handle</b> to toggle display of a handle at right angles to the Locator. Click <b>Guide</b> to toggle display of the guide from the tip of the locator.</li>
+<li>Click <b>Add Fiducial</b> to create a fiducial point at the current location.
+Click <b>Delete Fiducial</b> to remove a fiducial point.</li>
+<li>In the <b>Locator can Drive Slices</b> area, select whether the User or the Locator will drive (position) reformatted slices.</li>
+<li>To save (or read from) a real-time volume, select the <b>Realtime Volume</b>, or enter the file <b>Prefix</b> and click <b>Save</b> or <b>Read</b>.</li>
+</ol>
+</td></tr></table>
+
+<h4>Handpiece tab</h4>
+<p>The <b>Handpiece</b> tab lets you configure the display of the Locator in the <b>3D Viewer</b>.
+<br><br>To use the <b>Handpiece</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_locator_handpiece_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Handpiece</b> tab. The panel at left appears.</li>
+<li>Enter the <b>Offset from Tip</b> values, including <b>Normal</b> (direction along tip of Locator's needle), <b>Trans.</b> (<b>Transverse</b>, perpendicular to the <b>Normal</b> along the <b>Handle</b>), and <b>N x T</b> (N cross T is a vector perpendicular to both <b>Normal</b> and <b>Transverse</b>, using the right-hand rule).
+<br>NOTE: You can use <b>Offset from Tip</b> to simulate a longer <b>Locator</b>. This can be useful if the <b>Locator</b> is attached to a surgical device and you want to know the location of the device rather than the location of the <b>Locator</b>.</li>
+<li>Enter the <b>Size</b> values, including <b>Normal</b> (length along tip of Locator's needle), <b>Trans.</b> (transverse, perpendicular to the <b>Normal</b> along the <b>Handle</b>), and <b>Radius</b> of the <b>Locator</b>.</li>
+<li>Enter the <b>Position & Orientation</b> values, giving the <b>R</b> (Right-left), <b>A</b> (Anterior-posterior), and <b>S</b> (Superior-inferior) coordinates for <b>N</b> (the <b>Normal</b>), <b>T</b> (the <b>Transverse</b>), and <b>P</b> (the cross-product of <b>Normal</b> and <b>Transverse</b>).</li>
+<li>Create a <b>Color</b> for the <b>Locator</b>, using <b>Red</b>, <b>Green</b>, and <b>Blue</b> sliders.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modsmeasure"></A><h3>Measure module</h3>
+<p>The <b>Measure</b> module calculates geometric measurments on structures, including position, distance, angle, intersection, volume, and surface area.
+This is useful for determining sizes of structures for diagnosis, comparison, or planning.
+<br>There is one tab: <b>Measure</b>.
+</p>
+
+<h4>Measure tab</h4>
+<p>The <b>Measure</b> tab calculates position, distance, angle, intersection, volume, and surface area for a model.
+
+<br><br>To use the <b>Measure</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_measure_measure_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>The <b>Measure</b> module requires a model that includes fiducial points.
+You can use the <b>Fiducials</b> module to create fiducial points for a model.</li>
+<li>Click the <b>Measure</b> tab. The panel at left appears.</li>
+<li>From the <b>Models</b> drop-down list, select a loaded model that has fiducial points.</li>
+<li>From the <b>Measure</b> drop-down menu select one of:
+<ul>
+<li><b>Position</b>: to determine the position of the fiducial points.</li>
+<li><b>Distance</b>: to determine the distance between the fiducial points.
+At least two fiducial points are necessary.</li>
+<li><b>Angle</b>: to determine the angle defined by three fiducial points.</li>
+<li><b>Intersection</b>: to determine the intersection point of two lines defined by four coplanar fiducial points.</li>
+<li><b>Volume</b>: to determine the volume enclosed by at least four fiducial points.</li>
+<li><b>Surface</b>: to determine the surface area of the volume enclosed by at least four fiducial points.</li>
+</ul>
+The calculated value of the selected measurement appears.</li>
+<li>To clear output from the list, click <b>Clear Output</b>.</li>
+</ol>
+</td></tr></table>
+
+
+
+<br><br><br>
+<A NAME="modsmeasurevol"></A><h3>MeasureVol module</h3>
+<p>The <b>MeasureVol</b> module measures the geometric volume, in milliliters, of each label within an image volume.
+This is useful for making measurements.
+<br>There are two tabs: <b>Measure</b> and <b>Results</b>.
+</p>
+
+<h4>Measure tab</h4>
+<p>The <b>Measure</b> tab lets you specify the volume to measure and an output file for the results.
+
+<br><br>To use the <b>Measure</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_measurevol_measure_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Measure</b> tab. The panel at left appears.</li>
+<li>Select the image <b>Volume</b> whose geometric volume you want to measure.</li>
+<li>To include the entire image volume, click <b>Basic</b>.
+Otherwise, to include only part of the image volume, click <b>Advanced</b>, then enter the upper and lower limits of slices in each of the three dimensions.
+Only labels within these limits will count toward the geometric volume.</li>
+<li>To send the results of the volume measurement to an existing file, click <b>Browse</b> and select the file.
+Otherwise, to specify a new file, enter the file name in the <b>Output File</b> field.</li>
+<li>Click <b>Measure Volume</b>.
+When the volume has been measured, a window will appear.
+To view the output file, click <b>Yes</b>.
+Otherwise, click <b>No</b>.
+The results appear on the <b>Results</b> tab.</li>
+</ol>
+</td></tr></table>
+
+
+<h4>Results tab</h4>
+<p>The <b>Results</b> tab displays the results of the volume measurement.
+
+<br><br>To use the <b>Results</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_measurevol_results_tab.jpg" ></td>
+<td valign="top">
+<ul>
+<li>Click the <b>Results</b> tab. The panel at left appears.</li>
+<li>Remember that you can have the results go to a file for later study, by specifying an <b>Output File</b> name on the <b>Measure</b> tab.</li>
+</ul>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modsmodelcompare"></A><h3>ModelCompare module</h3>
+<p>The <b>ModelCompare</b> module compares models with an identical number of nodes or displays any models.
+This is useful for examining the similarities and differences among models that may have been altered without losing nodes.
+<br>There are two tabs: <b>Correspond</b> and <b>Array Display</b>.
+</p>
+
+<h4>Correspond tab</h4>
+<p>The <b>Correspond</b> tab lets you compare models with an identical number of nodes.
+<br><br>To use the <b>Correspond</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_modelcompare_correspond_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Correspond</b> tab. The panel at left appears.</li>
+<li>To select all models, click <b>All</b>.</li>
+<li>To deselect all models, click <b>None</b>.</li>
+<li>To toggle models on or off, click the model's name.</li>
+<li>Enter <b>Sphere Scaling</b>, which is the sphere placed on the model when you run the correspondence. The calculation for the sphere's radius is .15 multiplied by the scaling factor.</li>
+<li>Enter value for <b>Keep Every Nth Node</b>.</li>
+<li>Click <b>Run</b> to compare selected models.
+<br>A comparision appears, showing corresponding nodes.
+<br><img SRC="images/more_modelcompare_correspond_tab_example.jpg" ></li>
+</ol>
+</td></tr></table>
+
+<h4>Array Display tab</h4>
+<p>The <b>Array Display</b> tab lets you display several models together.
+NOTE: Models are translated for easy visualization.
+<br><br>To use the <b>Array Display</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_modelcompare_arraydisplay_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Array Display</b> tab. The panel at left appears.</li>
+<li>To select all models, click <b>All</b>.</li>
+<li>To deselect all models, click <b>None</b>.</li>
+<li>To toggle models on or off, click the model's name.</li>
+<li>Enter <b>Transform Name</b> for this transform.</li>
+<li>Enter <b>Models Per Row</b> to display.</li>
+<li>Enter values for <b>Row Offset</b> and <b>Column Offset</b>.</li>
+<li>Click <b>Run</b> to perform the transform for display.</li>
+<li>Click <b>Undo</b> to undo the transform.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modsmodelhierarchy"></A><h3>ModelHierarchy module</h3>
+<p>The <b>ModelHierarchy</b> module lets you view, create, and delete model hierarchies.
+<br>There is one tab: <b>Hierarchy</b>.
+</p>
+<h4>Hierarchy tab</h4>
+<p>The <b>Hierarchy</b> tab lets you view, create, and delete hierarchies.
+<br><br>To use the <b>Hierarchy</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_modelhierarchy_hierarchy_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Hierarchy</b> tab. The panel at left appears.
+The current hierarchy, if any, of the current model appears.</li>
+<li>To create a new hierarchy for the current model, click <b>Create</b>.
+A new hierarchy appears in the list.</li>
+<li>To create a new group in the hierarchy, click <b>Create group</b>.
+A dialog appears. Enter the name of the new group, then click <b>Ok</b>.
+A new group appears in the list.</li>
+<li>To delete the hierarchy, click <b>Delete</b>.
+A dialog appears. Click <b>Yes</b>.</li>
+</ol>
+</td></tr></table>
+
+
+
+<br><br><br>
+<A NAME="modsnavigator"></A><h3>Navigator module</h3>
+<p>The <b>Navigator</b> module lets you navigate models in <b>3D Viewer</b>, <b>Endoscopic View</b>, and <b>Flattened View</b> independently in a single display.
+This is useful for observing structures in context.
+<br>There are two tabs: <b>Navigate</b> and <b>Options</b>.
+</p>
+<h4>Navigate tab</h4>
+<p>The <b>Navigate</b> tab lets you select the model and flattened view.
+<br><br>To use the <b>Navigate</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_navigator_navigate_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Navigate</b> tab. The panel at left appears.</li>
+<li>To choose the 3D model to navigate, click <b>3D Model</b> and select the model from the list.</li>
+<li>To choose a loaded flattened view to navigate, click <b>Flattened View</b> and select the view from the list.</li>
+<li>To load a flattened view, click <b>Browse</b>, then select the flattened view, then click <b>Choose</b>.</li>
+<li>Click <b>Run</b> to display the selected items.</li>
+<li>When the selected items appear, use the usual controls to navigate each display independently.</li>
+</ol>
+</td></tr></table>
+
+<h4>Options tab</h4>
+<p>The <b>Options</b> tab lets you specify which displays to retain after exiting.
+<br><br>To use the <b>Options</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_navigator_options_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Options</b> tab. The panel at left appears.</li>
+<li>To toggle hiding the Flattened View on exiting, click <b>Remove Flattened View Upon Exit</b>. </li>
+<li>To toggle hiding the Endoscopic View on exiting, click <b>Remove Endoscopic View Upon Exit</b>. </li>
+</ol>
+</td></tr></table>
+
+

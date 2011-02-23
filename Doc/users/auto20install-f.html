@@ -1,0 +1,105 @@
+<a name="installopenmr"></a><title>Installing on OpenMR</title>
+
+
+<h3>OpenMR Installation Instructions</h3>
+
+<p class=warning>
+<em>WARNING</em><br><br>These instructions are out of date. Use at your own risk.
+</p>
+
+<h4>Accounts</h4>
+<p>
+Install everything as the "surg" user, and always run Slicer as the "surg" user.
+    </p>
+
+<h4>Install the Software Packages</h4>
+<p>
+Unzip packages (from the ftp site) to create the following directory structure inside a main directory named "slicer":
+<ul>
+<li><b>pkg</b> -- contains all packages downloaded for installation
+<br>&nbsp;<li><b>slicer-1.2.2</b> -- most recent version of Slicer
+<br>&nbsp;<li><b>go</b> -- old version of Slicer that was stable on monk during Arya's tenure
+<br>&nbsp;<li><b>bin</b> -- executable scripts for all Slicer versions
+</ul>
+
+<p>
+Perform the following:
+<ol>
+<li>Edit "slicer-1.2.2/program/slicer" to set the SLICER_HOME environment variable.
+<br>&nbsp;<li>Copy the "slicer" file to the "bin" directory mentioned above.
+<br>&nbsp;<li>Add the above "bin" directory to the "PATH" environment variable in surg's "~/.tcshrc" file.
+</ol>
+
+<h4>Edit Tcl Files to Change Defaults in New Slicer</h4>
+<p>
+The files listed in the table below are located relative to the directory:<br> <code>slicer/slicer-1.2.2/program</code>
+    </p>
+
+<p>
+
+<table cellpadding=3 cellspacing=3 border=0 align=center>
+<tr>
+<th class=box>Tcl File Edits</th>
+</tr>
+<tr>
+<td class=box0>
+  <div class=q>tcl-modules/Locator.tcl</div>
+  <div class=a>Add "LocatorSetActive SignaSP" at the end of the LocatorBuildGUI procedure.</div>
+</td>
+</tr>
+<tr>
+<td class=box1>
+  <div class=q>tcl-modules/Twin.tcl</div>
+  <div class=a>Edit "set Twin(screen) 0" to become "set Twin(screen) 1".
+  Edit any other lines as desired to change the size and position of the window. For example:<br>
+  &nbsp;&nbsp;set Twin(xPos) 30<br>
+  &nbsp;&nbsp;set Twin(yPos) 0<br>
+  &nbsp;&nbsp;set Twin(width) 550<br>
+  &nbsp;&nbsp;set Twin(height) 440<br>
+</div>
+</td>
+</tr>
+<tr>
+<td class=box0>
+  <div class=q>tcl-main/MainView.tcl</div>
+  <div class=a>Edit "viewBgColor" in "MainViewInit" to be "Black" instead of "Blue"</div>
+</td>
+</tr>
+</table>
+
+<h4>Edit Init Files to Change Defaults in Old Slicer</h4>
+<p>
+Edit the file "slicer/go/program/slicer.init" so that the "View" variables are as follows:
+    </p>
+<pre></pre>
+<p class=code>View (
+        boreDisplay Image
+        boreScreen 1
+        boreRender 0
+        boreWidth 570
+        boreHeight 426
+        borePosition 25 0
+</p>
+
+<h4>Start the "SPL Server" on the Imaging Workstation</h4>
+On the GE imaging workstation (machine name: mrtws), log in as mrtmstr
+which takes you to the directory /home/mrtmstr.
+Type:
+<pre></pre>
+<p class=code>./spl_server</p>
+
+<h4>Run the New Slicer</h4>
+<p>
+<ol>
+<li>At the command prompt, type "slicer".
+<li>Go to the "Twin" module and click "On".
+<li>Go to the "Locator" module and click "Connect".
+</ol>
+
+<h4>Run the Old Slicer</h4>
+<p>
+<ol>
+<li>At the command prompt, type "go".
+<li>Go to the "Realtime" module, and click "Bore" and "Connect".
+</ol>
+

@@ -1,0 +1,68 @@
+<!ELEMENT MRML (Transform | Volume | Model | Color | Options)*>
+
+<!ELEMENT Transform (Transform | Matrix | Volume | Model)*>
+
+<!ELEMENT Matrix (#PCDATA)>
+<!ATTLIST Matrix 
+    name NMTOKEN "Matrix"
+    description CDATA ""
+    matrix NMTOKENS "1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1">
+
+<!ELEMENT Volume (#PCDATA)>
+<!ATTLIST Volume 
+    name NMTOKEN ""
+    filePattern CDATA "s.03d"
+    filePrefix CDATA #REQUIRED
+    rasToIjkMatrix NMTOKENS "1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1"
+    rasToVtkMatrix NMTOKENS "1 0 0 0  0 -1 0 0  0 0 1 0  0 0 0 1"
+    positionMatrix NMTOKENS "1 0 0 0  0 1 0 0  0 0 1 0  0 0 0 1"
+    colorLUT NMTOKEN ""
+    scanOrder (LR | RL | SI | IS | AP | PA) "SI"
+    description CDATA ""
+    scalarType (Char | UnsignedChar | Short | UnsignedShort | Int | UnsignedInt | Long | UnsignedLong | Float | Double) "Short"
+    numScalars NMTOKEN "1"
+    labelMap (yes | no) "no"
+    interpolate (yes | no) "yes"
+    littleEndian (yes | no) "no"
+    tilt NMTOKEN "0.0"
+    autoWindowLevel (yes | no) "yes"
+    window CDATA "256"
+    level CDATA "128"
+    applyThreshold (yes | no) "no"
+    autoThreshold (yes | no) "no"
+    lowerThreshold CDATA "-32768"
+    upperThreshold CDATA "32767"
+    ignore (yes | no) "no"
+    imageRange NMTOKENS "1 1"
+    dimensions NMTOKENS "256 256"
+    spacing NMTOKENS "1 1 1">
+
+<!ELEMENT Model (#PCDATA)>
+<!ATTLIST Model 
+    name NMTOKEN ""
+    fileName CDATA  #REQUIRED
+    color NMTOKEN ""
+    description CDATA ""
+    opacity NMTOKEN "1.0"
+    visibility (yes | no) "yes"
+    clipping (yes | no) "no"
+    backfaceCulling (yes | no) "yes"
+    scalarVisibility (yes | no) "no"
+    ignore (yes | no) "no"
+    scalarRange NMTOKENS "0 100">
+
+<!ELEMENT Color (#PCDATA)>
+<!ATTLIST Color 
+    name NMTOKEN #REQUIRED
+    description CDATA ""
+    diffuseColor NMTOKENS "1.0 1.0 1.0"
+    ambient NMTOKEN "0.0"
+    diffuse NMTOKEN "1.0"
+    specular NMTOKEN "0.0"
+    power NMTOKEN "1"
+    labels NMTOKEN "">
+
+<!ELEMENT Options (#PCDATA)>
+<!ATTLIST Options 
+    program CDATA #REQUIRED
+    content CDATA "">

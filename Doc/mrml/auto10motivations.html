@@ -1,0 +1,35 @@
+<title>Motivations</title>
+
+<p>
+Visualizing medical data involves combining various data sets into a single scene, and exploring
+the scene interactively. Using Slicer typically involves creating a scene
+from volume data sets, surface models derived from those volumes, and
+transformations derived from 3D registrations of both the volumes and models. We have found
+that the proper coordination of these items is easier to attain by using a hierarchical
+modeling paradigm, similar to the modeling systems and languages of graphics and CAD/CAM.</p>
+<p>
+Toward this end, we created the Medical Reality Modeling Language (MRML) as a format for
+describing scenes that consist of various types of data sets collected in various geometric
+locations. These scenes can then be explored using programs that are essentially MRML browsers,
+such as Slicer.</p>
+
+<p>MRML files describe three aspects of data:</p>
+
+<ul>
+<li>
+Disk Location: MRML files are not a copy of the data in another
+format. Instead, a MRML file describes where the data is stored, so that the data can remain in its
+original format and location.</li>
+
+<br>&nbsp;<li>
+Geometric Position: A MRML file describes how to position the data sets relative
+to each other in 3D space.</li>
+
+<br>&nbsp;<li>
+Appearance: A MRML file describes how to display the data, by specifying
+parameters for rendering and coloring.
+</li>
+</ul>
+
+
+

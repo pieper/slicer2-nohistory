@@ -1,0 +1,8 @@
+Assuming $SOAP_CLIENT_HOME represents your soap_client directory;
+ 
+1) Set the environment variable CP to $SOAP_CLIENT_HOME
+2) cd to $SOAP_CLIENT_HOME
+2) run build.sh to build
+3) run run.sh <subject-id-list> <subjectid> to run the client
+ 
+

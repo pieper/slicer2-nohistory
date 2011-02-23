@@ -1,0 +1,122 @@
+# Find ITK
+INCLUDE (${CMAKE_ROOT}/Modules/FindITK.cmake)
+
+# Use ITK.  This sets up include/link directories for us.
+IF (USE_ITK_FILE)
+  INCLUDE(${USE_ITK_FILE})
+ENDIF(USE_ITK_FILE)
+
+SET( LOCAL_MODULE_SRCS
+itkDemonsRegistrationImageFilter.cxx
+itkAffineMattesMIRegistrationFilter.cxx
+itkTranslationMattesMIRegistrationFilter.cxx
+itkVersorMattesMiVersorRegistrationFilter.cxx
+itkTranslationMIGradientDescentRegistrationFilter.cxx
+vtkITKAffineMattesMIRegistrationFilter.cxx
+vtkITKTranslationMattesMIRegistrationFilter.cxx
+vtkITKVersorMattesMiVersorRegistrationFilter.cxx
+vtkITKTranslationMIGradientDescentRegistrationFilter.cxx
+vtkITKTransformRegistrationFilter.cxx
+vtkITKRegistrationFilter.cxx
+vtkITKDemonsRegistrationFilter.cxx
+vtkITKDemonsTransformRegistrationFilter.cxx
+vtkITKDeformableRegistrationFilter.cxx
+vtkITKAntiAliasBinaryImageFilter.h
+vtkITKArchetypeImageSeriesReader.cxx
+vtkITKArchetypeImageSeriesScalarReader.cxx
+vtkITKArchetypeImageSeriesVectorReader.cxx
+vtkITKBilateralImageFilter.h
+vtkITKBSplineMattesMIRegistrationFilter.cxx
+vtkITKBSplineImageFilter.cxx
+vtkITKConfidenceConnectedImageFilter.cxx
+vtkITKConnectedThresholdImageFilter.cxx
+vtkITKCurvatureAnisotropicDiffusionImageFilter.h
+vtkITKDanielssonDistanceMapImageFilter.cxx
+vtkITKDiscreteGaussianImageFilter.h
+vtkITKGradientAnisotropicDiffusionImageFilter.h
+vtkITKGradientMagnitudeImageFilter.h
+vtkITKImageToImageFilter.h
+vtkITKImageToImageFilter2DFF.h
+vtkITKImageToImageFilterFF.h
+vtkITKImageToImageFilterFUL.h
+vtkITKImageToImageFilterULUL.h
+vtkITKImageToImageFilterUSUL.h
+vtkITKImageToImageFilterUSUS.h
+vtkITKImageToImageFilterSS.h
+vtkITKImageWriter.cxx
+vtkITKIsolatedConnectedImageFilter.cxx
+vtkITKLaplacianSegmentationLevelSetImageFilter.h
+vtkITKMRIBiasFieldCorrectionImageFilter.h
+vtkITKNeighborhoodConnectedImageFilter.h
+vtkITKNormalizeImageFilter.cxx
+vtkITKPDEDeformableRegistrationFilter.h
+vtkITKOtsuThresholdImageFilter.h
+vtkITKOtsuMultipleThresholdsImageFilter.h
+vtkITKThresholdSegmentationLevelSetImageFilter.h
+vtkITKTobogganImageFilter.h
+vtkITKWatershedImageFilter.cxx
+vtkITKVersion.cxx
+vtkITKNewOtsuThresholdImageFilter.cxx
+vtkITKHistogramMatchingImageFilter.cxx
+)
+
+SET_SOURCE_FILES_PROPERTIES (
+itkDemonsRegistrationImageFilter.cxx
+itkVersorMattesMiVersorRegistrationFilter.cxx
+itkAffineMattesMIRegistrationFilter.cxx
+itkTranslationMattesMIRegistrationFilter.cxx
+itkTranslationMIGradientDescentRegistrationFilter.cxx
+WRAP_EXCLUDE
+)
+
+SET_SOURCE_FILES_PROPERTIES ( 
+vtkITKImageToImageFilter.h
+vtkITKImageToImageFilter2DFF.h
+vtkITKImageToImageFilterFF.h
+vtkITKImageToImageFilterFUL.h
+vtkITKImageToImageFilterULUL.h
+vtkITKImageToImageFilterUSUL.h
+vtkITKImageToImageFilterUSUS.h
+vtkITKVersion.h
+itkDemonsRegistrationImageFilter.h
+ABSTRACT
+)
+
+# SpatialObjects Viewers
+IF(SOV_BINARY_DIR)
+  INCLUDE (${SOV_BINARY_DIR}/UseSOV.cmake)
+  LINK_LIBRARIES(
+    SOViewer
+    SOVCommon
+    SOVOpenGLRenderMethod
+    SOVVTKRenderMethod
+  )
+
+  SET( LOCAL_MODULE_SRCS
+    ${LOCAL_MODULE_SRCS}
+    vtkITKSceneSpatialObjectViewer.cxx
+  )
+ENDIF(SOV_BINARY_DIR)
+
+
+ADD_LIBRARY ( ${LOCAL_LIBRARY_BASENAME} ${LOCAL_MODULE_SRCS} )
+
+# Link in with ITK
+
+# if we are wrapping into Tcl then add the library and extra 
+# source files
+#
+
+TARGET_LINK_LIBRARIES (
+${LOCAL_LIBRARY_BASENAME}
+ITKAlgorithms
+ITKNumerics 
+ITKCommon
+ITKBasicFilters
+ITKNumerics
+ITKStatistics
+ITKBasicFilters
+ITKIO
+ITKDICOMParser
+)
+

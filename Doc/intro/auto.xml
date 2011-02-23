@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE AUTO SYSTEM "../auto.dtd">
+<auto>
+<title>Introduction</title>
+
+<teaser>Slicer is a software research tool with emphasis on:</br>
+</teaser>
+
+<summary>
+<ul>
+<li>Research for guiding biopsies and craniotomies</li>
+<li>Research of diagnostic visualization and surgical planning</li>
+<li>Facilitating research into brain shift and volumetric studies in the lab</li>
+</ul>
+</summary>
+</auto>
+
+

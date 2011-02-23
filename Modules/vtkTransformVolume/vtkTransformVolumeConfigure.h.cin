@@ -1,0 +1,21 @@
+/* 
+ * Here is where system computed values get stored.
+ * These values should only change when the target compile platform changes.
+ */
+
+#cmakedefine VTKTRANSFORMVOLUME_BUILD_SHARED_LIBS
+#ifndef VTKTRANSFORMVOLUME_BUILD_SHARED_LIBS
+#define VTKTRANSFORMVOLUME_STATIC
+#endif
+
+#if defined(WIN32) && !defined(VTKTRANSFORMVOLUME_STATIC)
+#pragma warning ( disable : 4275 )
+
+#if defined(vtkTransformVolume_EXPORTS)
+#define VTK_TRANSFORMVOLUME_EXPORT __declspec( dllexport ) 
+#else
+#define VTK_TRANSFORMVOLUME_EXPORT __declspec( dllimport ) 
+#endif
+#else
+#define VTK_TRANSFORMVOLUME_EXPORT
+#endif

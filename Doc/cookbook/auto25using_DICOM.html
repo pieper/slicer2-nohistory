@@ -1,0 +1,70 @@
+
+<title>Using DICOM data with Slicer</title>
+
+
+
+Slicer now supports reading DICOM (digital imaging and communications in medicine) Version 3.0 CT and MRI images.
+(The SPL gratefully acknowledges Attila Tanacs for the work he did to add this
+powerful capability to Slicer.) <br>
+Currently, segmented and otherwise modified
+DICOM images are written in the same format as other images that Slicer reads.
+(For example, the images are written in big-endian format and numbered <code>imagename.001</code> to
+<code>imagename.xxx</code>.)
+<p>To read DICOM files with Slicer:</p>
+<ol>
+<li>
+On the <b>Main</b> menu, click <b>Data</b>.</li>
+<li>Click <b>Add Volume</b>. The <b>Props</b> panel appears.
+<center>
+<p><img SRC="images/dicom-load.jpg" ></p></center></li>
+
+<li>
+Click <b>DICOM</b>. (Not all the letters of DICOM may be visible.)</li>
+
+<li>
+Click <b>Select Dicom Volume</b>. (A file browser window appears.
+This browser does not sort the file names alphabetically.
+If there are many files in a directory,
+it may be easier to type the path to the images than to use the browser.)
+
+<center>
+<p><img SRC="images/dicom_browser.gif" ></p></center>
+</li>
+<li>
+Select an image and click <b>OK</b>.
+A window appears, displaying patient information, studies, series, and files.
+(If there are many images in the directory, it may take a while for the information to appear.)
+<center>
+<p><img SRC="images/dicom_if.gif" ></p></center>
+
+</li>
+<li>In this window, options include:
+    <ul>
+    <li>Select or deselect images to load. Selected images are
+    shown in green and deselected images are shown in red. </li>
+    <li>Click <b>Increasing</b> or <b>Decreasing</b> to load images in
+    increasing or decreasing order.</li>
+    <li>Click <b>Preview</b> to display images as small icon-size images in the bottom panel.
+    You can change the size of the previewed images. The default
+    size is 32x32 pixels.</li>
+    <li>Click <b>List Headers</b> to display header information about the
+    geometry of each image in the series.</li>
+    <li>Click <b>Check</b> to display information about the volume and how
+    to group the data. With DICOM data, the organization of the data is
+    not always apparent. <b>Check</b> examines the slice location and thickness of each image
+    in the volume to make sure all slices are the same distance apart.
+    This helps to show when slices are missing.
+    This is also useful when several DICOM acquisitions are lumped together.</li>
+    </ul>
+</li>
+<li>
+After the data is organized properly, click <b>OK</b>.</li>
+<li>Click <b>Extract Header</b>.
+This
+displays the information extracted from the headers describing the
+dataset.
+</li>
+</ol>
+
+
+

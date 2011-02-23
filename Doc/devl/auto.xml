@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE AUTO SYSTEM "../auto.dtd">
+<auto>
+<title>Developer's Guide</title>
+
+<teaser>
+How to add new software
+<br>and documentation</br>
+</teaser>
+
+<summary>
+This Developer's Guide presents the steps for adding a new module,
+compiling the VTK source, and creating documentation.
+</summary>
+</auto>
+
+

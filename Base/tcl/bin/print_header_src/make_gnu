@@ -1,0 +1,12 @@
+ARCH = gnu
+CC = gcc
+CFLAGS = -g 
+SPLIOLIB = lib/$(ARCH)/splio.a
+OBJECTS = $(ARCH)/print_header.o
+
+print_header-$(ARCH) : $(OBJECTS) $(SPLIOLIB)
+	$(CC) $(CFLAGS) -o print_header-$(ARCH) $(OBJECTS) $(CFLAGS) $(SPLIOLIB) \
+	-lm 
+
+$(OBJECTS): print_header.c
+	$(CC) $(CFLAGS) -o $(OBJECTS) -c print_header.c $(CFLAGS)

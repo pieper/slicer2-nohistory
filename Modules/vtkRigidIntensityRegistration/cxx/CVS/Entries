@@ -1,0 +1,19 @@
+/AveragingStoppingCondition.cxx/1.3/Fri Jan  6 17:58:02 2006//
+/AveragingStoppingCondition.h/1.3/Fri Jan  6 17:58:02 2006//
+/CMakeLists.txt/1.2/Wed Mar 22 15:00:12 2006//
+/CMakeLists.txt.in/1.1/Wed Mar 22 15:00:13 2006//
+/CMakeListsLocal.txt/1.2/Thu Jan 15 19:20:27 2004//
+/Doxyfile/1.1/Fri Apr  1 22:50:50 2005//
+/NewStoppingCondition.cxx/1.7/Fri Jan  6 17:58:02 2006//
+/NewStoppingCondition.h/1.6/Fri Jan  6 17:58:02 2006//
+/RigidRegistrationBase.h/1.6/Fri Jan  6 17:58:02 2006//
+/RigidRegistrationBase.txx/1.8/Thu Apr 14 12:49:41 2005//
+/itkGradientDescentOptimizerWithStopCondition.cxx/1.5/Fri Jan  6 17:58:02 2006//
+/itkGradientDescentOptimizerWithStopCondition.h/1.3/Fri Jan  6 17:58:02 2006//
+/itkQuaternionRigidTransformGradientDescentOptimizerModified.cxx/1.3/Fri Jan  6 17:58:02 2006//
+/itkQuaternionRigidTransformGradientDescentOptimizerModified.h/1.3/Fri Jan  6 17:58:02 2006//
+/vtkITKKullbackLeiblerTransform.h/1.3/Fri Jan  6 17:58:02 2006//
+/vtkITKMutualInformationTransform.h/1.3/Fri Jan  6 17:58:02 2006//
+/vtkITKRigidRegistrationTransformBase.cxx/1.10/Fri Jan  6 17:58:02 2006//
+/vtkITKRigidRegistrationTransformBase.h/1.8/Fri Jan  6 17:58:03 2006//
+D

@@ -1,0 +1,7 @@
+2003-11-03 - replacing old :
+  diolistic3-border-size.jpg
+with new file - so called : 
+  diolistic3-border-size-2-new-border.jpg
+from new images from Maryann.  filename was used just to trick replace it into the program.
+Now called image.jpg
+

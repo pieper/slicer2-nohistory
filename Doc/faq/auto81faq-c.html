@@ -1,0 +1,46 @@
+<title>Error in startup script:</title>
+<li class=faq>
+<p class=question>
+When I try to start Slicer on my unix system, I get an error
+similar to the following:<br>
+<code>Sourcing /home/user/slicer2/slicer_variables.tcl<br>
+SLICER_HOME is /home/user/slicer2<br>
+Error in startup script: The Tcl interpreter was probably not able to find
+the VTK packages.  Please check that your TCLLIBPATH environment variable
+includes the path to your VTK Tcl directory.  You might find it under your
+VTK binary directory in Wrapping/Tcl, or under your site-specific
+{CMAKE_INSTALL_PREFIX}/lib/vtk/tcl directory.  The TCLLIBPATH current
+value is:</code>
+
+<p class=answer>
+This is a problem due to an error in one of the support libraries that are required 
+to run Slicer. Unfortunately, the error message isn't very helpful, so we have to turn
+to some system tools to uncover the problem. <br>
+First, make sure that the TCL/TK and VTK libraries built properly:
+<ul>
+<li>slicer2/Lib/[osname]/tcl-build/lib/libtcl[x.y].so and libtk[x.y].so
+<li>slicer2/Lib/[osname]/VTK-build/bin/libvtk*.so and vtk
+</ul>
+If those files don't exist, go back to the slicer2/Scripts/genlib.tcl script and try 
+rebuilding to determine why there was a failure.<br>
+If the files are present, we need to make sure that they are linking in their 
+support libraries properly. Start up Slicer with the Tk console via
+this command (it is important to do this within the tkcon, as the
+necessary paths are set up for Slicer in this environment): <br> 
+<code>./slicer2-[osname] Base/tcl/tkcon.tcl</code><br>
+In the terminal, type the following, and check for any empty paths in the output:<br>
+<code>ldd Lib/[osname]/VTK-build/bin/vtk</code><br>
+<code>ldd Base/builds/[osname]/bin/libvtkSlicerBase.so</code><br>
+<p>
+Typing <code>package require vtk</code> in the tkcon should succeed
+and return a version number when the linkages are fixed. You can then
+exit the tkcon and try restarting Slicer the regular way.
+<!--
+It is also possible that the compilation of the support libraries
+finished, and all the secondary support libraries are found, but some
+symbols may not be defined. You can run <code>nm</code> on the shared
+object files and search for U = undefined symbols. This can also be
+done from the Tk console: <br> 
+<code>nm Lib/[osname]/VTK-build/bin/vtk</code><br>
+<code>nm Base/builds/[osname]/bin/libvtkSlicerBase.so</code><br>
+-->

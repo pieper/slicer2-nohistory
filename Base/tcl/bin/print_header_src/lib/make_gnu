@@ -1,0 +1,21 @@
+ARCH = gnu
+CFLAGS = -g $(FLOAT_OPTION) -DGNU
+CC = gcc
+LIB =   $(ARCH)/splio.a
+LIB_OBJECTS = spl_get_image_info.o spl_get_vol.o \
+	spl_put_vol.o  spl_read_image.o \
+	spl_write_image.o spl_get_image_info_fast.o
+
+$(ARCH)/%.o: %.c
+	$(CC) $(CFLAGS) -c $*.c -o $(ARCH)/$*.o
+
+.INIT:
+	@-mkdir $(ARCH) 2>/dev/null; exit 0
+
+all: $(LIB)
+
+$(LIB): $(LIB_OBJECTS:%=$(ARCH)/%)
+	-rm -f $@
+	ar rc $@
+	ar q $@ $(LIB_OBJECTS:%=$(ARCH)/%)
+

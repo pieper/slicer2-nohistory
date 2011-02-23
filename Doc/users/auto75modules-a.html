@@ -1,0 +1,1035 @@
+<title>Modules A-H</title>
+
+<a name="modsa"></a>
+<h3> Using Modules A-H</h3>
+
+<ul>
+<LI> <A HREF="#modsanatomy"> Anatomy </a></li>
+<LI> <A HREF="#modsanno"> Anno </a></li>
+<LI> <A HREF="#modsbirndup"> BIRNDUP </a></li>
+<LI> <A HREF="#modscolors"> Colors </a></li>
+<LI> <A HREF="#modscorcta"> CorCTA </a></li>
+<LI> <A HREF="#modscrosssection"> CrossSection </a></li>
+<LI> <A HREF="#modscustom"> Custom </a></li>
+<LI> <A HREF="#modscustomcsys"> CustomCsys </a></li>
+<LI> <A HREF="#modsdtmri"> DTMRI </a></li>
+<LI> <A HREF="#modsemsegment"> EMSegment </a></li>
+<LI> <A HREF="#modsendoscopic"> Endoscopic </a></li>
+<LI> <A HREF="#modsfiducials"> Fiducials </a></li>
+<LI> <A HREF="#modsguidance"> Guidance </a></li>
+</ul>
+
+
+
+<A NAME="modsanatomy"></A><h3>Anatomy module</h3>
+<p>The <b>Anatomy</b> module lets you save Slicer scenes as files for the SPL Anatomy Browser.
+<br>There is one tab: <b>Anatomy</b>.
+</p>
+
+<h4>Anatomy tab</h4>
+<p>The <b>Anatomy</b> tab lets you save the current scene for the SPL Anatomy Browser.
+
+<br><br>To use the <b>Anatomy</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_anatomy_anatomy_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Anatomy</b> tab. The panel at left appears.</li>
+<li>Enter the <b>Scene name</b>.</li>
+<li>Enter the <b>Output directory</b> for the created file.</li>
+<li>Enter the <b>Directory for temporary files</b>.
+This directory will contain temporary files while the output file is being created. After the file is created, you can delete the files in the temporary directory.</li>
+<li>Click <b>Volume</b> and select the volume from the drop-down list.</li>
+<li>Click <b>Label map</b> and select the label map from the drop-down list.
+<br>NOTE: Labels must match the model order inside the MRML file and have consecutive label numbers.</li>
+<li>Click <b>Shrink</b> to change the size of the <b>3D Viewer</b> to 384-by-384 pixels, which is the standard of the SPL Anatomy Browser.</li>
+<li>Click <b>Restore window</b> to change the size of the <b>3D Viewer</b> to full size.</li>
+<li>Select a name for the view from the list, or click <b>Add</b> to enter a new name for the list. To delete a name, select the name and click <b>Delete</b>.</li>
+<li>Click <b>Go!</b> to create the file. The file appears in the <b>Output directory</b>.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modsanno"></A><h3>Anno module</h3>
+<p>Slicer can display graphical and text annotations on images in the <b>Viewer</b> window. The <b>Anno</b> module lets you control these annotations.
+This can be useful for orienting images correctly, and for formatting images for output.
+There are two tabs: <b>Visibility</b> and <b>Mode</b>.
+<br>To save annotation options, click <b>File</b>, then click <b>Save Current Options</b>. This will save your options to a file called <code>Options.xml</code>.
+</p>
+
+<h4>Visibility tab</h4>
+<p>The <b>Visibility</b> tab provides controls for determining which annotations will be visible.
+
+<br><br>To use the <b>Visibility</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_anno_visibility_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Visibility</b> tab. The panel at left appears.</li>
+<li>To display a 3D wireframe cube, click <b>3D Cube</b>.</li>
+<li>To display 3D coordinate axes, click <b>3D Axes</b>.</li>
+<li>To display letters that label the 3D coordinate axes, click <b>3D Letters</b>.</li>
+<li>To display colored 3D outlines around each slice, click <b>3D Outline around slices</b>.</li>
+<li>To display a crosshair on 2D slices, click <b>Crosshair</b>.</li>
+<li>To display hash marks on the crosshair on 2D slices, click <b>Hash marks</b>.
+<br>NOTE: <b>Crosshair</b> must be on to display hash marks.</li>
+<li>To display text on 2D slices (including axis labels, coordinate values, and foreground and background values), click <b>Slice window text</b>.</li>
+</ol>
+</td></tr></table>
+
+<center><h4>Results of Visibility</h4></center>
+<table border=1>
+<tr>
+<td ><center><b>3D Cube</b> on</center></td>
+<td ><center><b>3D Axes</b> on</center></td>
+<td ><center><b>3D Letters</b> on</center></td>
+<td ><center><b>3D Outline around slices</b> on</center></td>
+</tr>
+<tr>
+<td valign="top"><center><img width=175 SRC="images/more_anno_visibility_tab_3dcube.jpg" ></center></td>
+<td valign="top"><center><img width=175 SRC="images/more_anno_visibility_tab_3daxes.jpg" ></center></td>
+<td valign="top"><center><img width=175 SRC="images/more_anno_visibility_tab_3dletters.jpg" ></center></td>
+<td valign="top"><center><img width=175 SRC="images/more_anno_visibility_tab_3doutlines.jpg" ></center></td>
+</tr>
+</table>
+<br>
+<table border=1>
+<tr>
+<td ><center><b>Crosshair</b> on</center></td>
+<td ><center><b>Hash marks</b> on</center></td>
+<td ><center><b>Slice window text</b> on</center></td>
+</tr>
+<tr>
+<td valign="top"><center><img width=248 SRC="images/more_anno_visibility_tab_crosshair.jpg" ></center></td>
+<td valign="top"><center><img width=248 SRC="images/more_anno_visibility_tab_hashmarks.jpg" ></center></td>
+<td valign="top"><center><img width=248 SRC="images/more_anno_visibility_tab_slicetext.jpg" ></center></td>
+</tr>
+</table>
+
+<h4>Mode tab</h4>
+<p>The <b>Mode</b> tab lets you choose:
+<ul>
+<li>coordinate system displayed on slices</li>
+<li>precision to display pixel values</li>
+<li>whether axes or cube should follow the focal point</li>
+</ul>
+<br>To use the <b>Mode</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_anno_mode_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Mode</b> tab. The panel at left appears.</li>
+<li>Select the coordinate system to display with the <b>Slice Cursor</b>, as follows:
+<ul>
+<li>Click <b>RAS</b> to select RAS coordinates, which give the coordinates of the slice cursor as the physical location in Right-left, Anterior-posterior, Superior-inferior form, in millimeters.</li>
+<li>Click <b>IJK</b> to select IJK coordinates, which give the coordinates of the slice cursor in terms of which pixel on which slice.</li>
+<li>Click <b>XY</b> to select XY coordinates, which give the coordinates of the slice cursor as the number of pixels from the left and from the bottom, respectively.</li>
+</ul></li>
+<li>Select how to display the values of the foreground and background of the pixel on the <b>2D Viewer</b>, as follows:
+<ul>
+<li>Click <b>1</b> to display the values as integers.</li>
+<li>Click <b>1.00</b> to display the values to two decimal places.</li>
+<li>Click <b>full</b> to display the values to all decimal places.</li>
+</ul></li>
+<li>Click <b>Axes follow focal point</b> to have the coordinate axes follow the focal point when you move the mouse in the <b>3D Viewer</b>.</li>
+<li>Click <b>Cube follows focal point</b> to have the bounding cube follow the focal point when you move the mouse in the <b>3D Viewer</b>.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modsbirndup"></A><h3>BIRNDUP module</h3>
+<p>The <b>BIRNDUP</b> module acts as an interface to deidentify and upload DICOM volumes to BIRN (Biomedical Informatics Research Network).
+There is one tab: <b>BIRNDUP</b>.
+</p>
+
+<h4>BIRNDUP tab</h4>
+<p>The <b>BIRNDUP</b> tab runs the interface to deidentify and upload DICOM volumes.
+<br><br>To use the <b>BIRNDUP</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_birndup_birndup_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>BIRNDUP</b> tab. The panel at left appears.</li>
+<li>To choose an active volume, click <b>Active Volume</b> and select a volume from the drop-down list.</li>
+<li>Click <b>Run Interface</b> to start the BIRN Deidentification and Upload Pipeline.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+
+<br><br><br>
+<A NAME="modscolors"></A><h3>Colors module</h3>
+<p>The <b>Colors</b> module lets you:
+<ul>
+<li>create color names and associate colors with each name</li>
+<li>associate one or more labels with each color name</li>
+<li>define color properties, including how ambient, diffuse, and specular a color is</li>
+<li>load predefined sets of colors</li>
+</ul>
+This can be useful for distinguishing structures, combining multiple data sets, and formatting images for output.
+<br>There are two tabs: <b>Edit Colors</b> and <b>Load Colors</b>.
+</p>
+
+<h4>Edit Colors tab</h4>
+<p>The <b>Edit Colors</b> tab provides controls for creating color names, defining color properties, and associating colors and labels with color names.
+<br><br>To use the <b>Edit Colors</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_colors_editcolors_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Edit Colors</b> tab. The panel at left appears.</li>
+<li>To create a new <b>Color Name</b>, enter the name and click <b>Add</b>.</li>
+<li>To delete an existing <b>Color Name</b>, select the name in the list and click <b>Delete</b>.</li>
+<li>To associate a label with a <b>Color Name</b>, select the name in the list, enter the label in the <b>Label</b> field, and click <b>Add</b>.</li>
+<li>To remove a label from a <b>Color Name</b>, select the <b>Color Name</b> in the list, select the <b>Label</b> in the list, and click <b>Del</b>.</li>
+<li>To adjust color properties, select the <b>Color Name</b> in the list, then adjust the sliders for:
+<ul>
+<li> <b>Red</b></li>
+<li> <b>Green</b></li>
+<li> <b>Blue</b></li>
+<li> <b>Ambient</b>: how much light the material is emitting. A value of 1 is a light source.</li>
+<li> <b>Diffuse</b>: how much light the material is reflecting in random directions.</li>
+<li> <b>Specular</b>: how shiny the material is, from reflecting light like a mirror.</li>
+<li> <b>Power</b>: the intensity of the specular reflection.</li>
+</ul>
+Then click <b>Update</b>.
+ </li>
+</ol>
+</td></tr></table>
+
+<h4>Load Colors tab</h4>
+<p>The <b>Load Colors</b> tab lets you load predefined sets of colors.
+<br>To use the <b>Load Colors</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_colors_loadcolors_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Load Colors</b> tab. The panel at left appears.</li>
+<li>Click <b>Browse</b> and select a MRML file that contains color definitions, then click <b>Load</b>.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modscorcta"></A><h3>CorCTA module</h3>
+<p>The <b>CorCTA</b> module extracts centerlines for vessels.
+<br>There is one tab: <b>Centerlines</b>.
+</p>
+
+<h4>Centerlines tab</h4>
+<p>The <b>Centerlines</b> tab provides controls for extracting centerlines from a label map. NOTE: This can take a long time.
+<br><br>To use the <b>Centerlines</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_corcta_centerlines_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Centerlines</b> tab. The panel at left appears.</li>
+<li>Click <b>Input volume</b> to select a loaded label map.</li>
+<li>Enter a <b>Model name</b> for this use.</li>
+<li>Select <b>Lines</b> to generate lines.</li>
+<li>Select <b>Fiducials</b> to generate fiducial points.</li>
+<li>Select <b>Surfaces</b> to generate surfaces.</li>
+<li>Select <b>Smooth lines</b> to smoothe the generated lines.</li>
+<li>Enter a <b>Segment length</b> in mm.</li>
+<li>Click <b>Extract Centerlines</b> to generate centerlines using the specified parameters. </li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modscrosssection"></A><h3>CrossSection module</h3>
+<p>The <b>CrossSection</b> module lets you position a virtual camera in the scene, and view what the camera sees in a second window.
+You can also have the camera move along a pre-defined path.
+This is useful for examining structures that can't be viewed from outside the model.
+<br>There are three tabs: <b>Display</b>, <b>Path</b>, and <b>Advanced</b>.
+</p>
+
+<h4>Display tab</h4>
+<p>The <b>Display</b> tab lets you control what is displayed, and how large the display is.
+<br><br>To use the <b>Display</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_crosssection_display_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Display</b> tab. The panel at left appears.</li>
+<li>To change the width of the <b>CrossSection View</b>, click <b>choose</b> and select a width from the drop-down menu. Alternatively, enter the <b>Width</b>.</li>
+<li>To toggle the <b>Main View</b> display (namely, the <b>3D Viewer</b> with the virtual camera), click <b>Show Main View</b>. </li>
+<li>To toggle the <b>CrossSection View</b> display (namely, what the virtual camera sees in the scene), click <b>Show CrossSection View</b>. </li>
+<li>To toggle the <b>2D Viewer</b> display, click <b>Show 2D Slices</b>. </li>
+<li>To toggle hiding the <b>CrossSection View</b> on exiting, click <b>Hide CrossSection View on Exit</b>. </li>
+</ol>
+</td></tr></table>
+
+<center><h4>CrossSection Display</h4></center>
+<table border=1>
+<tr>
+<td width="50%"><center><b>Main View</b>, with camera pointing out</center></td>
+<td width="50%"><center><b>CrossSection View</b></center></td>
+</tr>
+<tr>
+<td valign="top"><center><img SRC="images/more_crosssection_display_tab_mainview.jpg" ></center></td>
+<td valign="top"><center><img SRC="images/more_crosssection_display_tab_crosssectionview.jpg" ></center></td>
+</tr>
+</table>
+
+<h4>Path tab</h4>
+<p>The <b>Path</b> tab lets you describe a path along which the virtual camera will move.
+The virtual camera will display the scene from the path as it moves.
+You can set the path using automatic and advanced settings.
+<br><br>To use the <b>Path</b> tab automatically:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_crosssection_path_tab_automatic.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Path</b> tab, then click <b>Automatic</b>. The panel at left appears.</li>
+<li>Click <b>Choose an Active Model</b> and select an active model from the list.</li>
+<li>To select a start point, move the cursor on the model and press <code><b>p</b></code>.
+To select a different start point, click <b>Select another point</b>, then select a start point.</li>
+<li>To select an end point, move the cursor on the model and press <code><b>p</b></code>.
+To select a different end point, click <b>Select another point</b>, then select an end point.</li>
+<li>Click <b>Extract Centerline</b> to automatically generate a path from start point to end point.</li>
+<!--tbd
+<li>To move the camera along the path, click <b>Show Fly Through Panel</b>.
+The <b>Fly-Through Panel</b> below appears.
+<br><center><img SRC="images/more_crosssection_path_tab_automatic_flythrough.jpg" ></center>
+
+<ol>
+<li>To move the camera along the path, click <b>Fly-Thru</b>.
+The virtual camera will move along the path.</li>
+<li>To start the camera back at the beginning of the path, click <b>Reset</b>.</li>
+<li>To stop the camera during its motion along the path, click <b>Stop</b>.</li>
+<li>To move to a specific frame, use the <b>Frame</b> slider, or enter a value in the <b>Frame</b> field.</li>
+<li>To change the speed of the virtual camera along the path, use the <b>Speed</b> slider, or enter a value in the <b>Speed</b> field.</li>
+<li>To specify the number of points per millimeter, enter a value in the unlabeled field.</li>
+</ol>
+</li>
+-->
+</ol>
+</td></tr></table>
+
+<!--tbd
+<br><br>To use the <b>Path</b> tab manually:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_path_tab_manual.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Path</b> tab, then click <b>Manual</b>. The panel at left appears.</li>
+<li>To use an existing path, click <b>Select a Path</b> and select a path from the list.
+Otherwise, to define a new path, enter a name in the <b>create a new Path</b> field.</li>
+<li>To create landmarks (namely, the points between which the segments of the path run),
+position the endoscope within the scene and click <b>Add Landmark</b>.
+The landmark will become part of the path.
+A small sphere will appear in the scene at the landmark location, with an arrow showing direction.</li>
+<li>To modify a landmark, select the landmark in the scene and press <code>q</code>.
+Change the position or orientation of the landmark, then click <b>Update</b>.</li>
+<li>To delete a landmark, select the landmark in the scene and press <code>d</code>.
+The selected landmark is deleted.</li>
+<li>To move the camera along the path, click <b>Show Fly Through Panel</b>.
+The <b>Fly-Through Panel</b> below appears.
+<br><center><img SRC="images/more_endoscopic_path_tab_flythrough.jpg" ></center>
+<ol>
+<li>To move the camera along the path, click <b>Fly-Thru</b>.
+The virtual camera will move along the path.</li>
+<li>To start the camera back at the beginning of the path, click <b>Reset</b>.</li>
+<li>To stop the camera during its motion along the path, click <b>Stop</b>.</li>
+<li>To move to a specific frame, use the <b>Frame</b> slider, or enter a value in the <b>Frame</b> field.</li>
+<li>To change the speed of the virtual camera along the path, use the <b>Speed</b> slider, or enter a value in the <b>Speed</b> field.</li>
+<li>To specify the number of points per millimeter, enter a value in the unlabeled field.</li>
+</ol>
+</li>
+</ol>
+</td></tr></table>
+
+<p>To use advanced path options:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_path_tab_advanced.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Advanced</b> tab. The panel at left appears.</li>
+<li>To change the size of a voxel, enter a value for <b>VoxelSize</b>.</li>
+<li>To limit the maximum distance displayed, enter a value for <b>Max. Dist</b>.</li>
+<li>Use the <b>Visualization plane offset</b> slider to change the offset of the visualization plane.</li>
+<li>To use the exponential decrease algorithm to compare distances and select the center point, click <b>Use exponential decrease</b>.</li>
+<li>To use the squared decrease algorithm to compare distances and select the center point, click <b>Use squared decrease</b>.</li>
+<li>To use the linear decrease algorithm to compare distances and select the center point, click <b>Use linear decrease</b>.</li>
+<li>To tbd, click <b>Visualize LabelMap</b>.</li>
+<li>To tbd, click <b>Visualize DistanceMap</b>.</li>
+</ol>
+</td></tr></table>
+
+<h4>Camera tab</h4>
+<p>The <b>Camera</b> tab lets you set the location and orientation of the camera within the scene.
+
+<br>To use the <b>Camera</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_camera_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Camera</b> tab. The panel at left appears.</li>
+<li>Click either <b>absolute</b> (to position camera with respect to the world coordinate system) or <b>relative</b> (to position camera with respect to the current camera position).</li>
+<li>Use the <b>sliders</b> to adjust the <b>Camera Position</b>, or enter values in the fields. Click <b>reset</b> to set parameters back to their original values.</li>
+<li>Use the <b>sliders</b> to adjust the <b>Camera Orientation</b>, or enter values in the fields:
+<ul>
+<li><b>Yaw</b> is rotation right (positive) or left (negative).</li>
+<li><b>Pitch</b> is rotation up (positive) or down (negative).</li>
+<li><b>Roll</b> is rotation around the direction of view, clockwise (positive) or counterclockwise (negative).</li>
+</ul>
+Click <b>reset</b> to set parameters back to their original values.</li>
+</ol>
+<p>You can also use the <b>3D Gyro</b> to change the position or orientation of the camera.</p>
+<ol>
+<li>Toggle <b>3D Gyro</b> on by clicking <b>Use the 3D Gyro</b>.
+Axes appear on the camera symbol.</li>
+<li>Left-click and move an axis to change the position of the camera.</li>
+<li>Right-click and move an axis to change the orientation of the camera.</li>
+</ol>
+</td></tr></table>
+
+<center><h4>Camera Orientation</h4></center>
+<table border=1>
+<tr>
+<td width="50%"><center><b>Yaw</b> = 45 degrees</center></td>
+<td width="50%"><center><b>Yaw</b> = 315 degrees</center></td>
+</tr>
+<tr>
+<td valign="top"><center><img SRC="images/more_endoscopic_camera_tab_yaw45.jpg" ></center></td>
+<td valign="top"><center><img SRC="images/more_endoscopic_camera_tab_yaw315.jpg" ></center></td>
+</tr>
+</table>
+
+<h4>Advanced tab</h4>
+<p>The <b>Advanced</b> tab lets you configure the appearance of the camera itself and the angle that its lens subtends.
+<br>To use the <b>Advanced</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_advanced_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Advanced</b> tab. The panel at left appears.</li>
+<li>To toggle display of the camera, click <b>Camera</b>.</li>
+<li>To change the size of the camera, use the <b>Size</b> slider, or enter a value in the <b>Size</b> field.</li>
+<li>To change the color of the camera lens, click the color bar next to <b>Camera Lens</b>. A window will open. Select or create a color.</li>
+<li>To change the color of the camera boxs, click the color bar next to <b>Camera Box</b>. A window will open. Select or create a color.</li>
+<li>To toggle display of the focal point, click <b>Focal Point</b>.</li>
+<li>To change the color of the focal point, click the color bar next to <b>Focal Point</b>. A window will open. Select or create a color.</li>
+<li>To toggle display of the 3D gyro, click <b>3D Gyro</b>.</li>
+<li>To change the size of the 3D gyro, use the <b>Size</b> slider, or enter a value in the <b>Size</b> field.</li>
+<li>To change the angle that the lens subtends, use the <b>Lens Angle</b> slider, or enter a value in the <b>Lens Angle</b> field</li>
+<li>To toggle showing the inside of models, click <b>Show Inside Models</b>.</li>
+</ol>
+</td></tr></table>
+-->
+
+
+
+
+<br><br><br>
+<A NAME="modscustom"></A><h3>Custom module</h3>
+<p>The <b>Custom</b> module is a sample module for developers. It contains typical labels and controls to show how to add a Slicer module. The source code is at <a href="http://www.na-mic.org/ViewVC/index.cgi/slicer2/Base/tcl/tcl-modules/Custom.tcl?root=Slicer2&view=log">http://www.na-mic.org/ViewVC/index.cgi/slicer2/Base/tcl/tcl-modules/Custom.tcl?root=Slicer2&view=log</a>.
+<br>There is one tab for illustration purposes.
+</p>
+
+
+
+<br><br><br>
+<A NAME="modscustomcsys"></A><h3>CustomCsys module</h3>
+<p>The <b>CustomCsys</b> module is a sample module for developers. It shows how to display and control a <b>Csys actor</b>. The source code is at <a href="http://www.na-mic.org/ViewVC/index.cgi/slicer2/Base/tcl/tcl-modules/CustomCsys.tcl?root=Slicer2&view=log">http://www.na-mic.org/ViewVC/index.cgi/slicer2/Base/tcl/tcl-modules/CustomCsys.tcl?root=Slicer2&view=log</a>.
+<br>There is one tab: <b>Coord Sys</b>.
+</p>
+
+<h4>Coord Sys</h4>
+<p>The <b>Coord Sys</b> tab allows you to translate and rotate the <b>Csys actor</b>.
+<br><br>To use the <b>Coord Sys</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_customcsys_coordsys_tab.jpg" ></td>
+</tr>
+<tr><td valign="top">
+<ol>
+<li>Click the <b>Coord Sys</b> tab. The panel above appears.
+<br>The <b>Csys actor</b> appears in the <b>3D Viewer</b>.
+<br><img SRC="images/more_customcsys_coordsys_tab_3dviewer.jpg" ></li>
+<li>To translate the <b>Csys actor</b>, left-click on one of the axes and move the mouse in the desired direction.</li>
+<li>To rotate the <b>Csys actor</b>, right-click on one of the axes and move the mouse in the desired direction.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modsdtmri"></A><h3>DTMRI module</h3>
+<p>The <b>DTMRI</b> module allows users to create displays and perform calculations for diffusion tensor MRI research.
+<br>There are seven tabs: <b>Convert</b>, <b>Disp</b>, <b>ROI</b>, <b>Scalars</b>, <b>Save</b>, <b>Advanced</b>, and <b>Devel</b>.
+</p>
+
+<h4>Convert</h4>
+<p>The <b>Convert</b> tab allows the user to convert volumes into DTMRI volumes.
+<br><br>To use the <b>Convert</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_dtmri_convert_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Convert</b> tab. The panel at left appears.</li>
+<li>Click <b>Input Volume</b> and select a loaded volume from the drop-down list.</li>
+<li>Enter the <b>Number of Gradient Directions</b> (usually 6).</li>
+<li>Enter first and last diffusion-weighted <b>Gradient</b> image numbers at the first slice location.</li>
+<li>Enter first and last <b>Baseline</b> (non-gradient, not diffusion-weighted) image numbers at the first slice lodation.</li>
+<li>Enter a list of diffusion gradient direction vectors.</li>
+<li>Click <b>Convert Volume</b> to convert the volume.</li>
+</ol>
+</td></tr></table>
+
+<h4>Display</h4>
+<p>The <b>Display</b> tab allows the user to control the display of DTMRI volumes.
+<br><br>To use the <b>Display</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_dtmri_display_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Display</b> tab. The panel at left appears.</li>
+<li>Click <b>Active DTMRI</b> and select a DTMRI volume from the drop-down list.</li>
+<li>Select the type of <b>3D View Settings</b>, either <b>DTMRIs</b> to view the 3D DTMRI as transparent slices or <b>default</b> to return to the Slicer default settings.</li>
+<li>Next to <b>Display Glyphs</b>, click <b>On</b> to display each DTMRI as a glyph, or <b>Off</b> to not display glyphs.</li>
+<li>Select where to display glyphs: <b>Red</b> to display in the leftmost slice, <b>Yellow</b> to display in the center slice, <b>Green</b> to display in the rightmost slice, or <b>Vol</b> to display in the volume.</li>
+<li>Next to <b>Display 'Tracts'</b>, click <b>On</b> to display all tracts, <b>Off</b> to hide all tracts, or <b>Delete</b> to clear all tracts.</li>
+<li>Click <b>Visualization Menu</b> to select one of the following options:
+<ul>
+<li>Click <b>Glyphs</b> to control display of glyphs.
+<ol>
+<li>Click <b>Glyph Type</b> and select <b>Axes</b>, <b>Lines</b>, <b>Ellipsoids</b>, or <b>Boxes</b> from the drop-down list.</li>
+<li>If displaying DTMRI as lines, click <b>Max</b> to use the eigenvector corresponding to the largest eigenvalue, <b>Middle</b> to use the eigenvector corresponding to the middle eigenvalue, or <b>Min</b> to use the eigenvector corresponding to the smallest eigenvalue.</li>
+<li>Click <b>Color by</b> and select whether to color DTMRI according to <b>Linear</b>, <b>Planar</b>, or <b>Spherical</b> measures, or according to <b>Max</b>, <b>Middle</b>, <b>Min</b>, or <b>MaxMinusMiddle</b> eigenvalue, or according to relative anisotropy (<b>RA</b>) or fractional anisotropy (<b>FA</b>), or according to the direction of the major eigenvector.</li>
+<li>Next to <b>Scalar Bar</b>, click <b>On</b> to display a bar showing the correspondence between numbers and colors or <b>Off</b> to hide the bar.</li>
+<li>Select <b>Scalar Range</b> as either <b>Auto</b> to use the largest and smallest scalars to define the range, or <b>Manual</b> to choose the range using the <b>Lo</b> and <b>Hi</b> sliders.</li>
+</ol>
+</li>
+<li>Click <b>Tracts</b> to control display of tracts.
+<ol>
+<li>Click <b>Color</b> to select the color for the tracts.</li>
+<li>Select <b>Color by</b> as either <b>SolidColor</b> to use solid color on streamlines or <b>MultiColor</b> to color by scalars from the data.</li>
+<li>Enter <b>Max Length</b>, the maximum propagation distance, beyond which tractography will stop.</li>
+<li>Enter <b>Step Size</b>, the integration step length to use when following a path.</li>
+<li>Enter <b>Smoothness (along)</b>, the length of each displayed tube segment.</li>
+<li>Enter <b>Radius</b>, the initial thickness of each displayed tube.</li>
+<li>Enter <b>Smoothness (around)</b>, the number of sides on each displayed tube.</li>
+<li>Enter <b>Direction</b>, the number of directions to follow from each initial point (1 or 2).</li>
+</ol>
+</li>
+<li>Click <b>AutoTracts</b> to automatically start tractography from each voxel in an ROI.
+<ol>
+<li>Click <b>ROI Labelmap</b> and select the label map to seed tracts from the drop-down list.</li>
+<li>Click <b>Label</b> to select the color to use to seed the tracts.</li>
+<li>Click <b>Seed 'Tracts' in ROI</b> to begin seeding a tract from each point in the ROI. This can take a long time.</li>
+</ol>
+</li>
+<li>Click <b>SaveTracts</b> to save visible tracts.
+<ol>
+<li>Click <b>Save tracts in model file</b> to save the currently visible tracts as a model.</li>
+<li>Click <b>Save tracts in vtk file</b> to save currently visible tracts as a polyline. FOR DEVELOPERS ONLY.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</td></tr></table>
+
+<h4>ROI</h4>
+<p>The <b>ROI</b> tab tbd.
+<br><br>To use the <b>ROI</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_dtmri_roi_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>ROI</b> tab. The panel at left appears.</li>
+<!--tbd-->
+</ol>
+</td></tr></table>
+
+<h4>Scalars</h4>
+<p>The <b>Scalars</b> tab tbd.
+<br><br>To use the <b>Scalars</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_dtmri_scalars_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Scalars</b> tab. The panel at left appears.</li>
+<li>Click <b>Active DTMRI</b> and select a DTMRI volume from the drop-down list.</li>
+<li>Click <b>Create Volume</b> to select the type of volume to produce, including grayscale volume from <b>Trace</b>, <b>Determinant</b>, <b>RelativeAnisotropy</b>, <b>FractionalAnisotropy</b>, <b>LinearMeasure</b>, <b>PlanarMeasure</b>, <b>SphericalMeasure</b>, <b>MaxEigenvalue</b>, <b>MiddleEigenvalue</b>, and <b>MinEigenvalue</b>, and 3-component color volume from <b>ColorByOrientation</b>, <b>D11</b>, <b>D22</b>, and <b>D33</b>.</li>
+<li>Next to <b>ROI</b>, click <b>None</b> to derive the scalar volume from the entire DTMRI volume using no ROI, <b>Threshold</b> to mask the DTMRI using the thresholded area defined in the ROI before creating the scalar volume, or <b>Mask</b> to mask the DTMRI using the label map volume defined in the ROI tab before creating the scalar volume.</li>
+<li>Enter the <b>Scale Factor</b> to multiply by the output image for better viewing.</li>
+</ol>
+</td></tr></table>
+
+<h4>Save</h4>
+<p>The <b>Save</b> tab tbd.
+<br><br>To use the <b>Save</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_dtmri_save_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Save</b> tab. The panel at left appears.</li>
+<li>Click <b>Active DTMRI</b> and select a DTMRI volume from the drop-down list.</li>
+<li>Click <b>Save Tensor</b> to save the tensor in vtk file format.</li>
+<li>Click <b>Save streamlines in scaled IJK</b> to save streamlines.</li>
+</ol>
+</td></tr></table>
+
+
+
+
+<br><br><br>
+<A NAME="modsemsegment"></A><h3>EMSegment module</h3>
+<p>The <b>EMSegment</b> module lets you automatically segment a volume using the Expectation-Maximization optimization technique (see <a href="http://www.ai.mit.edu/people/tkapur/phdthesis1999.pdf">http://www.ai.mit.edu/people/tkapur/phdthesis1999.pdf</a> for further information).
+This produces an intensity-based classification of voxels in the image into different tissue classes.
+<br>There are four tabs: <b>EM</b>, <b>Class</b>, <b>CIM</b>, and <b>Setting</b>.
+</p>
+
+<h4>EM tab</h4>
+<p>The <b>EM</b> tab provides a step-by-step process for segmenting images.
+<br><br>To use the <b>EM</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_emsegment_em_tab_step1.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>EM</b> tab. The panel at left appears.
+<br>NOTE: This is <b>Step 1</b> of a four-step process.</li>
+<li>Available volumes appear in the <b>Volume List</b>.
+Select the aligned grayscale volumes to segment and click <b>=&gt;</b> to move to the <b>Input Greyscales</b> list.</li>
+<li>Click <b>Step2</b>.</li>
+</ol>
+</td></tr></table>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_emsegment_em_tab_step2.jpg" ></td>
+<td valign="top">
+<ol>
+<li>The panel at left appears.
+<br>NOTE: This is <b>Step 2</b> of a four-step process.</li>
+<li>Enter the following information:
+<ul>
+<li><b>No. of Classes</b>: the number of classes to segment the image into.</li>
+<li><b>Iterations</b>: the number of times to run the algorithm.
+Values between 10 and 20 are suggested.</li>
+<li><b>Boundary Min</b> and <b>Boundary Max</b>: the slices along each IJK direction to segment. These three limits define the boundary box.</li>
+</ul>
+</li>
+<li>Click <b>Step3</b>.</li>
+</ol>
+</td></tr></table>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_emsegment_em_tab_step3.jpg" ></td>
+<td valign="top">
+<ol>
+<li>The panel at left appears.
+<br>NOTE: This is <b>Step 3</b> of a four-step process.</li>
+<li>For each of the number of classes you entered in <b>Step 2</b>:
+<ol>
+<li>Assign a label to the class by clicking <b>Assign Label</b> and selecting or defining a label.</li>
+<li>Enter a value for the <b>global probability</b> of this class.</li>
+<li>Assign a probability map by clicking <b>Assign Probability Map</b> and selecting a probability map from the drop-down list.</li>
+<li>Generate an intensity distribution by clicking either <b>Auto</b> or <b>Manual</b>.
+If you click <b>Manual</b>, use <b>Ctrl-Left mouse button</b> to take samples for the class.</li>
+<li>Click <b>Next</b> to configure the next class, or <b>Prev</b> to configure the previous class.</li>
+</ol>
+</li>
+<li>Click <b>Class Overview</b> to display the configuration for all classes.</li>
+<li>To start the EM Segmentation process, click <b>Run</b>.
+<br>NOTE: This can take a long time (several hours), depending on the number of iterations, the number of slices, and the number of classes.</li>
+</ol>
+</td></tr></table>
+
+<h4>Class tab</h4>
+<p>The <b>Class</b> tab lets you configure more complicated classes.
+
+<br>To use the <b>Class</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_emsegment_class_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Select the class from the drop-down menu at the top.</li>
+<li>To use samples to calculate the <b>Mean</b> and <b>Covariance</b>, check the <b>Use Sample</b> box.
+Otherwise, to enter values manually, leave <b>Use Sample</b> unchecked and enter <b>Mean</b> and <b>Covariance</b>.</li>
+<li>Enter the <b>Probability</b> for this class.</li>
+<li>Click <b>Prob.</b> and select a probability map from the drop-down list.</li>
+<li>Enter the <b>Shape Parameter</b>. This defines the importance of the shape constraints in the overall structure's posterior calculation, with 1 being very important and 0 being totally unimportant.</li>
+<li>Enter the <b>Prob Data Weight</b> to assign a weight to the probability.</li>
+<li>Enter the <b>Input Channel Weights</b> to assign a weight to the input channel.</li>
+<li>To display the class distribution for this class, click <b>Class Distribution</b>.</li>
+<li>To display the class overview, click <b>Class Overview</b>.</li>
+<li>To promote this class to a super class, check the <b>Super Class</b> box. This panel appears:
+<p><img SRC="images/more_emsegment_class_tab_superclass.jpg" ></p>
+<ol>
+<li>Enter a <b>Name</b> for this super class.</li>
+<li>Enter the <b>Class Probability</b> for this super class.</li>
+<li>Enter the number of classes for this super class.</li>
+<li>Enter the <b>Probability Data Weight</b> for this super class.</li>
+<li>Enter the <b>Input Channel Weights</b> for this super class.</li>
+<li>To display the class distribution for this class, click <b>Class Distribution</b>.</li>
+<li>To display the class overview, click <b>Class Overview</b>.</li>
+</ol>
+</li>
+</ol>
+</td></tr></table>
+
+<h4>CIM tab</h4>
+<p>The <b>CIM</b> tab lets you define how neighboring voxels affect the probability of a given voxel. CIM stands for class interaction matrix.
+<br>To use the <b>CIM</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_emsegment_cim_tab_edit.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click <b>Edit</b> to edit the class interaction matrix. The panel at left appears.</li>
+<li>To define the location of the neighbor with respect to the voxel, click <b>West</b>, <b>East</b>, <b>North</b>, <b>South</b>, <b>Up</b>, or <b>Down</b>.</li>
+<li>Enter probabilities in the <b>Class Interaction Matrix</b>. Each column represents the current voxel, and each row represents the neighbor of that voxel.</li>
+</ol>
+</td></tr></table>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_emsegment_cim_tab_train.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click <b>CIM</b>.</li>
+<li>Click <b>Train</b> to train the class interaction matrix. The panel at left appears.
+<br>NOTE: Before training the class interaction matrix, use the <b>Class</b> to define every class and use the <b>EM</b> tab to segment the volume.</li>
+<li>Click <b>Step 3</b> to select the segmented image.</li>
+<li>Click <b>Run Algorithm</b> to start training for MRF (Markov Random Field) parameters.</li>
+</ol>
+</td></tr></table>
+
+<h4>Setting tab</h4>
+<p>The <b>Setting</b> tab lets you configure and save advanced parameters for the EM algorithm.
+<br>To use the <b>Setting</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_emsegment_setting_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click <b>Setting</b>. The panel at left appears.</li>
+<li>Enter advanced parameters for the EM algorithm.</li>
+<li>To save settings, click <b>Save Setting</b>.</li>
+</ol>
+</td></tr></table>
+
+
+
+<br><br><br>
+<A NAME="modsendoscopic"></A><h3>Endoscopic module</h3>
+<p>The <b>Endoscopic</b> module lets you position a virtual endoscopic camera in the scene, and view what the camera sees in a second window.
+You can also have the camera move along a pre-defined path.
+This is useful for examining structures that can't be viewed from outside the model.
+<br>There are four tabs: <b>Display</b>, <b>Camera</b>, <b>Path</b>, and <b>Advanced</b>.
+</p>
+
+<h4>Display tab</h4>
+<p>The <b>Display</b> tab lets you control what is displayed, and how large the display is.
+
+<br><br>To use the <b>Display</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_display_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Display</b> tab. The panel at left appears.</li>
+<li>To toggle the <b>Main View</b> display (namely, the 3D model with the virtual camera), click <b>Show Main View</b>. </li>
+<li>To toggle the <b>Endoscopic View</b> display (namely, what the virtual camera sees in the scene), click <b>Show Endoscopic View</b>. </li>
+<li>To toggle the <b>2D Viewer</b> display, click <b>Show 2D Slices</b>. </li>
+<li>To toggle hiding the <b>Endoscopic View</b> on exiting, click <b>Hide Endoscopic View on Exit</b>. </li>
+</ol>
+</td></tr></table>
+
+<center><h4>Endoscopic Display</h4></center>
+
+<table border=1>
+<tr>
+<td width="50%"><center><b>Main View</b>, with camera pointing out</center></td>
+<td width="50%"><center><b>Endoscopic View</b></center></td>
+</tr>
+<tr>
+<td valign="top"><center><img SRC="images/more_endoscopic_display_tab_mainview.jpg" ></center></td>
+<td valign="top"><center><img SRC="images/more_endoscopic_display_tab_endoscopicview.jpg" ></center></td>
+</tr>
+</table>
+
+<h4>Camera tab</h4>
+<p>The <b>Camera</b> tab lets you set the location and orientation of the camera within the scene.
+
+<br>To use the <b>Camera</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_camera_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Camera</b> tab. The panel at left appears.</li>
+<li>Click either <b>absolute</b> (to position camera with respect to the world coordinate system) or <b>relative</b> (to position camera with respect to the current camera position).</li>
+<li>Use the <b>sliders</b> to adjust the <b>Camera Position</b>, or enter values in the fields. Click <b>reset</b> to set parameters back to their original values.</li>
+<li>Use the <b>sliders</b> to adjust the <b>Camera Orientation</b>, or enter values in the fields:
+<ul>
+<li><b>Yaw</b> is rotation right (positive) or left (negative).</li>
+<li><b>Pitch</b> is rotation up (positive) or down (negative).</li>
+<li><b>Roll</b> is rotation around the direction of view, clockwise (positive) or counterclockwise (negative).</li>
+</ul>
+Click <b>reset</b> to set parameters back to their original values.</li>
+</ol>
+<p>You can also use the <b>3D Gyro</b> to change the position or orientation of the camera.</p>
+<ol>
+<li>Toggle <b>3D Gyro</b> on by clicking <b>Use the 3D Gyro</b>.
+Axes appear on the camera symbol.</li>
+<li>Left-click and move an axis to change the position of the camera.</li>
+<li>Right-click and move an axis to change the orientation of the camera.</li>
+</ol>
+</td></tr></table>
+
+<center><h4>Camera Orientation</h4></center>
+
+<table border=1>
+<tr>
+<td width="50%"><center><b>Yaw</b> = 45 degrees</center></td>
+<td width="50%"><center><b>Yaw</b> = 315 degrees</center></td>
+</tr>
+<tr>
+<td valign="top"><center><img SRC="images/more_endoscopic_camera_tab_yaw45.jpg" ></center></td>
+<td valign="top"><center><img SRC="images/more_endoscopic_camera_tab_yaw315.jpg" ></center></td>
+</tr>
+</table>
+
+<h4>Path tab</h4>
+<p>The <b>Path</b> tab lets you describe a path along which the virtual camera will move.
+The virtual camera will display the scene from the path as it moves.
+You can set the path manually or automatically.
+
+<br><br>To use the <b>Path</b> tab manually:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_path_tab_manual.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Path</b> tab, then click <b>Manual</b>. The panel at left appears.</li>
+<li>To use an existing path, click <b>Select a Path</b> and select a path from the list.
+Otherwise, to define a new path, enter a name in the <b>create a new Path</b> field.</li>
+<li>To create landmarks (namely, the points between which the segments of the path run),
+position the endoscope within the scene and click <b>Add Landmark</b>.
+The landmark will become part of the path.
+A small sphere will appear in the scene at the landmark location, with an arrow showing direction.</li>
+<li>To modify a landmark, select the landmark in the scene and press <code><b>q</b></code>.
+Change the position or orientation of the landmark, then click <b>Update</b>.</li>
+<li>To delete a landmark, select the landmark in the scene and press <code>d</code>.
+The selected landmark is deleted.</li>
+<li>To move the camera along the path, click <b>Show Fly Through Panel</b>.
+The <b>Fly-Through Panel</b> below appears.
+<br><center><img SRC="images/more_endoscopic_path_tab_flythrough.jpg" ></center>
+<ol>
+<li>To move the camera along the path, click <b>Fly-Thru</b>.
+The virtual camera will move along the path.</li>
+<li>To start the camera back at the beginning of the path, click <b>Reset</b>.</li>
+<li>To stop the camera during its motion along the path, click <b>Stop</b>.</li>
+<li>To move to a specific frame, use the <b>Frame</b> slider, or enter a value in the <b>Frame</b> field.</li>
+<li>To change the speed of the virtual camera along the path, use the <b>Speed</b> slider, or enter a value in the <b>Speed</b> field.</li>
+<li>To specify the number of points per millimeter, enter a value in the unlabeled field.</li>
+</ol>
+</li>
+</ol>
+</td></tr></table>
+
+<p>To use the <b>Path</b> tab automatically:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_path_tab_automatic.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Path</b> tab, then click <b>Automatic</b>. The panel at left appears.</li>
+<li>Click <b>Choose an Active Model</b> and select an active model from the list.</li>
+<li>To select a start point, move the cursor on the model and press <code><b>p</b></code>.
+To select a different start point, click <b>Select another point</b>, then select a start point.</li>
+<li>To select an end point, move the cursor on the model and press <code><b>p</b></code>.
+To select a different end point, click <b>Select another point</b>, then select an end point.</li>
+<li>Click <b>Extract Centerline</b> to automatically generate a path from start point to end point.</li>
+<li>To move the camera along the path, click <b>Show Fly Through Panel</b>.
+The <b>Fly-Through Panel</b> below appears.
+<br><center><img SRC="images/more_endoscopic_path_tab_flythrough.jpg" ></center>
+<ol>
+<li>To move the camera along the path, click <b>Fly-Thru</b>.
+The virtual camera will move along the path.</li>
+<li>To start the camera back at the beginning of the path, click <b>Reset</b>.</li>
+<li>To stop the camera during its motion along the path, click <b>Stop</b>.</li>
+<li>To move to a specific frame, use the <b>Frame</b> slider, or enter a value in the <b>Frame</b> field.</li>
+<li>To change the speed of the virtual camera along the path, use the <b>Speed</b> slider, or enter a value in the <b>Speed</b> field.</li>
+<li>To specify the number of points per millimeter, enter a value in the unlabeled field.</li>
+</ol>
+</li>
+</ol>
+</td></tr></table>
+
+<p>To use advanced path options:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_path_tab_advanced.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Advanced</b> tab. The panel at left appears.</li>
+<li>To change the size of a voxel, enter a value for <b>VoxelSize</b>.</li>
+<li>To limit the maximum distance displayed, enter a value for <b>Max. Dist</b>.</li>
+<li>Use the <b>Visualization plane offset</b> slider to change the offset of the visualization plane.</li>
+<li>To use the exponential decrease algorithm to compare distances and select the center point, click <b>Use exponential decrease</b>.</li>
+<li>To use the squared decrease algorithm to compare distances and select the center point, click <b>Use squared decrease</b>.</li>
+<li>To use the linear decrease algorithm to compare distances and select the center point, click <b>Use linear decrease</b>.</li>
+<li>If you load a 3D model without 2D slices, you can define a 2D surface to intersect with the model. This intersection defines a label map. To view this label map, click <b>Visualize LabelMap</b>.</li>
+<li>You can color the model to indicate distance from the outside. This is useful for visualizing the the centerline path that Slicer can generate automatically. To view this coloring, click <b>Visualize DistanceMap</b>.</li>
+</ol>
+</td></tr></table>
+
+<h4>Advanced tab</h4>
+<p>The <b>Advanced</b> tab lets you configure the appearance of the camera itself and the angle that its lens subtends.
+
+<br>To use the <b>Advanced</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_endoscopic_advanced_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Advanced</b> tab. The panel at left appears.</li>
+<li>To toggle display of the camera, click <b>Camera</b>.</li>
+<li>To change the size of the camera, use the <b>Size</b> slider, or enter a value in the <b>Size</b> field.</li>
+<li>To change the color of the camera lens, click the color bar next to <b>Camera Lens</b>. A window will open. Select or create a color.</li>
+<li>To change the color of the camera boxs, click the color bar next to <b>Camera Box</b>. A window will open. Select or create a color.</li>
+<li>To toggle display of the focal point, click <b>Focal Point</b>.</li>
+<li>To change the color of the focal point, click the color bar next to <b>Focal Point</b>. A window will open. Select or create a color.</li>
+<li>To toggle display of the 3D gyro, click <b>3D Gyro</b>.</li>
+<li>To change the size of the 3D gyro, use the <b>Size</b> slider, or enter a value in the <b>Size</b> field.</li>
+<li>To change the angle that the lens subtends, use the <b>Lens Angle</b> slider, or enter a value in the <b>Lens Angle</b> field</li>
+<li>To toggle showing the inside of models, click <b>Show Inside Models</b>.</li>
+</ol>
+</td></tr></table>
+
+
+
+<br><br><br>
+<A NAME="modsfiducials"></A><h3>Fiducials module</h3>
+<p>The <b>Fiducials</b> module lets you create and manage fiducial points.
+Fiducial points are reference points on a 2D slice or a 3D model.
+They are useful for making measurements and establishing landmarks for analysis.
+<br>There are two tabs: <b>Display</b> and <b>Edit</b>.
+</p>
+
+<h4>Edit tab</h4>
+<p>The <b>Edit</b> tab lets you create and edit lists of fiducial points.
+
+<br><br>To use the <b>Edit</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_fiducials_edit_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Display</b> tab. The panel at left appears.</li>
+<li>To create a new fiducials list, enter a name for the new list in the <b>Create a Fiducials List</b> field.
+Otherwise, to use an existing list, click <b>Fiducials List</b> and select an existing list.
+The points in the list should appear in the list on the panel.</li>
+<li>To add new fiducial points to the list, place the cursor where you want the point and press <code><b>p</b></code>. The new point should appear in the list, and on the <b>Viewer</b>.</li>
+<li>To select or unselect a fiducial point, place the cursor on the point and press <code><b>q</b></code>.</li>
+<li>To delete a fiducial point, place the cursor on the point and press <code>d</code>.</li>
+<li>To delete the active list, click <b>Delete Active List</b>.</li>
+</ol>
+</td></tr></table>
+
+
+<table border=1>
+<tr>
+<td width="50%"><center><b>Sample Fiducial Points</b></center></td>
+</tr>
+<tr>
+<td valign="top"><center><img SRC="images/more_fiducials_edit_tab_example.jpg" ></center></td>
+</tr>
+</table>
+
+
+<h4>Display tab</h4>
+<p>The <b>Display</b> tab lets you control which fiducial points are displayed, and how large the display is.
+
+<br><br>To use the <b>Display</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_fiducials_display_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Display</b> tab. The panel at left appears.</li>
+<li>To display all the fiducial points, click <b>Show All</b>. </li>
+<li>To display none of the fiducial points, click <b>Show None</b>. </li>
+<li>To display some of the fiducial points, toggle each list of points by clicking on its name</li>
+<li>To change the size of the symbol for each fiducial point, use the <b>Symbol Size</b> slider next to the name of the list.</li>
+<li>To change the size of the text for each fiducial point, use the <b>Text Size</b> slider next to the name of the list.</li>
+</ol>
+</td></tr></table>
+
+
+
+<br><br><br>
+<A NAME="modsguidance"></A><h3>Guidance module</h3>
+<p>The <b>Guidance</b> module lets you select and display two target points in the <b>3D Viewer</b>. You can reformat slices perpendicular to a line between these two target points.
+
+This is useful for reformatting slices between two landmarks, such as the incision point and the target tissue of the surgery.
+<br>There is one tab: <b>Target</b>.
+</p>
+
+<h4>Target tab</h4>
+<p>The <b>Target</b> tab lets you position and use the two target points.
+
+<br><br>To use the <b>Target</b> tab:</p>
+<table>
+<tr>
+<td valign="top"><img SRC="images/more_guidance_target_tab.jpg" ></td>
+<td valign="top">
+<ol>
+<li>Click the <b>Target</b> tab. The panel at left appears.</li>
+<li>To position the red target point click <b>Red</b>. To position the yellow target point, click <b>Yellow</b>.</li>
+<li>Click <b>Show Target</b>. The selected target point appears on the <b>3D Viewer</b>.</li>
+<li>Change the <b>Target Position</b> with the sliders.</li>
+<li>To use the active target point as the focal point (center of rotation in <b>3D Viewer</b>), click <b>Use as Focal Point</b>. This can be useful to examine an off-center model.</li>
+<li>To reposition the image along the line between the target points, click <b>View Trajectory</b>.</li>
+</ol>
+</td></tr></table>
+
+<h4>Using Guidance</h4>
+<table border=1>
+<tr>
+<td width="50%"><center><b>3D Viewer</b> with 2 target points</center></td>
+<td width="50%">After clicking <b>View Trajectory</b></td>
+</tr>
+<tr>
+<td valign="top"><center><img SRC="images/more_guidance_target_tab_before.jpg" ></center></td>
+<td valign="top"><center><img SRC="images/more_guidance_target_tab_after.jpg" ></center></td>
+</tr>
+</table>
+

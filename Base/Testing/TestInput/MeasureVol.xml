@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Volume name='caseR16' filePattern='%s.%03d' filePrefix='caseR16/caseR16' rasToIjkMatrix='-1.06666667 0 0 127.5 0 0 -1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' rasToVtkMatrix='-1.06666667 0 0 127.5 0 0 1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' positionMatrix='-1 0 0 119.53125 0 0 1 -92.25 0 1 0 -119.53125 0 0 0 1' scanOrder='PA' description='PA' colorLUT='-1' fullPrefix='/projects/schiz/guest/kquintus/projects/slicer-head/Base/Testing/TestInput/caseR16/caseR16' labelMap='true' interpolate='false' littleEndian='true' window='6' level='7' lowerThreshold='0' upperThreshold='0' imageRange='0 123'></Volume>
+</MRML>

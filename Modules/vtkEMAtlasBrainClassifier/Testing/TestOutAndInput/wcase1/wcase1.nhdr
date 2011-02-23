@@ -1,0 +1,17 @@
+NRRD0004
+# Complete NRRD file format specification at:
+# http://teem.sourceforge.net/nrrd/format.html
+content: wcase1
+type: short
+dimension: 3
+space: right-anterior-superior
+sizes: 256 256 124
+thicknesses: NaN NaN 1.5
+space directions: (-0.9375,0,0) (0,0,-0.9375) (0,1.5,0)
+centerings: cell cell cell
+kinds: space space space
+endian: little
+encoding: gzip
+space units: "mm" "mm" "mm"
+space origin: (117.5,-93,119)
+data file: wcase1.raw.gz

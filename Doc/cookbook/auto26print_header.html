@@ -1,0 +1,126 @@
+<title>The <code>print_header</code> program</title>
+
+
+
+The <code>print_header</code> program reads information from the header of an image (if the
+header exists) and extracts useful information to help you understand
+your data. <br>
+<br><code>print_header</code> can usually read headers for the following data types:
+
+<ul>
+<li> GE Signa (This is usually old data.)</li>
+<li> Siemens Somatom</li>
+<li> GE Genesis (Slicer was originally designed for this type of data,
+but has been expanded to accommodate other formats.)</li>
+<li> DICOM (Slicer can usually read DICOM (digital imaging and communications in medicine) data directly. However, since
+DICOM is such a complicated specification, not all DICOM data will be readable in
+Slicer.)</li>
+<li> <code>print_header</code> can read data in compressed (<code>.gz</code> or <code>.Z</code>) format as well as
+uncompressed.</li>
+</ul>
+
+To run <code>print_header</code>, type (for an image called <code>I.001</code>):
+<ul><code>print_header I.001</code></ul>
+
+The <code>print_header</code> program will print output like this:
+<ul>
+<code>print_header V1.0
+ENTRY AND POSITION ARE 1 1 <br>
+input_prefix = I<br>
+output_prefix = <br>
+suffix = &lt;none&gt;<br>
+filename_format = %s.%03d<br>
+patient_name = mrsmith<br>
+patient_sex = F<br>
+date = 8/25/93<br>
+time_hr_min_sec = 07:01:32<br>
+study_desc = *SPL*LINOMIDE<br>
+series_desc = *SPL*FILTER(2d2chan)<br>
+hospital_name = BRIGHAM WOMENS HARVARD BAY 2<br>
+patient_id = 12345678<br>
+exam_modality = MR<br>
+image_type_text = genesis<br>
+image_type = N/A<br>
+sop_instance_uid = N/A<br>
+image_time = N/A<br>
+manufacturer = N/A<br>
+referring_physician = <br>
+physician_reading_study = N/A<br>
+manufacturers_model_name = Ü<br>
+anatomic_structure = N/A<br>
+birth_date = N/A<br>
+weight = N/A<br>
+body_part_examined = N/A<br>
+repetition_time = N/A<br>
+echo_time = N/A<br>
+inversion_time = N/A<br>
+reconstruction_diameter = N/A<br>
+generator_power = N/A<br>
+series_in_study = N/A<br>
+images_in_acquisition = N/A<br>
+rescale_intercept = N/A<br>
+rescale_slope = N/A<br>
+requested_proc_desc = N/A<br>
+patient_age = 36<br>
+x_resolution = 256<br>
+y_resolution = 256<br>
+bytes_per_slice = 131072<br>
+header_size = 7900<br>
+slice_number = 1<br>
+image_type_num = 2<br>
+byte_order = 0<br>
+status = 1<br>
+number_echoes = 2<br>
+echo_number = 1<br>
+compressed = 0<br>
+first_slice = 1<br>
+last_slice = 1<br>
+num_missing = 0<br>
+bytes_per_pixel = 2<br>
+num_bytes_data = 131072<br>
+num_bytes_header = 7900<br>
+bits_stored = 65535<br>
+high_bit = 65535<br>
+bits_allocated = 65535<br>
+patient_position = HFS<br>
+patient_orientation = N/A<br>
+number_of_slices = 1<br>
+exam_number = 56168<br>
+series_number = 1<br>
+gantry_tilt = 0.100000<br>
+pixel_xsize = 0.937500<br>
+pixel_ysize = 0.937500<br>
+fov =  240.000000<br>
+aspect =  3.200000<br>
+thick =  3.000000<br>
+space =  0.000000<br>
+image_location =  -20.000000<br>
+coord_center_r =  0.000000<br>
+coord_center_a =  0.000000<br>
+coord_center_s =  -65.000000<br>
+coord_normal_r =  0.000000<br>
+coord_normal_a =  0.000000<br>
+coord_normal_s =  1.000000<br>
+coord_r_top_left =  120.000000<br>
+coord_a_top_left =  120.000000<br>
+coord_s_top_left =  -65.000000<br>
+coord_r_top_right =  -120.000000<br>
+coord_a_top_right =  120.000000<br>
+coord_s_top_right =  -65.000000<br>
+coord_r_bottom_right =  -120.000000<br>
+coord_a_bottom_right =  -120.000000<br>
+coord_s_bottom_right =  -65.000000<br>
+imagepositionpatient =  0.000000 0.000000 0.000000<br>
+imageorientationpatient =  0.000000 0.000000 0.000000 0.000000 0.000000 0.000000<br>
+</code>
+</ul>
+
+There are several things to note about the output of <code>print_header</code>:
+
+<ul>
+<li> The information may not be correct, and will be inaccurate if you change
+the images without changing the headers.</li>
+<li> Not all of the parameters have meaning for all datatypes.</li>
+</ul>
+
+

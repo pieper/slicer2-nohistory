@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE AUTO SYSTEM "../auto.dtd">
+<auto>
+<title>Tutorial</title>
+
+<summary>
+This tutorial will walk you through the process
+of loading medical image volumes and models. You
+will learn how to view images and how to save scenes for later use.
+</summary>
+
+</auto>
+
+
+

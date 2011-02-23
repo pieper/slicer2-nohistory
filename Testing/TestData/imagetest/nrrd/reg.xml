@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Volume name='fixed' filePattern='%s' filePrefix='fixed.nrrd' fileType='Generic' rasToIjkMatrix='0 -0.266666667 0 32 0 0 -0.266666667 32 0.192307692 0 0 15.5 0 0 0 1' rasToVtkMatrix='0 -0.266666667 0 32 0 0 0.266666667 32 0.192307692 0 0 15.5 0 0 0 1' positionMatrix='0 0 1 -80.6 -1 0 0 120 0 1 0 -120 0 0 0 1' description='LR' colorLUT='0' fullPrefix='C:/alexy/slicer2-head/slicer2/Testing/TestData/imagetest/nrrd/fixed.nrrd' littleEndian='true' window='80' level='40' lowerThreshold='-5' upperThreshold='251' imageRange='1 32' dimensions='65 65' spacing='3.75 3.75 5.2'></Volume>
+<Transform name='transform1'>
+  <Matrix name='manual1' matrix='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1'></Matrix>
+  <Volume name='moving' filePattern='%s' filePrefix='moving.nrrd' fileType='Generic' rasToIjkMatrix='0 -0.266666667 0 32 0 0 -0.266666667 32 0.192307692 0 0 15.5 0 0 0 1' rasToVtkMatrix='0 -0.266666667 0 32 0 0 0.266666667 32 0.192307692 0 0 15.5 0 0 0 1' positionMatrix='0 0 1 -80.6 -1 0 0 120 0 1 0 -120 0 0 0 1' description='LR' colorLUT='0' fullPrefix='C:/alexy/slicer2-head/slicer2/Testing/TestData/imagetest/nrrd/moving.nrrd' littleEndian='true' window='90' level='44' lowerThreshold='-17' upperThreshold='235' imageRange='1 32' dimensions='65 65' spacing='3.75 3.75 5.2'></Volume>
+</Transform>
+</MRML>

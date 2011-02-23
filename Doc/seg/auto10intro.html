@@ -1,0 +1,21 @@
+<title>Introduction</title>
+<p>
+Editing effects can be applied to the data on a 3D or slice-by-slice basis.  
+The slice-by-slice editing can be administered on either axial, coronal, 
+or sagittal slices simply by clicking on the appropriate slice. 
+Each effect may be applied to either the <b>original</b> volume, or a <b>working</b> 
+volume.  Multiple editing effects may be applied to the working volume, 
+and when finished, the working volume may be merged with a <b>composite</b>
+volume to overlay smaller structures onto larger ones.  
+<p>
+For example, we segment skin automatically from an MR scan by applying a threshold 
+at the first trough of the histogram (where the noise and signal lobes overlap) 
+and storing the binary output in the working volume.  We then remove islands in 
+the working volume, and finish with an erosion and dilation to smooth the edges.  
+This working volume 
+is then copied to the composite volume.  Next, segmentation of the brain can be 
+performed in the working volume, and all non-zero voxels of the working volume can 
+overwrite the composite volume to form a combination of skin and brain.
+<p>
+A strength of our system is that effects can be visualized by overlaying the working 
+volume translucently on the original volume and explored in the 3D view.  

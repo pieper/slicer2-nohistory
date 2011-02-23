@@ -1,0 +1,257 @@
+<title>Current Details</title>
+
+
+Browsers know how to interpret XML files from the file's
+Document Type Description (DTD). Our DTDs are:
+<ul>
+<li><a href='http://www.na-mic.org/ViewVC/index.cgi/slicer/dtd/mrml20.dtd?root=Slicer2&view=log'>Current DTD</a></li>
+<li><a href='http://www.na-mic.org/ViewVC/index.cgi/slicer/dtd/mrml26.dtd?root=Slicer2&view=log'>Proposed DTD</a></li>
+</ul>
+They are also in <code>SLICER_HOME/slicer/dtd/</code>.
+<p>
+A sample MRML file, of two volumes (registered using a transform)
+and a couple of surface models, is shown <a href='tutorial.xml'>here</a>.</p>
+<p>
+In this section, we expand on the description of nodes given
+in the <a href='#3a'>Basic Nodes</a> section.</p>
+
+<h3>Volume node details</h3>
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>name</td>
+<td class=box0>Name displayed on the user interface.</td>
+</tr>
+<tr>
+<td class=box1>filePattern</td>
+<td class=box1>The pattern for naming the files, expressed in C language syntax. For example, a file named <code>skin.001</code> has a pattern of %s.%03d, and a file named <code>skin.1</code> has %s.%d for a pattern.</td>
+</tr>
+<tr>
+<td class=box0>filePrefix</td>
+<td class=box0>Prefix of the image files. For example, the prefix of <code>/d/skin.001</code> is <code>/d/skin</code> .</td>
+</tr>
+<tr>
+<td class=box1>rasToIjkMatrix</td>
+<td class=box1>The matrix that transforms a point in RAS space to IJK space. The 4x4 matrix is listed as a string of 16 numbers in row-major order.</td>
+</tr>
+<tr>
+<td class=box0>rasToVtkMatrix</td>
+<td class=box0>Same as the rasToIjkMatrix, except that the y-axis is directed up instead of down, which is the convention in VTK.</td>
+</tr>
+<tr>
+<td class=box1>positionMatrix</td>
+<td class=box1>A scaled IJK-to-RAS matrix, formed by accounting for the position and orientation of the volume, but not the voxel size.</td>
+</tr>
+<tr>
+<td class=box0>colorLUT</td>
+<td class=box0>Numerical ID of the color lookup table to use for rendering the volume.</td>
+</tr>
+<tr>
+<td class=box1>description</td>
+<td class=box1>Optional text description of the data.</td>
+</tr>
+<tr>
+<td class=box0>scalarType</td>
+<td class=box0>The type of data in the file. Either Char, UnsignedChar, Short, UnsignedShort, Int, UnsignedInt, Long, UnsignedLong, Float, or Double.</td>
+</tr>
+<tr>
+<td class=box1>numScalars</td>
+<td class=box1>The number of scalar components for each voxel. Gray-level data has 1. Color data has 3.</td>
+</tr>
+<tr>
+<td class=box0>littleEndian</td>
+<td class=box0>Describes the order of bytes for each voxel.  Little-endian positions the least-significant byte on the rightmost end, and is true of data generated on a PC or SGI.</td>
+</tr>
+<tr>
+<td class=box1>interpolate</td>
+<td class=box1>Determines whether to interpolate when reformatting slices of this volume.</td>
+</tr>
+<tr>
+<td class=box0>labelMap</td>
+<td class=box0>Indicates if this volume is a label map, which is the output of segmentation that labels each voxel according to its tissue type.  The alternative is a gray-level or color image.</td>
+</tr>
+<tr>
+<td class=box1>tilt</td>
+<td class=box1>The gantry tilt, in degrees, for CT slices.</td>
+</tr>
+<tr>
+<td class=box0>autoWindowLevel</td>
+<td class=box0>Specifies whether windowing and leveling are to be performed automatically.</td>
+</tr>
+<tr>
+<td class=box1>window</td>
+<td class=box1>The window value to use when autoWindowLevel is 'no'.</td>
+</tr>
+<tr>
+<td class=box0>level</td>
+<td class=box0>The level value to use when autoWindowLevel is 'no'.</td>
+</tr>
+<tr>
+<td class=box0>applyThreshold</td>
+<td class=box0>Specifies whether to apply the threshold.</td>
+</tr>
+<tr>
+<td class=box1>autoThreshold</td>
+<td class=box1>Specifies whether the threshold should be set automatically.</td>
+</tr>
+<tr>
+<td class=box0>lowerThreshold</td>
+<td class=box0>The lower threshold value to use when autoThreshold is 'no'.</td>
+</tr>
+<tr>
+<td class=box1>upperThreshold</td>
+<td class=box1>The upper threshold value to use when autoThreshold is 'no'.</td>
+</tr>
+<tr>
+<td class=box0>imageRange</td>
+<td class=box0>Two numbers: the first and last image numbers in the volume. For example, 1 124.</td>
+</tr>
+<tr>
+<td class=box1>dimensions</td>
+<td class=box1>Two numbers: the number of columns and rows of pixels in each image.</td>
+</tr>
+<tr>
+<td class=box0>spacing</td>
+<td class=box0>Three numbers for the dimensions of each voxel, in millimeters.</td>
+</tr>
+<tr>
+<td class=box1>scanOrder</td>
+<td class=box1>The order of slices in the volume. Either LR (left-to-right), RL, AP, PA, IS, or SI. This information is encoded in rasToIjkMatrix, so it is only stated here as a convenience to people reading the file.</td>
+</tr>
+</table>
+
+<h3>Model node details</h3>
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>name</td>
+<td class=box0>Name displayed on the user interface.</td>
+</tr>
+<tr>
+<td class=box1>fileName</td>
+<td class=box1>Path of the data file.</td>
+</tr>
+<tr>
+<td class=box0>colorName</td>
+<td class=box0>Name of the model's color, which is defined by a Color node in a MRML file.</td>
+</tr>
+<tr>
+<td class=box1>description</td>
+<td class=box1>Optional text description of the data.</td>
+</tr>
+<tr>
+<td class=box0>opacity</td>
+<td class=box0>Opacity of the surface expressed as a number from 0 to 1.</td>
+</tr>
+<tr>
+<td class=box1>visibility</td>
+<td class=box1>Indicates if the surface is visible.</td>
+</tr>
+<tr>
+<td class=box0>clipping</td>
+<td class=box0>Specifies whether to clip the surface with the slice planes.</td>
+</tr>
+<tr>
+<td class=box1>backfaceCulling</td>
+<td class=box1>Indicates whether to cull (not render) the backface of the surface.</td>
+</tr>
+<tr>
+<td class=box0>scalarVisibility</td>
+<td class=box0>Indicates whether to render the scalar value associated with each polygon vertex.</td>
+</tr>
+<tr>
+<td class=box1>scalarRange</td>
+<td class=box1>Range of scalar values to render rather than the single color designated by colorName.</td>
+</tr>
+</table>
+
+
+<h3>Color node details</h3>
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>name</td>
+<td class=box0>Required, the name displayed on the user interface.</td>
+</tr>
+<tr>
+<td class=box1>description</td>
+<td class=box1>Optional text description of the color.</td>
+</tr>
+<tr>
+<td class=box0>diffuseColor</td>
+<td class=box0>Diffuse component of color expressed as 3 RGB (Red Green Blue) values in the range of 0 to 1.</td>
+</tr>
+<tr>
+<td class=box1>ambient</td>
+<td class=box1>Factor of the effect of ambient light from 0 to 1.</td>
+</tr>
+<tr>
+<td class=box0>diffuse</td>
+<td class=box0>Factor of the effect of diffuse reflection from 0 to 1.</td>
+</tr>
+<tr>
+<td class=box1>specular</td>
+<td class=box1>Factor of the effect of specular reflection from 0 to 1.</td>
+</tr>
+<tr>
+<td class=box0>power</td>
+<td class=box0>Specular power in the range of 1 to 100.</td>
+</tr>
+<tr>
+<td class=box1>labels</td>
+<td class=box1>List of label values associated with this color.</td>
+</tr>
+</table>
+
+<h3>Matrix node details</h3>
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>name</td>
+<td class=box0>Name displayed on the user interface.</td>
+</tr>
+<tr>
+<td class=box1>matrix</td>
+<td class=box1>16 numbers that form a 4x4 matrix. The matrix is multiplied by a point (M*P) to compute the transformed point.</td>
+</tr>
+</table>
+
+
+<h3>Options node details</h3>
+
+<table cellpadding=3 cellspacing=3 border=0>
+<tr>
+<th class=box>Key</th>
+<th class=box>Value</th>
+</tr>
+<tr>
+<td class=box0>program</td>
+<td class=box0>A required attribute, the name of the program that should recognize these options.</td>
+</tr>
+<tr>
+<td class=box1>content</td>
+<td class=box1>Short description of the contents of this node. For example, 'presets'.</td>
+</tr>
+<tr>
+<td class=box1>options</td>
+<td class=box0>List of options expressed in this form: key1='value1' key2='value2'.</td>
+</tr>
+</table>
+
+

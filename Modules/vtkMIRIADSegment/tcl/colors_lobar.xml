@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Color name='Unknown' diffuseColor='0 0 0' labels='0'></Color>
+<Color name='Left-Frontal-Lobe' diffuseColor='1 0 0' labels='1'></Color>
+<Color name='Left-Deep-Frontal-Lobe' diffuseColor='0 1 0' labels='2'></Color>
+<Color name='Left-Parietal-Lobe' diffuseColor='1 1 0' labels='3'></Color>
+<Color name='Left-Deep-Parietal-Lobe' diffuseColor='0 0 1' labels='4'></Color>
+<Color name='Left-Temporal-Lobe' diffuseColor='1 0 1' labels='5'></Color>
+<Color name='Left-Occipital-Lobe' diffuseColor='0 1 1' labels='6'></Color>
+<Color name='Left-Cerebellum' diffuseColor='1 1 1' labels='7'></Color>
+<Color name='Left-Brainstem' diffuseColor='0.5 1 0.5' labels='8'></Color>
+<Color name='Right-Frontal-Lobe' diffuseColor='0.5 0 0' labels='11'></Color>
+<Color name='Right-Deep-Frontal-Lobe' diffuseColor='0 0.5 0' labels='12'></Color>
+<Color name='Right-Parietal-Lobe' diffuseColor='0.5 0.5 0' labels='13'></Color>
+<Color name='Right-Deep-Parietal-Lobe' diffuseColor='0 0 0.5' labels='14'></Color>
+<Color name='Right-Temporal-Lobe' diffuseColor='0.5 0 0.5' labels='15'></Color>
+<Color name='Right-Occipital-Lobe' diffuseColor='0 0.5 0.5' labels='16'></Color>
+<Color name='Right-Cerebellum' diffuseColor='0.5 0.5 0.5' labels='17'></Color>
+<Color name='Right-Brainstem' diffuseColor='1 0.5 1' labels='18'></Color>
+</MRML>

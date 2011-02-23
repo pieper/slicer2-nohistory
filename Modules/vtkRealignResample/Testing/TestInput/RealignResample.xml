@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Transform name='transform0'>
+  <Matrix name='manual0' matrix='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1'></Matrix>
+  <Volume id='V1' name='wcase1' filePattern='%s.%03d' filePrefix='../../../vtkAG/Testing/TestInput/strct/spgr/wcase1' rasToIjkMatrix='-1.06666667 0 0 127.5 0 0 -1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' rasToVtkMatrix='-1.06666667 0 0 127.5 0 0 1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' positionMatrix='-1 0 0 119.53125 0 0 1 -92.25 0 1 0 -119.53125 0 0 0 1' scanOrder='PA' description='PA' colorLUT='0' fullPrefix='/projects/schiz/strct/spd/women/filtered_spgr/wcase1/wcase1' window='174' level='91' lowerThreshold='0' upperThreshold='498' imageRange='0 123'></Volume>
+</Transform>
+<Fiducials name='midsag' type='default' symbolSize='6' textSize='6' visibility='1' color='0.4 1 1'>
+  <Point name='midsag 0' index='0' xyz='0 0 72.1875' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+  <Point name='midsag 1' index='1' xyz='-1.875 0 28.125' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+  <Point name='midsag 2' index='2' xyz='-6.5625 0 9.375' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+  <Point name='midsag 3' index='3' xyz='0.9375 -62 45' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+  <Point name='midsag 4' index='4' xyz='-1.875 -62 21.5625' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+  <Point name='midsag 5' index='5' xyz='-2.8125 -62 4.6875' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+</Fiducials>
+<Fiducials name='acpc' type='default' symbolSize='6' textSize='6' visibility='1' color='0.4 1 1'>
+  <Point name='acpc 0' index='0' xyz='0 30 19.6875' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+  <Point name='acpc 1' index='1' xyz='0 -23.4375 32.8125' xyso='0 0 0 0' focalxyz='0 0 0' orientationwxyz='0 0 0 1'></Point>
+</Fiducials>
+</MRML>

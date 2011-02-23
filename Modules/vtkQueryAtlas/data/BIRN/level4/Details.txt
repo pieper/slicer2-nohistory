@@ -1,0 +1,8 @@
+Description: NCMIR test data for Mouse BIRN 
+Species: mouse 
+System: CNS 
+Organ: brain 
+Region: nucleus accumbens 
+Cell type: Medium Spiny Neuron 
+Structure: spiny dendrite 
+Volume ID: ACC1_2ma/acc1_2ma_vol.tar

@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Transform name='transform0'>
+  <Matrix name='manual0' matrix='0.994633293 0.0444152065 -0.0934462137 0 -0.0654224582 0.969679637 -0.23545977 0 0.0801548963 0.240309573 0.96738126 0 0 0 0 1'></Matrix>
+  <Volume id='V1' name='wcase1' filePattern='%s.%03d' filePrefix='../../../vtkAG/Testing/TestInput/strct/spgr/wcase1' rasToIjkMatrix='-1.06666667 0 0 127.5 0 0 -1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' rasToVtkMatrix='-1.06666667 0 0 127.5 0 0 1.06666667 127.5 0 0.666666667 0 61.5 0 0 0 1' positionMatrix='-1 0 0 119.53125 0 0 1 -92.25 0 1 0 -119.53125 0 0 0 1' scanOrder='PA' description='PA' colorLUT='0' fullPrefix='/projects/schiz/guest/kquintus/slicer-nightly-may-19/Modules/vtkAG/Testing/TestInput/strct/spd/women/filtered_spgr/wcase1/wcase1' window='174' level='91' lowerThreshold='0' upperThreshold='498' imageRange='0 123'></Volume>
+</Transform>
+</MRML>

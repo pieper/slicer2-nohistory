@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE MRML SYSTEM "mrml20.dtd">
+<MRML>
+<Segmenter MaxInputChannelDef ='2' Alpha ='0.3' SmWidth ='19' SmSigma ='9' PrintIntermediateFrequency ='0' SegmentationBoundaryMin ='1 1 1 ' SegmentationBoundaryMax ='256 256 124 ' DisplayProb  ='1' NumberOfTrainingSamples ='82' RegistrationInterpolationType ='1'>
+  <SegmenterGraph name ='1' Xmin ='10' Xmax ='100' Xsca ='50'></SegmenterGraph>
+  <SegmenterGraph name ='2' Xmin ='140' Xmax ='500' Xsca ='50'></SegmenterGraph>
+  <SegmenterInput name ='Channel0' FileName='NormedSPGR'></SegmenterInput>
+  <SegmenterInput name ='Channel1' FileName='NormedT2W'></SegmenterInput>
+  <SegmenterSuperClass name ='Head' NumClasses ='2' Prob='1.0' InputChannelWeights='1.0 1.0' LocalPriorWeight='1' StopEMType='0' StopEMMaxIter='4' StopMFAType='0' StopMFAMaxIter='2' RegistrationType ='2' >
+    <SegmenterSuperClass name ='BG' NumClasses ='2' Prob='0.15' InputChannelWeights='1.0 1.0' LocalPriorWeight='1' StopEMType='0' StopEMMaxIter='4' StopMFAType='0' StopMFAMaxIter='2' RegistrationType ='1'>
+      <SegmenterClass name ='0' Label='0' Prob='0.7' ShapeParameter='0' LocalPriorPrefix='/projects/schiz/strct/spd/women/filtered_spgr/wcase2/atlas/sumbackground/I' LocalPriorName='background' LogMean='1.7753 1.6' LogCovariance='1.5707 -1.0378 | -1.0378 1.6483' InputChannelWeights='1.0 1.0' LocalPriorWeight='1' PCAMaxDist='0' PCADistVariance='0'>
+      </SegmenterClass>
+      <SegmenterClass name ='2' Label='2' Prob='0.3' ShapeParameter='0' LocalPriorPrefix='/projects/schiz/strct/spd/women/filtered_spgr/wcase2/atlas/sumbackground/I' LocalPriorName='background' LogMean='3.9979 4.6335' LogCovariance='0.05 0.015 | 0.015 0.0119' InputChannelWeights='1.0 1.0' LocalPriorWeight='1' PCAMaxDist='0' PCADistVariance='0'>
+      </SegmenterClass>
+    </SegmenterSuperClass>
+    <SegmenterSuperClass name ='ICC' NumClasses ='3' Prob='0.85' InputChannelWeights='1.0 1.0' LocalPriorWeight='1' StopEMType='0' StopEMMaxIter='4' StopMFAType='0' StopMFAMaxIter='2' RegistrationType='1' RegistrationIndependentSubClassFlag='1'>
+      <SegmenterClass name ='8' Label='8' Prob='0.3' ShapeParameter='0' LocalPriorPrefix='/projects/schiz/strct/spd/women/filtered_spgr/wcase2/atlas/sumwhitematter/I' LocalPriorName='white' LogMean='4.67 5.71' LogCovariance='0.007 0.0 | 0.0 0.007' InputChannelWeights='0.95 0.05' LocalPriorWeight='0.7'>
+      </SegmenterClass>
+      <SegmenterClass name ='5' Label='5' Prob='0.25' ShapeParameter='0' LocalPriorPrefix='/projects/schiz/strct/spd/women/filtered_spgr/wcase2/atlas/sumcsf/I' LocalPriorName='csf' LogMean='3.88 6.19' LogCovariance='0.012 -0.0034 | -0.0034 0.004' InputChannelWeights='0.1 1.0' LocalPriorWeight='0.01' PCAMaxDist='0' PCADistVariance='0'>
+      </SegmenterClass>
+      <SegmenterClass name ='4' Label='4' Prob='0.45' ShapeParameter='0' LocalPriorPrefix='/projects/schiz/strct/spd/women/filtered_spgr/wcase2/atlas/sumgreymatter/I' LocalPriorName='gray' LogMean='4.4 5.91' LogCovariance='0.006 -0.0028 | -0.0028 0.008' InputChannelWeights='1.0 0.1' LocalPriorWeight='0.01' PCAMaxDist='0' PCADistVariance='0'>
+      </SegmenterClass>
+    </SegmenterSuperClass>
+ </SegmenterSuperClass>
+</Segmenter>
+</MRML>

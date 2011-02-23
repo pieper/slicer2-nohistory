@@ -1,0 +1,60 @@
+<title>Loading Volumes without Headers</title>
+
+<p>If the volume does not have a header, it is necessary to manually input the information to read the volume:</p>
+
+<ol>
+  <li>In the <b>Data</b> panel, click <b>Add Volume</b>.
+  The <b>Props</b> tab of the <b>Volumes</b> panel appears.
+    <p><img src="images/data_addvolume_props_tab_browse.jpg"></p>
+  </li>
+  <li>To find the first image file, click <b>Browse</b>.
+  A dialog box appears.</li>
+  <li>Select the first image of the volume that you would
+like to load, and then click <b>Open</b>. (The number of the last image in the volume
+will automatically appear in the <b>Number of Last Image</b> field.)</li>
+  <li>Set <b>Image Headers</b> to <b>Manual</b>.</li>
+  <li>Click <b>Apply</b>. The <b>Header</b>
+section of the <b>Props</b> tab appears.</li>
+   <li>Change the default values to the values
+of your volume, namely, the physical parameters of the pixels that make up your
+volume. These parameters include:</li>
+<table border="0" cols="2">
+    <tr>
+     <td align="left" valign="top" width="260"><img
+ src="images/data_addvolume_props_tab_browse_manual.jpg">
+      </td>
+     <td align="left" valign="top">
+      <ul>
+      <li type="disc"><b>File Pattern:</b> The pattern for naming the files, expressed in C language syntax. For example, a file named <code>skin.001</code> has a pattern of %s.%03d, and a file named <code>skin.1</code> has %s.%d for a pattern.(For more information on C language syntax, see <a href="http://www.cppreference.com/stdio_details.html#printf">http://www.cppreference.com/stdio_details.html#printf</a>.)</li>
+      <li type="disc"><b>Image Size:</b> Number of pixels of the image in the x and
+y directions. (For square pixels, they are the same.)</li>
+        <li type="disc"><b>Pixel Size:</b> Size of each pixel in the x and y directions.
+(For square pixels, they are the same.)</li>
+        <li type="disc"><b>Slice Thickness:</b> The z dimension of the voxel.</li>
+        <li type="disc"><b>Scan Order:</b></li>
+
+        <ul>
+          <li type="circle">LR = left to right</li>
+          <li type="circle">IS = inferior to superior</li>
+          <li type="circle">PA = posterior to anterior</li>
+
+        </ul>
+        <li type="disc"><b>Scalar Type:</b> The data format of the pixel. Generally,
+it is Short (16 bit integer).</li>
+        <li type="disc"><b>Slice Tilt:</b> The tilt of the gantry during an MRI.</li>
+        <li type="disc"><b>Num Scalars:</b> The number of scalar components for each voxel. Gray-level data has 1. Color data has 3.</li>
+        <li type="disc"><b>Little Endian:</b> In little-endian architectures, the
+rightmost bytes are most significant. In big-endian architectures (Slicer
+default), the leftmost bytes (those with a lower address)
+are most significant. </li>
+        <li type="disc"><b>DTI data:</b> This parameter, and the values <b>Swap</b> and <b>No Swap</b>,
+are placeholders for future use.</li>
+
+      </ul>
+
+</td></tr>    </table>
+
+
+  <li>When you are done, click <b>Apply</b> to read in the volume.&nbsp;Your
+data will now appear in the 2D portion of the <b>Viewer</b> window.</li>
+</ol>

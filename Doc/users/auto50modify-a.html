@@ -1,0 +1,83 @@
+<title>Before Editing Data</title>
+
+
+<h3>Beginning the Editing Process</h3>
+
+<p>Before you start editing:</p>
+<ul>
+<li>If you have multiple copies of grayscale or label maps that are part of
+your scene, select the one you currently want to edit.</li>
+<li>Click <b>View</b> to change the view mode to 4x512.</li>
+</ul>
+
+<p>Important notes:</p>
+
+<ul>
+<li>Slicer creates (in memory) a working version of the data that reflects your edits (called a label map). When saved, the default file name of this working copy is called <code>Working</code>.</li>
+<li>When you have finished editing, make sure to save your changes. Slicer
+will remind you if you have unsaved volumes and will display the names of
+unsaved volumes.</li>
+<li>Slicer will strip the headers off the images when you save
+your data. Slicer encodes the geometry and orientation of your data
+in a MRML (Medical Reality Modeling Language) file. You can save, reload, and repeatedly
+update your MRML file until you have created the scene you want.</li>
+</ul>
+
+To begin editing:
+<ol>
+<li>On the <b>Main</b> menu, click <b>Editor</b>.
+<br><img src="images/main_menu.jpg">
+<br>
+The <b>Volumes</b> tab appears:
+
+<center>
+<img SRC="images/editor_volumes_tab_setup.jpg" ></center>
+</li>
+
+<li>Click <b>Setup</b>.
+The name you
+assigned to the original series of data should be present in the <b>Original
+Grayscale</b> field.
+These are the images you will segment.</li>
+<li>Select <b>NEW</b> for the <b>Working Labelmap</b>, and enter a <b>Descriptive Name</b> for this segmentation.
+For
+example, if you are segmenting the ventricles of the brain, you might name this
+segmentation "ventricles".</li>
+<li>
+Click <b>Start Editing</b>. The <b>Effects</b> tab appears:
+<center>
+<img SRC="images/editor_effects_tab.jpg" ></center>
+</li>
+<li>Select the <b>Active Slice</b> to edit by clicking <b>Red</b>, <b>Yellow</b>, or <b>Green</b>. For each individual effect, you can choose whether to apply changes to this active slice, nearby slices, or the entire volume.</li>
+<li>After editing a single slice, continue to the next slice.</li>
+</ol>
+
+
+
+
+<h4> About the Editing Effects</h4>
+
+<p>Some considerations are common to all the editing effects:</p>
+<ul>
+<li>Select the correct input volume of data to edit, so that the edits will be applied properly.</li>
+<li>Set the scope of your edits properly:
+one slice (the one on the screen that you are currently editing); three
+slices (the current slice and the slices on either side of the current slice);
+or the entire volume.
+For some effects, such as drawing, it only makes sense to
+have the scope of the edits be the current slice.
+For other effects, such as thresholding, it makes sense to apply the changes to the
+entire 3D volume.</li>
+<li>When you select any of the effects, the following row of buttons
+appears:
+<center>
+<img SRC="images/editor_details_tab_buttons.jpg" ></center>
+
+The button labels are abbreviations for the effects (except for <b>PhaseWire</b> and
+<b>Measure Island</b>).
+The selected button is the current effect.
+A description appears under the row of buttons.</li>
+<li>The right-most button is <b>Undo</b> (<b>Un</b>), which becomes available after you apply any effect.
+If you click <b>Un</b>, it undoes (or reverses) the last applied effect.
+</li>
+</ul>

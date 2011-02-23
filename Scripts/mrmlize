@@ -1,0 +1,23 @@
+#! /bin/csh -f
+
+if (${?SLICER_HOME} == 0) then
+    setenv SLICER_HOME /export/bigsur/slicer
+endif
+
+if (${?LD_LIBRARY_PATH} == 0) then
+    setenv LD_LIBRARY_PATH ${SLICER_HOME}/lib:/local/lib
+else
+    setenv LD_LIBRARY_PATH ${SLICER_HOME}/lib:/local/lib:${LD_LIBRARY_PATH}
+endif
+
+# setenv TCL_LIBRARY ${SLICER_HOME}/lib/tcl8.3
+setenv TCL_LIBRARY /local/os/lib/tcl8.3
+setenv TK_LIBRARY /local/os/lib/tk8.3
+if (${?TCLLIBPATH} == 0) then
+    setenv TCLLIBPATH " "
+endif
+
+setenv VTK_SRC_DIR /usr/local/src/vtk4/VTK/Wrapping/Tcl
+setenv TCLLIBPATH "${SLICER_HOME}/Base/Wrapping/Tcl/vtkSlicerBase /usr/local/src/vtk4/VTK/Wrapping/Tcl ${TCLLIBPATH}"
+
+exec /local/os/src/vtk-4.0/bin/vtk $SLICER_HOME/Base/tcl/GoMrmlize.tcl $1 $2

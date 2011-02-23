@@ -1,0 +1,14 @@
+#! /bin/csh -f
+
+set PROG = ~/MRTSW/spl_server
+
+findproc $PROG
+if ($status == 1) then
+    echo The spl_server is already running.
+    exit
+endif
+
+source ~/bin/mrt_setup
+
+$PROG 10000 &
+

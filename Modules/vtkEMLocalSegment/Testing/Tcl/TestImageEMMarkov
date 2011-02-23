@@ -1,0 +1,5 @@
+# Test Function for vtkImageEMLocalSegment - all environment variables are automatically set 
+source ../scripts/setEnvironment
+setenv LD_LIBRARY_PATH ${SLICER_HOME}/Base/builds/${SLICER_EXE}/bin:${SLICER_HOME}/Modules/EMLocalSegment/builds/${SLICER_EXE}/bin:${LD_LIBRARY_PATH}
+setenv TCLLIBPATH "${SLICER_HOME}/Base/Wrapping/Tcl/vtkSlicerBase ${SLICER_HOME}/Modules/EMLocalSegment/cxx ${VTK_SRC_DIR} ${TCLLIBPATH}"
+${VTK_EXE} TestImageEMMarkov.tcl

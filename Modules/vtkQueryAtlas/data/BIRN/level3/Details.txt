@@ -1,0 +1,6 @@
+Description: NCMIR test data for Mouse BIRN
+Region: nucleus accumbens
+Cell type: Medium Spiny Neuron
+Structure: dendritic tree
+Volume ID: ACC1/Proj_EricsMontage.tif
+Resolution: 0.119 x 0.119 x 0.5 um/pixel

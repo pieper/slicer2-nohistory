@@ -1,0 +1,5 @@
+To run this module in batch mode execute the following:
+slicer2-... <XML-File> --exec EMAtlasBrainClassifier_BatchMode
+
+<XML-File> = The first volume defines the spgr image and the second volume defines the aligned t2w images
+             The directory of the XML-File defines the working directory
